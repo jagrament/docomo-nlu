@@ -1,0 +1,20 @@
+{
+  "accounts":[{
+    "accountId": 1,
+    "accountName": "test_account",
+    "description": "account for rspec",
+    "authorization": 2,
+    "enable": true,
+    "createDate": "2018-08-19 17:41:00",
+    "loginDate":  "2018-08-19 17:41:00"
+  },{
+    "accountId": 2,
+    "accountName": "test_account2",
+    "description": "account for rspec",
+    "authorization": 2,
+    "enable": true,
+    "createDate": "2018-08-19 17:41:00",
+    "loginDate":  "2018-08-19 17:41:00"
+  }
+ ]
+}

@@ -1,5 +1,4 @@
 require "securerandom"
-require "activeresource"
 module DocomoNlu
   module Spontaneous
     class Dialogue < ActiveResource::Base

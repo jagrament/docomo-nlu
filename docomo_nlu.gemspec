@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["kouji.yamazaki.cv@nttdocomo.com"]
 
   spec.summary       = %q{API Client of docomo NLPManagementAPI.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.description   = %q{API Client of docomo NLPManagementAPI.}
   spec.homepage      = "https://github.com/jagrament/docomo_nlu"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -34,6 +34,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "activesupport", "~> 5.2.0"  
+  spec.add_development_dependency "activesupport", "~> 5.2.0"
   spec.add_development_dependency "activeresource", "~> 5.0.0"
+  spec.add_development_dependency "webmock", "~> 3.4.2"
+
 end

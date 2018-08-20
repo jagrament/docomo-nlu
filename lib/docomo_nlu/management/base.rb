@@ -3,6 +3,7 @@ module DocomoNlu
     class Base < ActiveResource::Base
       ## For Dynamically generated headers via http://rmosolgo.github.io/blog/2014/02/05/dynamically-generated-headers-for-activeresource-requests/
       cattr_accessor :static_headers
+      cattr_accessor :access_token
 
       ## Dynamic headers
       self.static_headers = headers
@@ -19,17 +20,17 @@ module DocomoNlu
       ## Setting Format
       self.format = :json
 
-      ## Delegate method of class method
-      def login(admin = false, accountId = "", password = "")
-        self.class.login(accountId, password, admin)
+      ## Get NLPManagement's AccessToken.
+      def login(accountName, password)
+        request_body = { "accountName" => accountName, "password" => password }.to_json
+        response_body = JSON.parse(connection.post("/management/#{DocomoNlu.config.nlu_version}/login", request_body, self.class.headers).body)
+        self.access_token = response_body["accessToken"]
       end
 
+      ## Delete NLPManagement's AccessToken.
       def logout
-        self.class.logout
-      end
-
-      def is_login?
-        self.class.is_login?
+        connection.get("/management/#{DocomoNlu.config.nlu_version}/logout", self.class.headers) if self.access_token.present?
+        self.access_token = nil
       end
 
       ## Override. Insert generated id to parameter 'id' after save or create
@@ -49,17 +50,6 @@ module DocomoNlu
           new_headers = static_headers.clone
           new_headers["Authorization"] = self.access_token
           new_headers
-        end
-
-        def login(accountName, password)
-          request_body = { "accountName" => accountName, "password" => password }.to_json
-          response_body = JSON.parse(connection.post("/management/#{DocomoNlu.config.nlu_version}/login", request_body, self.headers).body)
-          self.access_token = response_body["accessToken"]
-        end
-
-        def logout
-          connection.get("/management/#{DocomoNlu.config.nlu_version}/logout", self.headers) if self.access_token.present?
-          self.access_token = nil
         end
       end
     end
