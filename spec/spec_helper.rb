@@ -10,7 +10,7 @@ end
 module DocomoNlu
   module Test
     module MockFiles
-      def management_stub_file(*filename)
+      def stub_file(*filename)
         File.open(file_path(['management',filename]))
       end
     end

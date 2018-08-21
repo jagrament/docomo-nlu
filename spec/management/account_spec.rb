@@ -1,7 +1,5 @@
-require 'vcr'
 RSpec.describe DocomoNlu::Management::Account do
   describe '#accounts' do
-
     it 'Get all accounts' do
       VCR.use_cassette('/account/index') do
         accounts = DocomoNlu::Management::Account.all
