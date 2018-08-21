@@ -4,10 +4,10 @@ module DocomoNlu
       self.element_name = "members"
       self.prefix = "/management/#{DocomoNlu.config.nlu_version}/projects/:project_id/"
 
-      # Parameter on create
-      # {
-      #   "accountIds": [{accountId: アカウントID},...] # not null
-      # }
+      def destroy
+        self.id = self.accountId
+        super
+      end
 
       class Format
         def extension
@@ -35,12 +35,6 @@ module DocomoNlu
         def decode(json)
           if json.present?
             data = ActiveSupport::JSON.decode(json).values.first
-            # if data.is_a?(Array) && data.length == 1 && data[0].is_a?(Enumerable)
-            #   data = {accountId: data[0]}
-            # else
-            #   # [{"accountId": xxx},{"accountId": xxx}]に整形
-            #   data.map!{|accountId| {accountId: accountId}}
-            # end
           end
         end
       end

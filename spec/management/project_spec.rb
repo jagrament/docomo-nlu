@@ -1,6 +1,9 @@
 RSpec.describe DocomoNlu::Management::Project do
-  describe '#projects' do
+  before do
+    DocomoNlu::Management::Base.access_token = DocomoNlu.config.admin_access_token
+  end
 
+  describe '#projects' do
     it 'Get all projects' do
       VCR.use_cassette('/project/index') do
         projects = DocomoNlu::Management::Project.all
