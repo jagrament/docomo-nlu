@@ -1,7 +1,6 @@
 RSpec.describe DocomoNlu::Management::OrganizationMember do
   before do
-    base = DocomoNlu::Management::Base.new
-    base.access_token = DocomoNlu.config.admin_access_token
+    DocomoNlu::Management::Base.access_token = DocomoNlu.config.admin_access_token
   end
 
   describe '#organizationMembers' do

@@ -18,7 +18,7 @@ RSpec.describe DocomoNlu::Management::Account do
     it 'Get an account' do
       VCR.use_cassette('/account/show') do
         account = DocomoNlu::Management::Account.find(236)
-        expect(account.accountId).to eq 236
+        expect(account.id).to eq 236
       end
     end
 

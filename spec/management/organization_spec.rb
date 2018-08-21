@@ -18,7 +18,7 @@ RSpec.describe DocomoNlu::Management::Organization do
     it 'Get an organization' do
       VCR.use_cassette('/organization/show') do
         organization = DocomoNlu::Management::Organization.find(214)
-        expect(organization.organizationId).to eq 214
+        expect(organization.id).to eq 214
       end
     end
 

@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://nlu-external-dev-977165653.ap-northeast-1.elb.amazonaws.com/management/v2.2/providers/219
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Authorization:
+      - NLP f68518ed5a40907ec6b754caeaadc32b0af4920f69955c22749e38e17946ea57
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 21 Aug 2018 10:44:25 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '74'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"providerId":219,"organizationId":215,"serverId":"DSU","serverKind":"SS"}'
+    http_version: 
+  recorded_at: Tue, 21 Aug 2018 10:44:25 GMT
+recorded_with: VCR 4.0.0
