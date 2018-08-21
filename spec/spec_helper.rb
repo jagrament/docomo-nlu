@@ -1,6 +1,7 @@
 require "bundler/setup"
 require "docomo_nlu"
 require "webmock/rspec"
+require 'vcr'
 
 def file_path( *paths )
   File.expand_path(File.join(File.dirname(__FILE__), 'fixtures', *paths))
@@ -9,8 +10,8 @@ end
 module DocomoNlu
   module Test
     module MockFiles
-      def stub_file(filename, mime_type=nil, fake_name=nil)
-        File.open(file_path(filename))
+      def management_stub_file(*filename)
+        File.open(file_path(['management',filename]))
       end
     end
   end
@@ -29,4 +30,9 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "vcr/vcr_cassettes"
+  config.hook_into :webmock
 end

@@ -6,10 +6,16 @@ module DocomoNlu
 
       # Parameter create
       # {
-      #  　"organizationName": "組織名", # not null
+      #    "organizationName": "組織名", # not null
       #    "address": "住所",
       #    "tel": "電話番号"
       # }
+
+      def to_json(options={})
+        self.attributes.delete('organizationId')
+        self.attributes.delete('id')
+        super
+      end
     end
   end
 end

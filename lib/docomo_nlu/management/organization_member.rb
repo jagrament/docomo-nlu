@@ -1,7 +1,7 @@
 module DocomoNlu
   module Management
     class OrganizationMember < Base
-      self.element_name = "members"
+      self.element_name = 'members'
       self.prefix = "/management/#{DocomoNlu.config.nlu_version}/organizations/:organization_id/"
 
       # Parameter on create
@@ -11,11 +11,11 @@ module DocomoNlu
 
       class Format
         def extension
-          "json"
+          'json'
        end
 
         def mime_type
-          "application/json"
+          'application/json'
        end
 
         def encode(hash, options = nil)
