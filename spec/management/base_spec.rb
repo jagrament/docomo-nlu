@@ -7,45 +7,38 @@ RSpec.describe DocomoNlu::Management::Base do
   end
 
   describe '#Authorization' do
-    let(:host){ DocomoNlu.config.nlu_host }
-    let(:version){ DocomoNlu.config.nlu_version }
-    it 'Login Success' do
-      stub_request(:post,"#{host}/management/#{version}/login").to_return(body: '{"accessToken":"test_token"}')
-      base = DocomoNlu::Management::Base.new
-      base.login('account','password')
-      expect(base.access_token).to eq 'test_token'
-    end
+    let(:admin_access_token){ DocomoNlu.config.admin_access_token }
 
     it 'Login Error::BadRequest' do
-      stub_request(:post,"#{host}/management/#{version}/login").to_return(status: 400)
-      base = DocomoNlu::Management::Base.new
-      expect{base.login('account','password')}.to raise_error(ActiveResource::BadRequest)
+      VCR.use_cassette('/base/login_400') do
+        base = DocomoNlu::Management::Base.new
+        expect{base.login('account','password')}.to raise_error(ActiveResource::BadRequest)
+      end
+    end
+
+    it 'Login Success' do
+      VCR.use_cassette('/base/login') do
+        base = DocomoNlu::Management::Base.new
+        base.login('test_account','testaccount20180821')
+        expect(base.access_token).not_to be_nil
+        expect(base.access_token).not_to eq admin_access_token
+      end
     end
 
     it 'Logout Success' do
-      stub_request(:get,"#{host}/management/#{version}/logout")
-        .to_return(body: '', status: 200)
-      base = DocomoNlu::Management::Base.new
-      base.logout
-      expect(base.access_token).to eq nil
+      VCR.use_cassette('/base/logout') do
+        base = DocomoNlu::Management::Base.new
+        expect(base.logout).to eq true
+        expect(base.access_token).to eq nil
+      end
     end
 
     it 'Logout Error::BadRequest' do
-      stub_request(:get,"#{host}/management/#{version}/logout")
-        .to_return(status: 400)
-      DocomoNlu::Management::Base.access_token = DocomoNlu.config.admin_access_token
-      base = DocomoNlu::Management::Base.new
-      expect{base.logout}.to raise_error(ActiveResource::BadRequest)
+      VCR.use_cassette('/base/logout_400') do
+        base = DocomoNlu::Management::Base.new
+        base.access_token = 'dummy'
+        expect{base.logout}.to raise_error(ActiveResource::BadRequest)
+      end
     end
-
-    it 'Logout Error::UnauthorizedAccess' do
-      stub_request(:get,"#{host}/management/#{version}/logout")
-        .to_return(status: 401)
-      DocomoNlu::Management::Base.access_token = DocomoNlu.config.admin_access_token
-      base = DocomoNlu::Management::Base.new
-      expect{base.logout}.to raise_error(ActiveResource::UnauthorizedAccess)
-    end
-
   end
-
 end

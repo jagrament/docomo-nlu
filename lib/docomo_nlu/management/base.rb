@@ -29,8 +29,13 @@ module DocomoNlu
 
       ## Delete NLPManagement's AccessToken.
       def logout
-        connection.get("/management/#{DocomoNlu.config.nlu_version}/logout", self.class.headers) if self.access_token.present?
-        self.access_token = nil
+        res = connection.get("/management/#{DocomoNlu.config.nlu_version}/logout", self.class.headers) if self.access_token.present?
+        if res.blank?
+          raise ActiveResource::BadRequest.new("Invalid access token")
+        else
+          self.access_token = nil
+          return true
+        end
       end
 
       ## Override. Insert generated id to parameter 'id' after save or create
