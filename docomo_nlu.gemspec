@@ -38,4 +38,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "activeresource", "~> 5.0.0"
   spec.add_development_dependency "webmock", "~> 3.4.2"
   spec.add_development_dependency "vcr", "~> 4.0.0"
+  spec.add_development_dependency "faraday", "~> 0.15.2"
+
 end

@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 22 Aug 2018 01:04:22 GMT
+      - Wed, 22 Aug 2018 07:19:16 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -38,5 +38,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"bots":null}'
     http_version: 
-  recorded_at: Wed, 22 Aug 2018 01:04:22 GMT
+  recorded_at: Wed, 22 Aug 2018 07:19:16 GMT
 recorded_with: VCR 4.0.0

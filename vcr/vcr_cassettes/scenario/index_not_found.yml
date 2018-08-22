@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://nlu-external-dev-977165653.ap-northeast-1.elb.amazonaws.com/management/v2.2/projects/212/bots
+    uri: http://nlu-external-dev-977165653.ap-northeast-1.elb.amazonaws.com/management/v2.2/projects/212/bots/test_bot/scenarios
     body:
       encoding: US-ASCII
       string: ''
@@ -21,11 +21,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 22 Aug 2018 07:19:16 GMT
+      - Wed, 22 Aug 2018 08:46:36 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '101'
+      - '47'
       Connection:
       - keep-alive
       Server:
@@ -36,8 +36,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"bots":[{"botId":"test_bot","scenarioProjectId":"DSU","language":"ja-JP","description":"for
-        test"}]}'
+      string: '{"userScenarios":null,"templateScenarios":null}'
     http_version: 
-  recorded_at: Wed, 22 Aug 2018 07:19:16 GMT
+  recorded_at: Wed, 22 Aug 2018 08:46:36 GMT
 recorded_with: VCR 4.0.0

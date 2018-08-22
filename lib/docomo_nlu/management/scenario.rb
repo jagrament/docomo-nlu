@@ -4,39 +4,24 @@ module DocomoNlu
       self.element_name = "scenarios"
       self.prefix = "/management/#{DocomoNlu.config.nlu_version}/projects/:project_id/bots/:bot_id/"
 
-      class Format
-        def extension
-          "json"
-        end
+      self.format = DocomoNlu::Formats::JsonFormat.new
 
-        def mime_type
-          "application/json"
-        end
-
-        def encode(hash, options = nil)
-          ActiveSupport::JSON.encode(hash, options)
-        end
-
-        # For support NLPManagement API response
-        #   Response Body
-        # {
-        #   "userScenarios": [{
-        #     "scenarioId": "d2f2fba2c19941abae91a9733e84f927_sebastien",
-        #     "description": "",
-        #     "compileFlag": true,
-        #     "compilable": true,
-        #     "authoring": false,
-        #     "lastmodified": "2016-12-02 09:52:43"
-        #   }]
-        # }
-        def decode(json)
-          if json.present?
-            data = ActiveSupport::JSON.decode(json).values[1]
-          end
-        end
+      def save
+        self.attributes.delete('id')
+        super
       end
 
-      self.format = Format.new
+      def to_json(options={})
+        self.attributes.delete('compilable')
+        self.attributes.delete('authoring')
+        self.attributes.delete('lastModified')
+        self.userScenarios = [{
+          scenarioId: self.attributes.delete('scenarioId'),
+          description: self.attributes.delete('description'),
+          compileFlag: self.attributes.delete('compileFlag')
+        }] if self.try(:userScenarios).nil?
+        super
+      end
 
       # Parameter for create
       # {
@@ -78,7 +63,6 @@ module DocomoNlu
           builder.request :multipart # マルチパートでデータを送信
           builder.request :url_encoded
           builder.adapter  Faraday.default_adapter
-          builder.response :logger if %w[staging development].include?(Rails.env)
         end
 
         conn.headers["Authorization"] = self.class.access_token
@@ -90,24 +74,25 @@ module DocomoNlu
       end
 
       def deploy
-        # コンパイル実行、ポーリングチェック
+        # compile and status check
         compile_status_path = compile
         compile_status = false
         while compile_status_path && compile_status != "Completed"
           sleep(0.5)
           compile_status = check_compile_status(compile_status_path)
-          raise if compile_status == "ErrorFinish" || compile_status == "NotCompiled"
+          raise ActiveResource::ServerError if compile_status == "ErrorFinish" || compile_status == "NotCompiled"
         end
 
-        # 転送実行、ポーリングチェック
+        # transfer and status check
         transfer_status_path = transfer
         transfer_status = false
 
         while transfer_status_path && transfer_status != "Completed"
           sleep(0.5)
           transfer_status = check_transfer_status(transfer_status_path)
-          raise if transfer_status == "ErrorFinish" || transfer_status == "NotTransfered"
+          raise ActiveResource::ServerError if transfer_status == "ErrorFinish" || transfer_status == "NotTransfered"
         end
+        return true
       end
 
       def compile
@@ -120,10 +105,7 @@ module DocomoNlu
 
       def deploy_request(method)
         response_body = JSON.parse(connection.post(get_deploy_path(method), "", self.class.headers).body)
-        ## 対話サーバが返してくるステータスチェック用のエンドポイントが誤っているので、
-        ## パッチとして正しいエンドポイントに置換している。
-        ## TODO 対話サーバのバグ改修に合わせて、gsubを削除する
-
+        # API returns wrong url, replace correct path.
         URI.parse(response_body["statusUri"]).path.gsub!(/NLPManagementAPI/, "management/#{DocomoNlu.config.nlu_version}")
       end
 
@@ -132,8 +114,7 @@ module DocomoNlu
       end
 
       def check_transfer_status(path)
-        # TODO: 複数の対話サーバに転送する事が可能なため、ホストごとの状態が配列で帰ってくるが
-        # 現時点では一つのホストの状態をチェックするだけの実装
+        # TODO: Currentry checking first host only. need to check multiple hosts status.
         JSON.parse(connection.get(path, self.class.headers).body)["transferStatusResponses"][0]["status"]
       end
 
