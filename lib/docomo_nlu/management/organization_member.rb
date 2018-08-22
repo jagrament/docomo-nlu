@@ -9,27 +9,8 @@ module DocomoNlu
         super
       end
 
-      class Format
-        def extension
-          'json'
-       end
+      self.format = DocomoNlu::Formats::JsonFormat.new
 
-        def mime_type
-          'application/json'
-       end
-
-        def encode(hash, options = nil)
-          ActiveSupport::JSON.encode(hash, options)
-        end
-
-        def decode(json)
-          if json.present?
-            data = ActiveSupport::JSON.decode(json).values.first
-          end
-        end
-      end
-
-      self.format = Format.new
     end
   end
 end

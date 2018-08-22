@@ -9,37 +9,7 @@ module DocomoNlu
         super
       end
 
-      class Format
-        def extension
-          "json"
-       end
-
-        def mime_type
-          "application/json"
-       end
-
-        def encode(hash, options = nil)
-          ActiveSupport::JSON.encode(hash, options)
-        end
-
-        # For support NLPManagement API response
-        #   Response Body
-        #   {
-        #   "accoundIds":[{
-        #     "accountId": アカウントID
-        #     },{
-        #     "accountId": アカウントID
-        #     }…
-        #     ]
-        #   }
-        def decode(json)
-          if json.present?
-            data = ActiveSupport::JSON.decode(json).values.first
-          end
-        end
-      end
-
-      self.format = Format.new
+      self.format = DocomoNlu::Formats::JsonFormat.new
     end
   end
 end

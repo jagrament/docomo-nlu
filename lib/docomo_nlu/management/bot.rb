@@ -1,4 +1,3 @@
-
 module DocomoNlu
   module Management
     class Bot < Base
@@ -14,6 +13,8 @@ module DocomoNlu
       # }
 
       ## TODO: propertiesとdefaultPredicatesとpredicateNameのメソッドを追加
+      self.format = DocomoNlu::Formats::JsonFormat.new
+
     end
   end
 end
