@@ -7,8 +7,8 @@ module DocomoNlu
       # {
       #   "dialogTimeout": 300,
       #   "replyTimeout": 300,
-      #   "xxxxUrl": "http://xxx",  (サービスURL)
-      #   "yyyyUrl": "http://xxx",  (サービスURL)
+      #   "xxxxUrl": "http://xxx",  (service URL)
+      #   "yyyyUrl": "http://xxx",  (service URL)
       #   "sensitiveInfo": "aa.bb, ccc.ddd...",
       #   "sraix" : [true|false],
       #   "taskServerUrl": "http://xxx"

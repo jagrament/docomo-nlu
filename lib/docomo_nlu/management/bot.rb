@@ -6,13 +6,12 @@ module DocomoNlu
 
       # Parameter for create
       # {
-      #   "botId": "エージェント名", # not null
+      #   "botId": "botid", # not null
       #   "scenarioProjectId", "DSU", # not null
       #   "language": "ja-JP", # not null
-      #   "description": "テスト用のエージェントです。" # not null
+      #   "description": "hello" # not null
       # }
 
-      ## TODO: propertiesとdefaultPredicatesとpredicateNameのメソッドを追加
       self.format = DocomoNlu::Formats::JsonFormat.new
 
     end
