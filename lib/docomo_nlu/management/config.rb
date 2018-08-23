@@ -19,6 +19,12 @@ module DocomoNlu
         response = connection.put(path, @attributes.to_json, self.class.headers)
         response
       end
+
+      def destroy(keys)
+        self.id = keys.join(',')
+        super()
+      end
+
     end
   end
 end
