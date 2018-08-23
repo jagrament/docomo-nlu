@@ -44,10 +44,23 @@ module DocomoNlu
       end
 
       class << self
-        ## Override. Insert generated id to parameter 'id' after find
+
+        def instantiate_collection(collection, original_params = {}, prefix_options = {})
+          if collection.is_a?(Hash)
+            if collection.first[1].nil?
+              collection = []
+            else
+              collection = [collection]
+            end
+          end
+          super
+        end
+
         def instantiate_record(record, prefix_options = {})
           record = record[0] if record.is_a?(Array)
-          record['id'] = record["#{self.to_s.split("::").last.downcase!}Id"]
+          if resourceId = record["#{self.to_s.split("::").last.downcase!}Id"].presence
+            record['id'] = resourceId
+          end
           super
         end
 

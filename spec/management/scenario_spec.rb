@@ -23,7 +23,7 @@ RSpec.describe DocomoNlu::Management::Scenario do
     it 'Get all scenarios' do
       VCR.use_cassette('/scenario/index') do
         scenarios = DocomoNlu::Management::Scenario.all(params: {project_id: 212, bot_id: 'test_bot'})
-        expect(scenarios.first.scenarioId).not_to be_nil
+        expect(scenarios.first.userScenarios.first.scenarioId).not_to be_nil
       end
     end
 
@@ -39,7 +39,7 @@ RSpec.describe DocomoNlu::Management::Scenario do
     it 'Get a scenario' do
       VCR.use_cassette('/scenario/show') do
         scenario = DocomoNlu::Management::Scenario.find('test_scenario',params: {project_id: 212, bot_id: 'test_bot'})
-        expect(scenario.id).to eq 'test_scenario'
+        expect(scenario.userScenarios.first.scenarioId).to eq 'test_scenario'
       end
     end
 

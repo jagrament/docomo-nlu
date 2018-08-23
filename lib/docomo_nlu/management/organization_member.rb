@@ -8,9 +8,6 @@ module DocomoNlu
         self.id = self.accountId
         super
       end
-
-      self.format = DocomoNlu::Formats::JsonFormat.new
-
     end
   end
 end

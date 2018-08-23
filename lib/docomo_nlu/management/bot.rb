@@ -12,8 +12,6 @@ module DocomoNlu
       #   "description": "hello" # not null
       # }
 
-      self.format = DocomoNlu::Formats::JsonFormat.new
-
     end
   end
 end

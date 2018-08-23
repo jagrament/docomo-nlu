@@ -4,24 +4,13 @@ module DocomoNlu
       self.element_name = "scenarios"
       self.prefix = "/management/#{DocomoNlu.config.nlu_version}/projects/:project_id/bots/:bot_id/"
 
-      self.format = DocomoNlu::Formats::JsonFormat.new
-
-      def save
-        self.attributes.delete('id')
+      def destroy
+        self.id = self.userScenarios.map{|s|s.scenarioId}.join(',')
         super
       end
 
-      def to_json(options={})
-        self.attributes.delete('compilable')
-        self.attributes.delete('authoring')
-        self.attributes.delete('lastModified')
-        self.userScenarios = [{
-          scenarioId: self.attributes.delete('scenarioId'),
-          description: self.attributes.delete('description'),
-          compileFlag: self.attributes.delete('compileFlag')
-        }] if self.try(:userScenarios).nil?
-        super
-      end
+      class UserScenarios < Base; end
+      class UserScenarios < Base; end
 
       # Parameter for create
       # {
