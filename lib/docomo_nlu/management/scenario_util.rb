@@ -5,12 +5,11 @@ module DocomoNlu
       self.prefix = "/management/#{DocomoNlu.config.nlu_version}/"
 
       def normalize
-        #TODO
+        # TODO
       end
 
       def matches
-        #TODO
-
+        # TODO
       end
 
       def save

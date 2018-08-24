@@ -11,9 +11,9 @@ module DocomoNlu
       #    "tel": "電話番号"
       # }
 
-      def to_json(options={})
-        self.attributes.delete('organizationId')
-        self.attributes.delete('id')
+      def to_json(options = {})
+        self.attributes.delete("organizationId")
+        self.attributes.delete("id")
         super
       end
     end

@@ -11,7 +11,6 @@ module DocomoNlu
       #   "language": "ja-JP", # not null
       #   "description": "hello" # not null
       # }
-
     end
   end
 end

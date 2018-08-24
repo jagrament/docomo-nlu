@@ -21,7 +21,8 @@ module DocomoNlu
       #  "notification"     : false
       # }
       def registration(app_id, bot_id, app_kind = "developer_dashboard")
-        request_body = { "app_id" => app_id, "bot_id" => bot_id, "registration_id" => nil, "app_kind" => app_kind, "notification" => false }.to_json
+        request_body =
+          { "app_id" => app_id, "bot_id" => bot_id, "registration_id" => nil, "app_kind" => app_kind, "notification" => false }.to_json
         res = connection.post("/UserRegistrationServer/users/applications", request_body, self.class.headers)
         if res.code == "200"
           attributes.store("appId", app_id)

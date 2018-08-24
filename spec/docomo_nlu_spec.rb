@@ -22,5 +22,4 @@ RSpec.describe DocomoNlu do
   it "Successfully loading DoomoNlu::Spontaneous::Registration" do
     expect(DocomoNlu::Spontaneous::Registration).not_to be nil
   end
-
 end

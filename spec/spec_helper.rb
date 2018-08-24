@@ -1,24 +1,23 @@
 require "bundler/setup"
 require "docomo_nlu"
 require "webmock/rspec"
-require 'vcr'
+require "vcr"
 
-def file_path( *paths )
-  File.expand_path(File.join(File.dirname(__FILE__), 'fixtures', *paths))
+def file_path(*paths)
+  File.expand_path(File.join(File.dirname(__FILE__), "fixtures", *paths))
 end
 
 module DocomoNlu
   module Test
     module MockFiles
       def stub_file(*filename)
-        File.open(file_path(['management',filename]))
+        File.open(file_path(["management", filename]))
       end
     end
   end
 end
 
 RSpec.configure do |config|
-
   config.include DocomoNlu::Test::MockFiles
 
   # Enable flags like --only-failures and --next-failure

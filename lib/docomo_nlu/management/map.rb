@@ -20,7 +20,7 @@ module DocomoNlu
         params = {
           uploadFile: Faraday::UploadIO.new(file_path, "text/plain"),
         }
-        response = conn.put path, params
+        conn.put path, params
       end
     end
   end

@@ -15,10 +15,9 @@ module DocomoNlu
       # }
 
       def destroy(keys)
-        self.id = keys.join(',')
+        self.id = keys.join(",")
         super()
       end
-
     end
   end
 end

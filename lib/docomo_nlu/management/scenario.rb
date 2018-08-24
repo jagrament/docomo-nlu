@@ -5,7 +5,7 @@ module DocomoNlu
       self.prefix = "/management/#{DocomoNlu.config.nlu_version}/projects/:project_id/bots/:bot_id/"
 
       def destroy
-        self.id = self.userScenarios.map{|s|s.scenarioId}.join(',')
+        self.id = self.userScenarios.map(&:scenarioId).join(",")
         super
       end
 
@@ -51,7 +51,7 @@ module DocomoNlu
         conn = Faraday.new(url: self.class.site.to_s, ssl: { verify: false }) do |builder|
           builder.request :multipart # マルチパートでデータを送信
           builder.request :url_encoded
-          builder.adapter  Faraday.default_adapter
+          builder.adapter Faraday.default_adapter
         end
 
         conn.headers["Authorization"] = self.class.access_token
@@ -69,7 +69,7 @@ module DocomoNlu
         while compile_status_path && compile_status != "Completed"
           sleep(0.5)
           compile_status = check_compile_status(compile_status_path)
-          raise ActiveResource::ServerError if compile_status == "ErrorFinish" || compile_status == "NotCompiled"
+          raise ActiveResource::ServerError if %w[ErrorFinish NotCompiled].include?(compile_status)
         end
 
         # transfer and status check
@@ -79,9 +79,9 @@ module DocomoNlu
         while transfer_status_path && transfer_status != "Completed"
           sleep(0.5)
           transfer_status = check_transfer_status(transfer_status_path)
-          raise ActiveResource::ServerError if transfer_status == "ErrorFinish" || transfer_status == "NotTransfered"
+          raise ActiveResource::ServerError if %w[ErrorFinish NotTransfered].include?(transfer_status)
         end
-        return true
+        true
       end
 
       def compile
