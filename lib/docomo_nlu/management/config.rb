@@ -13,12 +13,6 @@ module DocomoNlu
       #   "sraix" : [true|false],
       #   "taskServerUrl": "http://xxx"
       # }
-      def save
-        path = "/management/#{DocomoNlu.config.nlu_version}/projects/#{prefix_options[:project_id]}/bots/#{prefix_options[:bot_id]}/configs"
-        @attributes.delete(:id)
-        response = connection.put(path, @attributes.to_json, self.class.headers)
-        response
-      end
 
       def destroy(keys)
         self.id = keys.join(',')

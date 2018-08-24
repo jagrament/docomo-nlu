@@ -22,7 +22,7 @@ RSpec.describe DocomoNlu::Management::Config do
         config = DocomoNlu::Management::Config.all(params: { project_id: 212, bot_id: 'test_bot' }).first
         VCR.use_cassette('config/update') do
           config.testUrl = 'https://example.com/api/'
-          expect(config.save.code).to eq '201'
+          expect(config.save).to eq true
         end
       end
     end

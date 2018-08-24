@@ -47,7 +47,7 @@ module DocomoNlu
 
         def instantiate_collection(collection, original_params = {}, prefix_options = {})
           if collection.is_a?(Hash)
-            if collection.first[1].nil?
+            if collection.empty? || collection.first[1].nil?
               collection = []
             else
               collection = [collection]
