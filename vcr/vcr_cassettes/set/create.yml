@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: http://nlu-external-dev-977165653.ap-northeast-1.elb.amazonaws.com/management/v2.2/projects/212/bots/test_bot/sets
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LTM3MjFhZGZjN2UwNzU4NzQ5OTJkYmQwNmMwMTc2NTkxDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InVwbG9hZEZpbGUiOyBmaWxlbmFtZT0idGVzdC5zZXQiDQpDb250ZW50LUxlbmd0aDogOTENCkNvbnRlbnQtVHlwZTogdGV4dC9wbGFpbg0KQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogYmluYXJ5DQoNCuadseS6rArjg4jjgqbjgq3jg6fjg7wK6YO95YaFCuWkp+WdggrjgarjgpPjgbAK56We5aWI5bedCuaoqua1nArmqKrpoIjos4AK5rmY5Y2XCuWwj+eUsOWOnwoNCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC0zNzIxYWRmYzdlMDc1ODc0OTkyZGJkMDZjMDE3NjU5MS0tDQoNCg==
+    headers:
+      User-Agent:
+      - Faraday v0.15.2
+      Authorization:
+      - NLP f68518ed5a40907ec6b754caeaadc32b0af4920f69955c22749e38e17946ea57
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost-3721adfc7e075874992dbd06c0176591
+      Content-Length:
+      - '382'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 31 Aug 2018 02:59:23 GMT
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Fri, 31 Aug 2018 02:59:23 GMT
+recorded_with: VCR 4.0.0

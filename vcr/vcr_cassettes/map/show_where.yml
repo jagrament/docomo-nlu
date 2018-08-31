@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://nlu-external-dev-977165653.ap-northeast-1.elb.amazonaws.com/management/v2.2/projects/212/bots/test_bot/maps/test
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.2
+      Authorization:
+      - NLP f68518ed5a40907ec6b754caeaadc32b0af4920f69955c22749e38e17946ea57
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 31 Aug 2018 02:31:17 GMT
+      Content-Length:
+      - '190'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Disposition:
+      - attachment;filename*=UTF-8''test.map
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        I21vZGU6c3VyZmFjZQrjgarjgpPjgbAJ5aSn5Z2CCuODiOOCpuOCreODp+ODvAnmnbHkuqwK5aSn5Z2CCeWkp+WdggrlsI/nlLDljp8J56We5aWI5bedCuadseS6rAnmnbHkuqwK5qiq5rWcCeelnuWliOW3nQrmqKrpoIjos4AJ56We5aWI5bedCua5mOWNlwnnpZ7lpYjlt50K56We5aWI5bedCeelnuWliOW3nQrpg73lhoUJ5p2x5LqsCg==
+    http_version: 
+  recorded_at: Fri, 31 Aug 2018 02:31:17 GMT
+recorded_with: VCR 4.0.0

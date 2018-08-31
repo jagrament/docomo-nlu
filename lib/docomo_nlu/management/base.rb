@@ -44,11 +44,13 @@ module DocomoNlu
       class << self
         def instantiate_collection(collection, original_params = {}, prefix_options = {})
           if collection.is_a?(Hash)
-            collection = if collection.empty? || collection.first[1].nil?
-                           []
-                         else
-                           [collection]
-                         end
+            if collection.empty? || collection.first[1].nil?
+              collection = []
+            else
+              collection = [collection]
+            end
+          elsif collection[0].is_a?(String)
+            collection = [{params: collection }]
           end
           super
         end

@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://nlu-external-dev-977165653.ap-northeast-1.elb.amazonaws.com/management/v2.2/projects/212/bots/test_bot/maps/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.2
+      Authorization:
+      - NLP f68518ed5a40907ec6b754caeaadc32b0af4920f69955c22749e38e17946ea57
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 31 Aug 2018 02:31:16 GMT
+      Content-Length:
+      - '1162'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Disposition:
+      - attachment;filename*=UTF-8''test_bot_ja-JP_map.zip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        UEsDBBQACAAIAOhbH00AAAAAAAAAAAAAAAAoAAAAbWFwL2RvY29tb19ubHUyMDE4MDgzMC02ODAxMi0xYWg4MzdxLm1hcFPOzU9JtSouLUpLTE7lety46nHT5MeNGzifLln+dG4T1+PmjsdNyx43rX3cvPxx8x7OZ3M3Ptm1hgsiC1P0dEP/8ykbnvbN53y+dN7TpR1Pt8/lgiiEqX+2YtWzrXOQpVesermg48XmBmSxnTOe9k5HEoCzkMReNu992tYKMxcAUEsHCHEgh2eAAAAAvgAAAFBLAwQUAAgACADoWx9NAAAAAAAAAAAAAAAADAAAAG1hcC90ZXN0Lm1hcFPOzU9JtSouLUpLTE7lety46nHT5MeNGzifLln+dG4T1+PmjsdNyx43rX3cvPxx8x7OZ3M3Ptm1hgsiC1P0dEP/8ykbnvbN53y+dN7TpR1Pt8/lgiiEqX+2YtWzrXOQpVesermg48XmBmSxnTOe9k5HEoCzkMReNu992tYKMxcAUEsHCHEgh2eAAAAAvgAAAFBLAwQUAAgACADoWx9NAAAAAAAAAAAAAAAAKAAAAG1hcC9kb2NvbW9fbmx1MjAxODA4MzAtNTg3ODgtMTRvODZreS5tYXBTzs1PSbUqLi1KS0xO5XrcuOpx0+THjRs4ny5Z/nRuE9fj5o7HTcseN6193Lz8cfMezmdzNz7ZtYYLIgtT9HRD//MpG572zed8vnTe06UdT7fP5YIohKl/tmLVs61zkKVXrHq5oOPF5gZksZ0znvZORxKAs5DEXjbvfdrWCjMXAFBLBwhxIIdngAAAAL4AAABQSwMEFAAIAAgA6FsfTQAAAAAAAAAAAAAAACYAAABtYXAvZG9jb21vX25sdTIwMTgwODMwLTkwOTYtenlhejdwLm1hcFPOzU9JtSouLUpLTE7lety46nHT5MeNGzifLln+dG4T1+PmjsdNyx43rX3cvPxx8x7OZ3M3Ptm1hgsiC1P0dEP/8ykbnvbN53y+dN7TpR1Pt8/lgiiEqX+2YtWzrXOQpVesermg48XmBmSxnTOe9k5HEoCzkMReNu992tYKMxcAUEsHCHEgh2eAAAAAvgAAAFBLAQIUABQACAAIAOhbH01xIIdngAAAAL4AAAAoAAAAAAAAAAAAAAAAAAAAAABtYXAvZG9jb21vX25sdTIwMTgwODMwLTY4MDEyLTFhaDgzN3EubWFwUEsBAhQAFAAIAAgA6FsfTXEgh2eAAAAAvgAAAAwAAAAAAAAAAAAAAAAA1gAAAG1hcC90ZXN0Lm1hcFBLAQIUABQACAAIAOhbH01xIIdngAAAAL4AAAAoAAAAAAAAAAAAAAAAAJABAABtYXAvZG9jb21vX25sdTIwMTgwODMwLTU4Nzg4LTE0bzg2a3kubWFwUEsBAhQAFAAIAAgA6FsfTXEgh2eAAAAAvgAAACYAAAAAAAAAAAAAAAAAZgIAAG1hcC9kb2NvbW9fbmx1MjAxODA4MzAtOTA5Ni16eWF6N3AubWFwUEsFBgAAAAAEAAQAOgEAADoDAAAAAA==
+    http_version: 
+  recorded_at: Fri, 31 Aug 2018 02:31:16 GMT
+recorded_with: VCR 4.0.0
