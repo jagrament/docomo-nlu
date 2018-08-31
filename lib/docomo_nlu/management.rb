@@ -5,6 +5,7 @@ module DocomoNlu
     autoload :Bot,                "docomo_nlu/management/bot"
     autoload :Config,             "docomo_nlu/management/config"
     autoload :DefaultPredicate,   "docomo_nlu/management/default_predicate"
+    autoload :MultipartBase,      "docomo_nlu/management/multipart_base"
     autoload :Map,                "docomo_nlu/management/map"
     autoload :NGWord,             "docomo_nlu/management/ng_word"
     autoload :OKWord,             "docomo_nlu/management/ok_word"
