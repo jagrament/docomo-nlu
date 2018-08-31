@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe DocomoNlu::Management::Provider do
   before do
     DocomoNlu::Management::Base.access_token = DocomoNlu.config.admin_access_token
@@ -13,7 +15,7 @@ RSpec.describe DocomoNlu::Management::Provider do
 
     it 'Create an provider' do
       VCR.use_cassette('/provider/create') do
-        provider = DocomoNlu::Management::Provider.new({ organizationId: "215", serverKind: 'SS', serverId: "DSU" })
+        provider = DocomoNlu::Management::Provider.new(organizationId: '215', serverKind: 'SS', serverId: 'DSU')
         expect(provider.save).to eq true
       end
     end
@@ -33,6 +35,5 @@ RSpec.describe DocomoNlu::Management::Provider do
         end
       end
     end
-
   end
 end

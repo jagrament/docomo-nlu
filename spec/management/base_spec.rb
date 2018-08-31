@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe DocomoNlu::Management::Base do
   describe '#Initilize' do
     it 'Access_token successfully loading' do
@@ -7,19 +9,19 @@ RSpec.describe DocomoNlu::Management::Base do
   end
 
   describe '#Authorization' do
-    let(:admin_access_token){ DocomoNlu.config.admin_access_token }
+    let(:admin_access_token) { DocomoNlu.config.admin_access_token }
 
     it 'Login Error::BadRequest' do
       VCR.use_cassette('/base/login_400') do
         base = DocomoNlu::Management::Base.new
-        expect{base.login('account','password')}.to raise_error(ActiveResource::BadRequest)
+        expect { base.login('account', 'password') }.to raise_error(ActiveResource::BadRequest)
       end
     end
 
     it 'Login Success' do
       VCR.use_cassette('/base/login') do
         base = DocomoNlu::Management::Base.new
-        base.login('test_account','testaccount20180821')
+        base.login('test_account', 'testaccount20180821')
         expect(base.access_token).not_to be_nil
         expect(base.access_token).not_to eq admin_access_token
       end
@@ -37,7 +39,7 @@ RSpec.describe DocomoNlu::Management::Base do
       VCR.use_cassette('/base/logout_400') do
         base = DocomoNlu::Management::Base.new
         base.access_token = 'dummy'
-        expect{base.logout}.to raise_error(ActiveResource::BadRequest)
+        expect { base.logout }.to raise_error(ActiveResource::BadRequest)
       end
     end
   end

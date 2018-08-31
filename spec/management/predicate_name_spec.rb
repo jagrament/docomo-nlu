@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe DocomoNlu::Management::PredicateName do
   before do
     DocomoNlu::Management::Base.access_token = DocomoNlu.config.admin_access_token
@@ -24,13 +26,13 @@ RSpec.describe DocomoNlu::Management::PredicateName do
       end
       it 'Use find()' do
         VCR.use_cassette('predicate_name/index_find') do
-          predicate_names = DocomoNlu::Management::PredicateName.find(:all,params: { project_id: 212, bot_id: 'test_bot' })
+          predicate_names = DocomoNlu::Management::PredicateName.find(:all, params: { project_id: 212, bot_id: 'test_bot' })
           expect(predicate_names.first.params).not_to be nil
         end
       end
       it 'User where()' do
         VCR.use_cassette('predicate_name/index_where') do
-          predicate_names = DocomoNlu::Management::PredicateName.where({ project_id: 212, bot_id: 'test_bot' })
+          predicate_names = DocomoNlu::Management::PredicateName.where(project_id: 212, bot_id: 'test_bot')
           expect(predicate_names.first.params).not_to be nil
         end
       end

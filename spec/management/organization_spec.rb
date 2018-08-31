@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 RSpec.describe DocomoNlu::Management::Organization do
   describe '#organizations' do
-
     it 'Get all organizations' do
       VCR.use_cassette('/organization/index') do
         organizations = DocomoNlu::Management::Organization.all
@@ -10,7 +11,7 @@ RSpec.describe DocomoNlu::Management::Organization do
 
     it 'Create an organization' do
       VCR.use_cassette('/organization/create') do
-        organization = DocomoNlu::Management::Organization.new({ organizationName: "test_organization", address: 'test_address', tel: 'test_tel' })
+        organization = DocomoNlu::Management::Organization.new(organizationName: 'test_organization', address: 'test_address', tel: 'test_tel')
         expect(organization.save).to eq true
       end
     end
@@ -40,6 +41,5 @@ RSpec.describe DocomoNlu::Management::Organization do
         end
       end
     end
-
   end
 end

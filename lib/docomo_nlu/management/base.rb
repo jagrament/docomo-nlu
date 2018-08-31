@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DocomoNlu
   module Management
     class Base < ActiveResource::Base
@@ -29,13 +31,11 @@ module DocomoNlu
 
       ## Delete NLPManagement's AccessToken.
       def logout
-        res = connection.get("/management/#{DocomoNlu.config.nlu_version}/logout", self.class.headers) if self.access_token.present?
-        if res.blank?
-          raise ActiveResource::BadRequest.new("Invalid access token")
-        else
-          self.access_token = nil
-          return true
-        end
+        res = connection.get("/management/#{DocomoNlu.config.nlu_version}/logout", self.class.headers) if access_token.present?
+        raise ActiveResource::BadRequest, 'Invalid access token' unless res
+
+        self.access_token = nil
+        true
       end
 
       ## Override. Insert generated id to parameter 'id' after save or create
@@ -44,31 +44,29 @@ module DocomoNlu
       end
 
       class << self
-
         def instantiate_collection(collection, original_params = {}, prefix_options = {})
           if collection.is_a?(Hash)
-            if collection.empty? || collection.first[1].nil?
-              collection = []
-            else
-              collection = [collection]
-            end
+            collection = if collection.empty? || collection.first[1].nil?
+                           []
+                         else
+                           [collection]
+                         end
           elsif collection[0].is_a?(String)
-            collection = [{params: collection }]
+            collection = [{ params: collection }]
           end
           super
         end
 
         def instantiate_record(record, prefix_options = {})
           record = record[0] if record.is_a?(Array)
-          if resourceId = record["#{self.to_s.split("::").last.downcase!}Id"].presence
-            record['id'] = resourceId
-          end
+          resource_id = record["#{to_s.split('::').last.downcase!}Id"]
+          record['id'] = resource_id if resource_id
           super
         end
 
         def headers
           new_headers = static_headers.clone
-          new_headers['Authorization'] = self.access_token
+          new_headers['Authorization'] = access_token
           new_headers
         end
       end

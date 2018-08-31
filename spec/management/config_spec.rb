@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe DocomoNlu::Management::Config do
   before do
     DocomoNlu::Management::Base.access_token = DocomoNlu.config.admin_access_token
@@ -9,10 +11,10 @@ RSpec.describe DocomoNlu::Management::Config do
         configs = DocomoNlu::Management::Config.all(params: { project_id: 212, bot_id: 'test_bot' })
         expect(configs.first.sraix).to eq false
 
-        configs = DocomoNlu::Management::Config.find(:all,params: { project_id: 212, bot_id: 'test_bot' })
+        configs = DocomoNlu::Management::Config.find(:all, params: { project_id: 212, bot_id: 'test_bot' })
         expect(configs.first.sraix).to eq false
 
-        configs = DocomoNlu::Management::Config.where({ project_id: 212, bot_id: 'test_bot' })
+        configs = DocomoNlu::Management::Config.where(project_id: 212, bot_id: 'test_bot')
         expect(configs.first.sraix).to eq false
       end
     end

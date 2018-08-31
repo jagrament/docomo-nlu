@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe DocomoNlu::Management::Account do
   describe '#accounts' do
     it 'Get all accounts' do
@@ -9,7 +11,7 @@ RSpec.describe DocomoNlu::Management::Account do
 
     it 'Create an account' do
       VCR.use_cassette('/account/create') do
-        account = DocomoNlu::Management::Account.new({ accountName: "test_account", password: 'testaccount20180821', authorization: 2, enable: true})
+        account = DocomoNlu::Management::Account.new(accountName: 'test_account', password: 'testaccount20180821', authorization: 2, enable: true)
         account.save
         expect(account.accountId).to eq 236
       end
@@ -44,7 +46,7 @@ RSpec.describe DocomoNlu::Management::Account do
 
     it 'Count all accounts' do
       VCR.use_cassette('/account/count') do
-        expect(DocomoNlu::Management::Account.count()).to eq 207
+        expect(DocomoNlu::Management::Account.count).to eq 207
       end
     end
   end

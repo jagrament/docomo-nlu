@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 module DocomoNlu
   module Management
     class Scenario < Base
-      self.element_name = "scenarios"
+      self.element_name = 'scenarios'
       self.prefix = "/management/#{DocomoNlu.config.nlu_version}/projects/:project_id/bots/:bot_id/"
 
       def destroy
-        self.id = self.userScenarios.map{|s|s.scenarioId}.join(',')
+        self.id = userScenarios.map(&:scenarioId).join(',')
         super
       end
 
@@ -37,11 +39,6 @@ module DocomoNlu
       # Not supported
       # GET /{projectId}/{botId}/archive/aiml
 
-      # scneaio.deploy
-
-      # scenario.destroy_file(scenarioId)
-      # DELETE /{projectId}/{botId}/aiml/{scenarioId}
-
       # scenario.destroy
       # /{projectId}/{botId}/scenarios/{scenarioId1[,scenarioId2, ...]}
 
@@ -51,13 +48,13 @@ module DocomoNlu
         conn = Faraday.new(url: self.class.site.to_s, ssl: { verify: false }) do |builder|
           builder.request :multipart # マルチパートでデータを送信
           builder.request :url_encoded
-          builder.adapter  Faraday.default_adapter
+          builder.adapter Faraday.default_adapter
         end
 
-        conn.headers["Authorization"] = self.class.access_token
+        conn.headers['Authorization'] = self.class.access_token
 
         params = {
-          uploadFile: Faraday::UploadIO.new(file_path, "text/plain"),
+          uploadFile: Faraday::UploadIO.new(file_path, 'text/plain')
         }
         conn.put path, params
       end
@@ -66,22 +63,22 @@ module DocomoNlu
         # compile and status check
         compile_status_path = compile
         compile_status = false
-        while compile_status_path && compile_status != "Completed"
+        while compile_status_path && compile_status != 'Completed'
           sleep(0.5)
           compile_status = check_compile_status(compile_status_path)
-          raise ActiveResource::ServerError if compile_status == "ErrorFinish" || compile_status == "NotCompiled"
+          raise ActiveResource::ServerError if %w[ErrorFinish NotCompiled].include?(compile_status)
         end
 
         # transfer and status check
         transfer_status_path = transfer
         transfer_status = false
 
-        while transfer_status_path && transfer_status != "Completed"
+        while transfer_status_path && transfer_status != 'Completed'
           sleep(0.5)
           transfer_status = check_transfer_status(transfer_status_path)
-          raise ActiveResource::ServerError if transfer_status == "ErrorFinish" || transfer_status == "NotTransfered"
+          raise ActiveResource::ServerError if %w[ErrorFinish NotTransfered].include?(transfer_status)
         end
-        return true
+        true
       end
 
       def compile
@@ -93,18 +90,18 @@ module DocomoNlu
       end
 
       def deploy_request(method)
-        response_body = JSON.parse(connection.post(get_deploy_path(method), "", self.class.headers).body)
+        response_body = JSON.parse(connection.post(get_deploy_path(method), '', self.class.headers).body)
         # API returns wrong url, replace correct path.
-        URI.parse(response_body["statusUri"]).path.gsub!(/NLPManagementAPI/, "management/#{DocomoNlu.config.nlu_version}")
+        URI.parse(response_body['statusUri']).path.gsub!(/NLPManagementAPI/, "management/#{DocomoNlu.config.nlu_version}")
       end
 
       def check_compile_status(path)
-        JSON.parse(connection.get(path, self.class.headers).body)["status"]
+        JSON.parse(connection.get(path, self.class.headers).body)['status']
       end
 
       def check_transfer_status(path)
         # TODO: Currentry checking first host only. need to check multiple hosts status.
-        JSON.parse(connection.get(path, self.class.headers).body)["transferStatusResponses"][0]["status"]
+        JSON.parse(connection.get(path, self.class.headers).body)['transferStatusResponses'][0]['status']
       end
 
       def get_deploy_path(method)

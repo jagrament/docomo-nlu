@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 DocomoNlu.configure do |config|
   config.nlu_host = 'Set your host'
   config.nlu_version = 'Set version'

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'active_support/configurable'
 module DocomoNlu
-  def self.configure(&block)
+  def self.configure
     yield @config ||= DocomoNlu::Configuration.new
   end
 

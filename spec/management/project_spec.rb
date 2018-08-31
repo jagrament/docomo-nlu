@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe DocomoNlu::Management::Project do
   before do
     DocomoNlu::Management::Base.access_token = DocomoNlu.config.admin_access_token
@@ -13,15 +15,15 @@ RSpec.describe DocomoNlu::Management::Project do
 
     it 'Create an project' do
       VCR.use_cassette('/project/create') do
-        project = DocomoNlu::Management::Project.new({ projectName: "testproject", organizationId: 215})
+        project = DocomoNlu::Management::Project.new(projectName: 'testproject', organizationId: 215)
         expect(project.save).to eq true
       end
     end
 
     it 'Conflict project name' do
       VCR.use_cassette('/project/create_conflict') do
-        project = DocomoNlu::Management::Project.new({ projectName: "testproject", organizationId: 215})
-        expect{project.save}.to raise_error(ActiveResource::ResourceConflict)
+        project = DocomoNlu::Management::Project.new(projectName: 'testproject', organizationId: 215)
+        expect { project.save }.to raise_error(ActiveResource::ResourceConflict)
       end
     end
 
