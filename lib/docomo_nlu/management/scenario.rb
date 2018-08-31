@@ -39,11 +39,6 @@ module DocomoNlu
       # Not supported
       # GET /{projectId}/{botId}/archive/aiml
 
-      # scneaio.deploy
-
-      # scenario.destroy_file(scenarioId)
-      # DELETE /{projectId}/{botId}/aiml/{scenarioId}
-
       # scenario.destroy
       # /{projectId}/{botId}/scenarios/{scenarioId1[,scenarioId2, ...]}
 

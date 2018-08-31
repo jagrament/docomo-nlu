@@ -8,11 +8,11 @@ module DocomoNlu
 
       # Parameter for create
       # {
-      #     "accountName": "アカウント名", # not null
-      #     "password": "パスワード", # not null
-      #     "description": "表示名",
-      #     "authorization": 2, # not null, static
-      #     "enable": true # not null, static
+      #     "accountName": "your account name",
+      #     "password": "your account password",
+      #     "description": "account description",
+      #     "authorization": 2,
+      #     "enable": true
       # }
 
       def self.count

@@ -8,8 +8,8 @@ module DocomoNlu
 
       # Parameter for create
       # {
-      #   "projectName": "プロジェクト名" # not null
-      #   "organizationId":組織ID # not null
+      #   "projectName": "your project name" 
+      #   "organizationId": "your organization id"
       # }
     end
   end

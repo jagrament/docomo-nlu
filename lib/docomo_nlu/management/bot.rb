@@ -8,10 +8,10 @@ module DocomoNlu
 
       # Parameter for create
       # {
-      #   "botId": "botid", # not null
-      #   "scenarioProjectId", "DSU", # not null
-      #   "language": "ja-JP", # not null
-      #   "description": "hello" # not null
+      #   "botId": "botid",
+      #   "scenarioProjectId", "DSU",
+      #   "language": "ja-JP",
+      #   "description": "hello" 
       # }
     end
   end

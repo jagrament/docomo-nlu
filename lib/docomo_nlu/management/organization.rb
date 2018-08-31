@@ -8,9 +8,9 @@ module DocomoNlu
 
       # Parameter create
       # {
-      #    "organizationName": "組織名", # not null
-      #    "address": "住所",
-      #    "tel": "電話番号"
+      #    "organizationName": "your organization name",
+      #    "address": "address",
+      #    "tel": "tel"
       # }
 
       def to_json(options = {})

@@ -8,9 +8,9 @@ module DocomoNlu
 
       # Parameter for create
       # {
-      #   "organizationId": 組織ID, # not null
-      #   "serverKind":"SS", # static not null
-      #   "serverId":  "DSU" # static not null
+      #   "organizationId": "id",
+      #   "serverKind":"SS",
+      #   "serverId":  "DSU" 
       # }
     end
   end

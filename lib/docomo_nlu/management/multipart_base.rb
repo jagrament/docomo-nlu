@@ -25,7 +25,7 @@ module DocomoNlu
           scope   = arguments.slice!(0)
           options = arguments.slice!(0) || {}
 
-          prefix_options, query_options = split_options(options[:params])
+          prefix_options, = split_options(options[:params])
           check_prefix_options(prefix_options)
 
           case scope

@@ -8,9 +8,9 @@ module DocomoNlu
 
       # Parameter for create
       # {
-      #   "scenarioProjectId": "シナリオプロジェクトID",
-      #   "description":"テスト用のプロジェクトです。",
-      #   "publicHost":  "シナリオサーバホスト名",
+      #   "scenarioProjectId": "",
+      #   "description": "",
+      #   "publicHost": "",
       #   "internalHosts": [
       #        "nnn.nnn.nnn.nnn", "nnn.nnn.nnn.nnn", "nnn.nnn.nnn.nnn"
       #    ]
