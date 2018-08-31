@@ -18,7 +18,6 @@ module DocomoNlu
         self.id = keys.join(',')
         super()
       end
-
     end
   end
 end
