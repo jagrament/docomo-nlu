@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module DocomoNlu
   module Management
     class ScenarioUtil < Base
-      self.element_name = "scenarioUtils"
+      self.element_name = 'scenarioUtils'
       self.prefix = "/management/#{DocomoNlu.config.nlu_version}/"
 
       def normalize
@@ -13,15 +15,15 @@ module DocomoNlu
       end
 
       def save
-        print "Method not used"
+        print 'Method not used'
       end
 
       def destroy
-        print "Method not used"
+        print 'Method not used'
       end
 
       def delete
-        print "Method not used"
+        print 'Method not used'
       end
     end
   end
