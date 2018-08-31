@@ -52,6 +52,8 @@ module DocomoNlu
             else
               collection = [collection]
             end
+          elsif collection[0].is_a?(String)
+            collection = [{params: collection }]
           end
           super
         end
