@@ -3,7 +3,7 @@
 module DocomoNlu
   module Management
     class Project < Base
-      self.element_name = 'projects'
+      self.element_name = "projects"
       self.prefix = "/management/#{DocomoNlu.config.nlu_version}/"
 
       # Parameter for create

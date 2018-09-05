@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'securerandom'
+require "securerandom"
 module DocomoNlu
   module Spontaneous
     class Registration < ActiveResource::Base
@@ -22,21 +22,21 @@ module DocomoNlu
       #  "app_kind"         : "sebastien-marketplace",
       #  "notification"     : false
       # }
-      def registration(app_id, bot_id, app_kind = 'developer_dashboard')
+      def registration(app_id, bot_id, app_kind = "developer_dashboard")
         request_body =
-          { 'app_id' => app_id, 'bot_id' => bot_id, 'registration_id' => nil, 'app_kind' => app_kind, 'notification' => false }.to_json
-        res = connection.post('/UserRegistrationServer/users/applications', request_body, self.class.headers)
-        if res.code == '200'
-          attributes.store('appId', app_id)
+          { "app_id" => app_id, "bot_id" => bot_id, "registration_id" => nil, "app_kind" => app_kind, "notification" => false }.to_json
+        res = connection.post("/UserRegistrationServer/users/applications", request_body, self.class.headers)
+        if res.code == "200"
+          attributes.store("appId", app_id)
         else
-          attributes.store('errors', res.body)
+          attributes.store("errors", res.body)
         end
       end
 
       def execute(voice_text, _init_topic_d = nil)
         self.voiceText = voice_text
         self.initTopicId = init_topic_id unless init_topic_id.nil?
-        res = connection.post('/SpontaneousDialogueServer/dialogue', attributes.to_json, self.class.headers)
+        res = connection.post("/SpontaneousDialogueServer/dialogue", attributes.to_json, self.class.headers)
         @result = res
       end
 
