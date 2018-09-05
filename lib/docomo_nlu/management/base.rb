@@ -69,6 +69,18 @@ module DocomoNlu
           new_headers['Authorization'] = access_token
           new_headers
         end
+
+        def check_response(response)
+          case response.status
+          when 400       then raise ActiveResource::BadRequest, response
+          when 401       then raise ActiveResource::UnauthorizedAccess, response
+          when 403       then raise ActiveResource::ForbiddenAccess, response
+          when 404       then raise ActiveResource::ResourceNotFound, response
+          when 409       then raise ActiveResource::ResourceConflict, response
+          when 503       then raise ActiveResource::ServerError, response
+          when 200..204  then true
+          end
+        end
       end
     end
   end

@@ -42,6 +42,89 @@ RSpec.describe DocomoNlu::Management::Bot do
       end
     end
 
+    describe '#aiml' do
+      context 'Upload file' do
+        it 'Upload AIML' do
+          VCR.use_cassette('bot/show') do
+            bot = DocomoNlu::Management::Bot.find('test_bot', params: { project_id: 212 })
+            VCR.use_cassette('/bot/upload_aiml') do
+              bot.prefix_options[:method] = :aiml
+              response = bot.upload(stub_file('test.aiml'))
+              expect(response).to eq true
+            end
+          end
+        end
+
+        it 'Upload dat' do
+          VCR.use_cassette('bot/show') do
+            bot = DocomoNlu::Management::Bot.find('test_bot', params: { project_id: 212 })
+            VCR.use_cassette('/bot/upload_dat') do
+              bot.prefix_options[:method] = :dat
+              response = bot.upload(stub_file('test.dat'))
+              expect(response).to eq true
+            end
+          end
+        end
+
+        it 'Upload zip' do
+          VCR.use_cassette('bot/show') do
+            bot = DocomoNlu::Management::Bot.find('test_bot', params: { project_id: 212 })
+            VCR.use_cassette('/bot/upload_archive') do
+              bot.prefix_options[:method] = :archive
+              response = bot.upload(stub_file('test.zip'))
+              expect(response).to eq true
+            end
+          end
+        end
+      end
+
+      context 'Deploy bot' do
+        it 'Use deppoy()' do
+          VCR.use_cassette('/bot/show') do
+            bot = DocomoNlu::Management::Bot.find('test_bot', params: { project_id: 212 })
+            VCR.use_cassette('/bot/deploy') do
+              expect(bot.deploy).to eq true
+            end
+          end
+        end
+      end
+
+      context 'Download file using instance' do
+        it 'Download AIML' do
+          VCR.use_cassette('/bot/show') do
+            bot = DocomoNlu::Management::Bot.find('test_bot', params: { project_id: 212 })
+            VCR.use_cassette('/bot/download_aiml') do
+              bot.prefix_options[:method] = :aiml
+              bot.download('test')
+              expect(bot.file).not_to be_nil
+            end
+          end
+        end
+
+        it 'Download dat' do
+          VCR.use_cassette('/bot/show') do
+            bot = DocomoNlu::Management::Bot.find('test_bot', params: { project_id: 212 })
+            VCR.use_cassette('/bot/download_dat') do
+              bot.prefix_options[:method] = :dat
+              bot.download
+              expect(bot.file).not_to be_nil
+            end
+          end
+        end
+
+        it 'Download zip' do
+          VCR.use_cassette('/bot/show') do
+            bot = DocomoNlu::Management::Bot.find('test_bot', params: { project_id: 212 })
+            VCR.use_cassette('/bot/download_archive') do
+              bot.prefix_options[:method] = :archive
+              bot.download
+              expect(bot.file).not_to be_nil
+            end
+          end
+        end
+      end
+    end
+
     it 'Delete an bot' do
       VCR.use_cassette('/bot/show') do
         bot = DocomoNlu::Management::Bot.find('test_bot', params: { project_id: 212 })

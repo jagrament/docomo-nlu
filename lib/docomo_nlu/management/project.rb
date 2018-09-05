@@ -8,7 +8,7 @@ module DocomoNlu
 
       # Parameter for create
       # {
-      #   "projectName": "your project name" 
+      #   "projectName": "your project name"
       #   "organizationId": "your organization id"
       # }
     end

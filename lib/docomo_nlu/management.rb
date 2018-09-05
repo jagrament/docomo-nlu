@@ -2,7 +2,8 @@
 
 module DocomoNlu
   module Management
-    autoload :Account,            'docomo_nlu/management/account'
+    autoload :Account, 'docomo_nlu/management/account'
+    autoload :AIMLBase, 'docomo_nlu/management/aiml_base'
     autoload :Base,               'docomo_nlu/management/base'
     autoload :Bot,                'docomo_nlu/management/bot'
     autoload :Config,             'docomo_nlu/management/config'

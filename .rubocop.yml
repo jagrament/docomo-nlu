@@ -1,0 +1,32 @@
+# # Modify the version if you don't use MRI 2.1.
+# inherit_gem:
+#   onkcop:
+#     - "config/rubocop.yml"
+#     - "config/rails.yml"
+#     - "config/rspec.yml"
+# AllCops:
+#   TargetRubyVersion: 2.5
+#   # If you use RuboCop with Ruby on Rails, specify TargetRailsVersion(default: 5.0).
+#   TargetRailsVersion: 5.1
+#   Include:
+#     - rubocop-rspec
+# Rails:
+#   # If you use RuboCop with Ruby on Rails, turn on this option.
+#   Enabled: true
+# Naming/FileName:
+#   Exclude:
+#     - "Gemfile"
+#     - "Rakefile"
+#     - "Guardfile"
+# Rails/HasManyOrHasOneDependent:
+#   Enabled: false
+# Rails/OutputSafety:
+#   Exclude:
+#     - "app/views/kaminari/**/*"
+#     - "app/views/admin/kaminari/**/*"
+# Rails/SaveBang:
+#   Enabled: false
+#
+# Rails/LexicallyScopedActionFilter:
+#   Exclude:
+#     - "app/controllers/concerns/main_agent_instance.rb"

@@ -56,11 +56,43 @@ RSpec.describe DocomoNlu::Management::Scenario do
     end
 
     describe '#aiml' do
-      it 'Upload a scenario' do
-        VCR.use_cassette('/scenario/upload') do
+      context 'Upload file' do
+        it 'Upload AIML' do
+          VCR.use_cassette('/scenario/upload_aiml') do
+            scenario = DocomoNlu::Management::Scenario.new(project_id: 212, bot_id: 'test_bot')
+            scenario.prefix_options[:method] = :aiml
+            response = scenario.upload(stub_file('test.aiml'))
+            expect(response).to eq true
+          end
+        end
+
+        it 'Upload dat' do
+          VCR.use_cassette('/scenario/upload_dat') do
+            scenario = DocomoNlu::Management::Scenario.new(project_id: 212, bot_id: 'test_bot')
+            scenario.prefix_options[:method] = :dat
+            response = scenario.upload(stub_file('test.dat'))
+            expect(response).to eq true
+          end
+        end
+
+        it 'Upload zip' do
+          VCR.use_cassette('/scenario/upload_archive') do
+            scenario = DocomoNlu::Management::Scenario.new(project_id: 212, bot_id: 'test_bot')
+            scenario.prefix_options[:method] = :archive
+            response = scenario.upload(stub_file('test.zip'))
+            expect(response).to eq true
+          end
+        end
+      end
+
+      context 'Download file' do
+        it 'Donwload aiml' do
           scenario = DocomoNlu::Management::Scenario.new(project_id: 212, bot_id: 'test_bot')
-          response = scenario.upload(:aiml, stub_file('test.aiml'))
-          expect(response.status).to eq 201
+          VCR.use_cassette('/scenario/download_aiml') do
+            scenario.prefix_options[:method] = :aiml
+            scenario.download('test')
+            expect(scenario.file).not_to be_nil
+          end
         end
       end
 

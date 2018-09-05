@@ -10,7 +10,7 @@ module DocomoNlu
       # {
       #   "organizationId": "id",
       #   "serverKind":"SS",
-      #   "serverId":  "DSU" 
+      #   "serverId":  "DSU"
       # }
     end
   end

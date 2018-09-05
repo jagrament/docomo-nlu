@@ -2,7 +2,7 @@
 
 module DocomoNlu
   module Management
-    class Bot < Base
+    class Bot < AIMLBase
       self.element_name = 'bots'
       self.prefix = "/management/#{DocomoNlu.config.nlu_version}/projects/:project_id/"
 
@@ -11,7 +11,7 @@ module DocomoNlu
       #   "botId": "botid",
       #   "scenarioProjectId", "DSU",
       #   "language": "ja-JP",
-      #   "description": "hello" 
+      #   "description": "hello"
       # }
     end
   end

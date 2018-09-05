@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: http://nlu-external-dev-977165653.ap-northeast-1.elb.amazonaws.com/management/v2.2/projects/212/bots/test_bot/dat
+    body:
+      encoding: UTF-8
+      string: "-------------RubyMultipartPost-2ef4fe02be70a6b515d11188cbc2dc2f\r\nContent-Disposition:
+        form-data; name=\"uploadFile\"; filename=\"test.dat\"\r\nContent-Length: 26\r\nContent-Type:
+        text/plain\r\nContent-Transfer-Encoding: binary\r\n\r\n#<File:0x00007fdf7aa53960>\r\n-------------RubyMultipartPost-2ef4fe02be70a6b515d11188cbc2dc2f--\r\n\r\n"
+    headers:
+      User-Agent:
+      - Faraday v0.15.2
+      Authorization:
+      - NLP f68518ed5a40907ec6b754caeaadc32b0af4920f69955c22749e38e17946ea57
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost-2ef4fe02be70a6b515d11188cbc2dc2f
+      Content-Length:
+      - '317'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Tue, 04 Sep 2018 23:05:43 GMT
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Tue, 04 Sep 2018 23:05:43 GMT
+recorded_with: VCR 4.0.0
