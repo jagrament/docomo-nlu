@@ -1,11 +1,10 @@
 PATH
   remote: .
   specs:
-    docomo-nlu (0.1.0)
+    docomo-nlu (0.1.1)
       activeresource (~> 5.0.0)
       bundler
       faraday
-      rails
       rake
 
 GEM
@@ -189,6 +188,7 @@ DEPENDENCIES
   docomo-nlu!
   onkcop
   pry (~> 0.11.3)
+  rails
   rspec
   rubocop (~> 0.58.2)
   vcr (~> 4.0.0)
