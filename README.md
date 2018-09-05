@@ -7,7 +7,7 @@ DocomoNlu is a HTTP Client library that provides simple way to access to  NLPMan
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'docomo_nlu'
+gem 'docomo-nlu'
 ```
 
 And then execute: `bundle install`
@@ -17,10 +17,10 @@ And then execute: `bundle install`
 You can use generator command to setup.
 
 ```
-  $ bundle exec rails generate docomo_nlu:install
+  $ bundle exec rails generate docomo-nlu:install
 ```
 
-The generator command will install an initializer  to `config/initializer/docomo_nlu.rb`, which all docomo_nlu options.
+The generator command will install an initializer  to `config/initializer/docomo-nlu.rb`, which all docomo-nlu options.
 
 
 ## Development
@@ -31,8 +31,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/jagrament/docomo_nlu. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jagrament/docomo-nlu. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## Code of Conduct
 
-Everyone interacting in the DocomoNlu project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/jagrament/docomo_nlu/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the DocomoNlu project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/jagrament/docomo-nlu/blob/master/CODE_OF_CONDUCT.md).

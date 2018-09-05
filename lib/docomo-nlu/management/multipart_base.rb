@@ -54,7 +54,7 @@ module DocomoNlu
 
           if check_response(response)
             instantiate_record({}, prefix_options).tap do |record|
-              record.file = Tempfile.open(['docomo_nlu', extention]) do |f|
+              record.file = Tempfile.open(['docomo-nlu', extention]) do |f|
                 f.write response.body
                 f
               end

@@ -52,7 +52,7 @@ module DocomoNlu
 
           if check_response(response)
             instantiate_record({}, prefix_options).tap do |record|
-              record.file = Tempfile.open(['docomo_nlu', ".#{prefix_options[:method].to_s.gsub(/archive/, 'zip')}"]) do |f|
+              record.file = Tempfile.open(['docomo-nlu', ".#{prefix_options[:method].to_s.gsub(/archive/, 'zip')}"]) do |f|
                 f.write response.body
                 f
               end

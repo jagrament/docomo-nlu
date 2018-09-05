@@ -2,17 +2,17 @@
 
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'docomo_nlu/version'
+require 'docomo-nlu/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'docomo_nlu'
+  spec.name          = 'docomo-nlu'
   spec.version       = DocomoNlu::VERSION
   spec.authors       = ['Koji Yamazaki']
   spec.email         = ['kouji.yamazaki.cv@nttdocomo.com']
 
   spec.summary       = 'API Client of docomo NLPManagementAPI.'
   spec.description   = 'API Client of docomo NLPManagementAPI.'
-  spec.homepage      = 'https://github.com/jagrament/docomo_nlu'
+  spec.homepage      = 'https://github.com/jagrament/docomo-nlu'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -32,14 +32,14 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'activeresource', '~> 5.0.0'
-  spec.add_development_dependency 'bundler', '~> 1.16'
-  spec.add_development_dependency 'faraday', '~> 0.15.2'
+  spec.add_dependency 'activeresource', '~> 5.0.0'
+  spec.add_dependency 'bundler'
+  spec.add_dependency 'faraday'
+  spec.add_dependency 'rake'
+  spec.add_development_dependency 'rails'
+  spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'onkcop'
   spec.add_development_dependency 'pry', '~> 0.11.3'
-  spec.add_development_dependency 'rails', '~> 5.0.0'
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop', '~> 0.58.2'
   spec.add_development_dependency 'vcr', '~> 4.0.0'
   spec.add_development_dependency 'webmock', '~> 3.4.2'

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'docomo_nlu'
+require 'docomo-nlu'
 require 'webmock/rspec'
 require 'vcr'
 
