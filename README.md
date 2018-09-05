@@ -17,7 +17,7 @@ And then execute: `bundle install`
 You can use generator command to setup.
 
 ```
-  $ bundle exec rails generate docomo-nlu:install
+  $ bundle exec rails generate docomo_nlu:install
 ```
 
 The generator command will install an initializer  to `config/initializer/docomo-nlu.rb`, which all docomo-nlu options.
