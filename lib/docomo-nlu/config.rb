@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'active_support/configurable'
+require "active_support/configurable"
 module DocomoNlu
   def self.configure
     yield @config ||= DocomoNlu::Configuration.new
@@ -18,8 +18,8 @@ module DocomoNlu
   end
 
   configure do |config|
-    config.nlu_host = ''
-    config.nlu_version = ''
-    config.admin_access_token = ''
+    config.nlu_host = ""
+    config.nlu_version = ""
+    config.admin_access_token = ""
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'tempfile'
+require "tempfile"
 module DocomoNlu
   module Management
     class MultipartBase < Base
@@ -16,7 +16,7 @@ module DocomoNlu
       class << self
         def create(file, prefix_options)
           check_prefix_options(prefix_options)
-          raise ActiveResource::BadRequest, '' unless file.instance_of?(File)
+          raise ActiveResource::BadRequest, "" unless file.instance_of?(File)
 
           upload(file, prefix_options)
         end
@@ -36,6 +36,7 @@ module DocomoNlu
 
         def where(clauses = {})
           raise ArgumentError, "expected a clauses Hash, got #{clauses.inspect}" unless clauses.is_a? Hash
+
           category = clauses[:category]
           find(category, params: clauses)
         end
@@ -43,18 +44,18 @@ module DocomoNlu
         private
 
         def download(category = nil, prefix_options)
-          extention = category.blank? ? '.zip' : '.map'
+          extention = category.blank? ? ".zip" : ".map"
 
           conn = Faraday.new(url: site.to_s, ssl: { verify: false }) do |builder|
             builder.adapter :net_http
           end
-          conn.headers['Authorization'] = access_token
+          conn.headers["Authorization"] = access_token
 
           response = conn.get(element_path(category, prefix_options))
 
           if check_response(response)
             instantiate_record({}, prefix_options).tap do |record|
-              record.file = Tempfile.open(['docomo-nlu', extention]) do |f|
+              record.file = Tempfile.open(["docomo-nlu", extention]) do |f|
                 f.write response.body
                 f
               end
@@ -69,9 +70,9 @@ module DocomoNlu
             builder.request :url_encoded
             builder.adapter :net_http
           end
-          conn.headers['Authorization'] = access_token
+          conn.headers["Authorization"] = access_token
           params = {
-            uploadFile: Faraday::UploadIO.new(file.path, 'text/plain')
+            uploadFile: Faraday::UploadIO.new(file.path, "text/plain"),
           }
           response = conn.put collection_path(prefix_options), params
           check_response(response)

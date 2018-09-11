@@ -215,6 +215,7 @@ DEPENDENCIES
   reek
   rspec
   rubocop (~> 0.58.2)
+  rubocop-rspec
   vcr (~> 4.0.0)
   webmock (~> 3.4.2)
 
