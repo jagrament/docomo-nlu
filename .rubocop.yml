@@ -8,8 +8,6 @@ AllCops:
   TargetRubyVersion: 2.5
   # If you use RuboCop with Ruby on Rails, specify TargetRailsVersion(default: 5.0).
   TargetRailsVersion: 5.1
-  Include:
-    - rubocop-rspec
 Rails:
   # If you use RuboCop with Ruby on Rails, turn on this option.
   Enabled: true
@@ -17,16 +15,7 @@ Naming/FileName:
   Exclude:
     - "Gemfile"
     - "Rakefile"
-    - "Guardfile"
 Rails/HasManyOrHasOneDependent:
   Enabled: false
-Rails/OutputSafety:
-  Exclude:
-    - "app/views/kaminari/**/*"
-    - "app/views/admin/kaminari/**/*"
 Rails/SaveBang:
   Enabled: false
-
-Rails/LexicallyScopedActionFilter:
-  Exclude:
-    - "app/controllers/concerns/main_agent_instance.rb"

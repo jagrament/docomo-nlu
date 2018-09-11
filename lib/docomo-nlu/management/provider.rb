@@ -3,7 +3,7 @@
 module DocomoNlu
   module Management
     class Provider < Base
-      self.element_name = 'providers'
+      self.element_name = "providers"
       self.prefix = "/management/#{DocomoNlu.config.nlu_version}/"
 
       # Parameter for create
