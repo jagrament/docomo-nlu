@@ -56,7 +56,7 @@ module DocomoNlu
           if check_response(response)
             instantiate_record({}, prefix_options).tap do |record|
               record.file = Tempfile.open(["docomo-nlu", extention]) do |f|
-                f.write response.body
+                f.write response.body.force_encoding("UTF-8")
                 f
               end
               record.category = category
