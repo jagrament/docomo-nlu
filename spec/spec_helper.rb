@@ -36,4 +36,7 @@ end
 VCR.configure do |config|
   config.cassette_library_dir = "vcr/vcr_cassettes"
   config.hook_into :webmock
+  config.filter_sensitive_data("<AdminAccessToken>") { DocomoNlu.config.admin_access_token }
+  config.filter_sensitive_data("<Host>") { DocomoNlu.config.nlu_host }
+  config.filter_sensitive_data("<Version>") { DocomoNlu.config.nlu_version }
 end
