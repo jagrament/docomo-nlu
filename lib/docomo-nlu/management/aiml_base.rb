@@ -17,6 +17,8 @@ require "tempfile"
 module DocomoNlu
   module Management
     class AIMLBase < Base
+      ## For AIML
+
       def download(extra_path = "")
         prefix_options[:bot_id] ||= botId
         @attributes[:file] = self.class.download(prefix_options, extra_path).file
@@ -42,13 +44,57 @@ module DocomoNlu
         self.class.deploy(prefix_options)
       end
 
+      ## For FAQ
+
+      def upload_userdic(file)
+        prefix_options[:bot_id] ||= botId
+        prefix_options[:method] = "userDic"
+        self.class.upload(file, prefix_options, FAQModel)
+      end
+
+      def upload_stopkey(file)
+        prefix_options[:bot_id] ||= botId
+        prefix_options[:method] = "stopkey"
+        self.class.upload(file, prefix_options, FAQModel)
+      end
+
+      def download_stopkey
+        prefix_options[:bot_id] ||= botId
+        prefix_options[:method] = "stopkey"
+        @attributes[:stopkey] = self.class.download(prefix_options, FAQModel).file
+      end
+
+      def upload_truthlist(file)
+        prefix_options[:bot_id] ||= botId
+        prefix_options[:method] = "truthlist"
+        self.class.upload(file, prefix_options, FAQModel)
+      end
+
+      def download_truthlist
+        prefix_options[:bot_id] ||= botId
+        prefix_options[:method] = "truthlist"
+        @attributes[:truthlist] = self.class.download(prefix_options, FAQModel).file
+      end
+
+      def upload_entry(file)
+        prefix_options[:bot_id] ||= botId
+        prefix_options[:method] = "entry"
+        self.class.upload(file, prefix_options, FAQModel)
+      end
+
+      def check_faq_status(method)
+        prefix_options[:bot_id] ||= botId
+        prefix_options[:method] = method
+        self.class.check_status(:faq, "#{FileModel.collection_path(prefix_options)}/status")
+      end
+
       class << self
-        def download(prefix_options, extra_path = "")
+        def download(prefix_options, extra_path = "", model = FileModel)
           conn = Faraday.new(url: site.to_s, ssl: { verify: false }) do |builder|
             builder.adapter :net_http
           end
           conn.headers["Authorization"] = access_token
-          response = conn.get("#{FileModel.collection_path(prefix_options)}/#{extra_path}")
+          response = conn.get("#{model.collection_path(prefix_options)}/#{extra_path}")
 
           if check_response(response)
             instantiate_record({}, prefix_options).tap do |record|
@@ -60,7 +106,7 @@ module DocomoNlu
           end
         end
 
-        def upload(file, prefix_options)
+        def upload(file, prefix_options, model = FileModel)
           conn = Faraday.new(url: site.to_s, ssl: { verify: false }) do |builder|
             builder.request :multipart # マルチパートでデータを送信
             builder.request :url_encoded
@@ -70,7 +116,7 @@ module DocomoNlu
           params = {
             uploadFile: Faraday::UploadIO.new(file.path, "text/plain"),
           }
-          response = conn.put FileModel.collection_path(prefix_options), params
+          response = conn.put model.collection_path(prefix_options), params
           check_response(response)
         end
 
@@ -111,8 +157,8 @@ module DocomoNlu
 
         def check_status(method, path)
           case method
-          when :compile   then JSON.parse(connection.get(path, headers).body)["status"]
-          when :transfer  then JSON.parse(connection.get(path, headers).body)["transferStatusResponses"][0]["status"]
+          when :compile, :faq then JSON.parse(connection.get(path, headers).body)["status"]
+          when :transfer      then JSON.parse(connection.get(path, headers).body)["transferStatusResponses"][0]["status"]
           end
         end
       end
@@ -120,6 +166,11 @@ module DocomoNlu
       class FileModel < Base
         self.element_name = ""
         self.prefix = "/management/#{DocomoNlu.config.nlu_version}/projects/:project_id/bots/:bot_id/:method"
+      end
+
+      class FAQModel < Base
+        self.element_name = ""
+        self.prefix = "/faqmanagement/#{DocomoNlu.config.nlu_version}/projects/:project_id/bots/:bot_id/:method"
       end
     end
   end

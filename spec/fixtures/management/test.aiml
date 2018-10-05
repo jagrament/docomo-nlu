@@ -4,6 +4,7 @@
     <pattern>*</pattern>
     <template>
       Hello, world!
+      こんにちは
     </template>
   </category>
 </aiml>

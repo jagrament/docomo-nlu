@@ -126,6 +126,90 @@ RSpec.describe DocomoNlu::Management::Bot do
       end
     end
 
+    describe "#FAQ" do
+      context "userDic" do
+        it "Upload" do
+          VCR.use_cassette("/bot/show") do
+            bot = DocomoNlu::Management::Bot.find("test_bot", params: { project_id: 212 })
+            VCR.use_cassette("/bot/upload_userDic") do
+            end
+          end
+        end
+        it "Status" do
+          VCR.use_cassette("/bot/show") do
+            bot = DocomoNlu::Management::Bot.find("test_bot", params: { project_id: 212 })
+            VCR.use_cassette("/bot/status_userDic") do
+            end
+          end
+        end
+      end
+
+      context "stopkey" do
+        it "Upload" do
+          VCR.use_cassette("/bot/show") do
+            bot = DocomoNlu::Management::Bot.find("test_bot", params: { project_id: 212 })
+            VCR.use_cassette("/bot/upload_stopkey") do
+            end
+          end
+        end
+        it "Download" do
+          VCR.use_cassette("/bot/show") do
+            bot = DocomoNlu::Management::Bot.find("test_bot", params: { project_id: 212 })
+            VCR.use_cassette("/bot/download_stopkey") do
+            end
+          end
+        end
+        it "Status" do
+          VCR.use_cassette("/bot/show") do
+            bot = DocomoNlu::Management::Bot.find("test_bot", params: { project_id: 212 })
+            VCR.use_cassette("/bot/status_stopkey") do
+            end
+          end
+        end
+      end
+
+      context "truthlist" do
+        it "Upload" do
+          VCR.use_cassette("/bot/show") do
+            bot = DocomoNlu::Management::Bot.find("test_bot", params: { project_id: 212 })
+            VCR.use_cassette("/bot/upload_truthlist") do
+            end
+          end
+        end
+        it "Download" do
+          VCR.use_cassette("/bot/show") do
+            bot = DocomoNlu::Management::Bot.find("test_bot", params: { project_id: 212 })
+            VCR.use_cassette("/bot/download_truthlist") do
+            end
+          end
+        end
+        it "Status" do
+          VCR.use_cassette("/bot/show") do
+            bot = DocomoNlu::Management::Bot.find("test_bot", params: { project_id: 212 })
+            VCR.use_cassette("/bot/status_truthlist") do
+            end
+          end
+        end
+      end
+
+      context "entry" do
+        it "Upload" do
+          VCR.use_cassette("/bot/show") do
+            bot = DocomoNlu::Management::Bot.find("test_bot", params: { project_id: 212 })
+            VCR.use_cassette("/bot/upload_entry") do
+            end
+          end
+        end
+        it "Status" do
+          VCR.use_cassette("/bot/show") do
+            bot = DocomoNlu::Management::Bot.find("test_bot", params: { project_id: 212 })
+            VCR.use_cassette("/bot/status_entry") do
+            end
+          end
+        end
+      end
+    end
+
     it "Delete an bot" do
       VCR.use_cassette("/bot/show") do
         bot = DocomoNlu::Management::Bot.find("test_bot", params: { project_id: 212 })
