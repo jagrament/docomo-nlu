@@ -6,9 +6,9 @@ module DocomoNlu
       self.element_name = "scenarios"
       self.prefix = "/management/#{DocomoNlu.config.nlu_version}/projects/:project_id/bots/:bot_id/"
 
-      def destroy
-        self.id = userScenarios.map(&:scenarioId).join(",")
-        super
+      def destroy(scenario_id)
+        self.id = scenario_id
+        super()
       end
 
       class UserScenarios < Base; end

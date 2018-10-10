@@ -108,7 +108,7 @@ RSpec.describe DocomoNlu::Management::Scenario do
       VCR.use_cassette("/scenario/show") do
         scenario = DocomoNlu::Management::Scenario.find("test_scenario", params: { project_id: 212, bot_id: "test_bot" })
         VCR.use_cassette("/scenario/delete") do
-          expect(scenario.destroy.code).to eq "204"
+          expect(scenario.destroy("test_scenario").code).to eq "204"
         end
       end
     end

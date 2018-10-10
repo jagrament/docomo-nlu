@@ -17,11 +17,8 @@ RSpec.describe DocomoNlu do
     expect(DocomoNlu::Management::Account).not_to be nil
   end
 
-  it "Successfully loading DoomoNlu::Spontaneous::Dialogue" do
-    expect(DocomoNlu::Spontaneous::Dialogue).not_to be nil
+  it "Successfully loading DoomoNlu::Spontaneous" do
+    expect(DocomoNlu::Spontaneous).not_to be nil
   end
 
-  it "Successfully loading DoomoNlu::Spontaneous::Registration" do
-    expect(DocomoNlu::Spontaneous::Registration).not_to be nil
-  end
 end
