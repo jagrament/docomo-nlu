@@ -24,7 +24,7 @@ module DocomoNlu
         @attributes[:file] = self.class.download(prefix_options, extra_path).file
       end
 
-      def upload(file, type=:aiml)
+      def upload(file, type = :aiml)
         prefix_options[:bot_id] ||= botId
         prefix_options[:method] ||= type
         self.class.upload(file, prefix_options)

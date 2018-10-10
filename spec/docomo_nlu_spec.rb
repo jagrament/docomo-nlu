@@ -20,5 +20,4 @@ RSpec.describe DocomoNlu do
   it "Successfully loading DoomoNlu::Spontaneous" do
     expect(DocomoNlu::Spontaneous).not_to be nil
   end
-
 end

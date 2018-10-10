@@ -12,7 +12,7 @@ RSpec.describe DocomoNlu::Spontaneous do
     it "error" do
       VCR.use_cassette("/spontaneous/registration_404") do
         s = DocomoNlu::Spontaneous.new
-        expect{s.registration}.to raise_error ActiveResource::BadRequest
+        expect { s.registration }.to raise_error ActiveResource::BadRequest
       end
     end
   end
@@ -31,7 +31,7 @@ RSpec.describe DocomoNlu::Spontaneous do
     it "error" do
       VCR.use_cassette("/spontaneous/dialogue_404") do
         s = DocomoNlu::Spontaneous.new
-        expect{s.dialogue("init")}.to raise_error ActiveResource::BadRequest
+        expect { s.dialogue("init") }.to raise_error ActiveResource::BadRequest
       end
     end
   end
