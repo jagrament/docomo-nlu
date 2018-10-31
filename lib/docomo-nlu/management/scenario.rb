@@ -6,6 +6,17 @@ module DocomoNlu
       self.element_name = "scenarios"
       self.prefix = "/management/#{DocomoNlu.config.nlu_version}/projects/:project_id/bots/:bot_id/"
 
+      @permitted_root_param = [:userScenarios,:templateScenarios]
+      @permitted_userScenarios_param = [:scenarioId, :description, :compileFlag]
+
+      def save
+        @attributes.select!{|a| a =~ /(userScenarios|templateScenarios)/}
+        userScenarios.each do |us|
+          us.attributes.select!{|a| a =~ /(scenarioId|description|compileFlag)/}
+        end
+        super
+      end
+
       def destroy(scenario_id)
         self.id = scenario_id
         super()

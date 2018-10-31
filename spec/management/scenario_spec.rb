@@ -6,13 +6,6 @@ RSpec.describe DocomoNlu::Management::Scenario do
   end
 
   describe "#scenarios" do
-    it "scenarios not found" do
-      VCR.use_cassette("/scenario/index_not_found") do
-        scenarios = DocomoNlu::Management::Scenario.all(params: { project_id: 212, bot_id: "test_bot" })
-        expect(scenarios).to eq []
-      end
-    end
-
     it "Create a scenario" do
       VCR.use_cassette("/scenario/create") do
         scenario = DocomoNlu::Management::Scenario.new(userScenarios: [{ scenarioId: "test_scenario", description: "test", compileFlag: true }])
@@ -49,7 +42,9 @@ RSpec.describe DocomoNlu::Management::Scenario do
       VCR.use_cassette("/scenario/show") do
         scenario = DocomoNlu::Management::Scenario.find("test_scenario", params: { project_id: 212, bot_id: "test_bot" })
         VCR.use_cassette("/scenario/update") do
-          scenario.compileFlag = true
+          scenario.userScenarios.each do |us|
+            us.compileFlag = true
+          end
           expect(scenario.save).to eq true
         end
       end
