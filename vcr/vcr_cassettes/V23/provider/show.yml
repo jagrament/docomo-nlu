@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: "<Host>/management/v2.2/providers/565"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Authorization:
+      - "<AdminAccessToken>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 14 Nov 2018 04:27:58 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '74'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"providerId":565,"organizationId":598,"serverId":"DSU","serverKind":"SS"}'
+    http_version: 
+  recorded_at: Wed, 14 Nov 2018 04:27:58 GMT
+recorded_with: VCR 4.0.0

@@ -15,21 +15,21 @@ RSpec.describe DocomoNlu::Management::V23::Provider do
 
     it "Create an provider" do
       VCR.use_cassette("/V23/provider/create") do
-        provider = DocomoNlu::Management::V23::Provider.new(organizationId: "215", serverKind: "SS", serverId: "DSU")
+        provider = DocomoNlu::Management::V23::Provider.new(organizationId: "598", serverKind: "SS", serverId: "DSU")
         expect(provider.save).to eq true
       end
     end
 
     it "Get an provider" do
       VCR.use_cassette("/V23/provider/show") do
-        provider = DocomoNlu::Management::V23::Provider.find(219)
-        expect(provider.id).to eq 219
+        provider = DocomoNlu::Management::V23::Provider.find(565)
+        expect(provider.id).to eq 565
       end
     end
 
     it "Delete an provider" do
       VCR.use_cassette("/V23/provider/show") do
-        provider = DocomoNlu::Management::V23::Provider.find(219)
+        provider = DocomoNlu::Management::V23::Provider.find(565)
         VCR.use_cassette("/V23/provider/delete") do
           expect(provider.destroy.code).to eq "204"
         end

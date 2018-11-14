@@ -21,7 +21,7 @@ RSpec.describe DocomoNlu::Management::V23::Base do
     it "Login Success" do
       VCR.use_cassette("/V23/base/login") do
         base = DocomoNlu::Management::V23::Base.new
-        base.login("test_account", "testaccount20180821")
+        base.login("test_account1", "testaccount20180821")
         expect(base.access_token).not_to be_nil
         expect(base.access_token).not_to eq admin_access_token
       end

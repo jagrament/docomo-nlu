@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: "<Host>/management/v2.6/accounts/9"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Authorization:
+      - "<AdminAccessToken>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Wed, 14 Nov 2018 04:32:23 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '224'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"accounts":[{"accountId":9,"description":"","authorization":2,"enable":true,"createDate":"2018-11-07
+        01:22:25.0","loginDate":"2018-11-07 01:23:10.0","passwordExpireDate":"9999-12-31
+        23:59:59","accountName":"test_account"}]}'
+    http_version: 
+  recorded_at: Wed, 14 Nov 2018 04:32:25 GMT
+recorded_with: VCR 4.0.0

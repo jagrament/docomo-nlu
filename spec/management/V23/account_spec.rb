@@ -11,7 +11,7 @@ RSpec.describe DocomoNlu::Management::V23::Account do
 
     it "Create an account" do
       VCR.use_cassette("/V23/account/create") do
-        account = DocomoNlu::Management::V23::Account.new(accountName: "test_account", password: "testaccount20180821", authorization: 2, enable: true)
+        account = DocomoNlu::Management::V23::Account.new(accountName: "test_account1", password: "testaccount20180821", authorization: 2, enable: true)
         account.save
         expect(account.accountId).not_to be_nil
       end
@@ -19,14 +19,14 @@ RSpec.describe DocomoNlu::Management::V23::Account do
 
     it "Get an account" do
       VCR.use_cassette("/V23/account/show") do
-        account = DocomoNlu::Management::V23::Account.find(236)
+        account = DocomoNlu::Management::V23::Account.find(237)
         expect(account.id).not_to be_nil
       end
     end
 
     it "Update an account" do
       VCR.use_cassette("/V23/account/show") do
-        account = DocomoNlu::Management::V23::Account.find(236)
+        account = DocomoNlu::Management::V23::Account.find(237)
         VCR.use_cassette("/V23/account/update") do
           account.accountName = "update account"
           account.description = "update account"
@@ -37,7 +37,7 @@ RSpec.describe DocomoNlu::Management::V23::Account do
 
     it "Delete an account" do
       VCR.use_cassette("/V23/account/show") do
-        account = DocomoNlu::Management::V23::Account.find(236)
+        account = DocomoNlu::Management::V23::Account.find(237)
         VCR.use_cassette("/V23/account/delete") do
           expect(account.destroy.code).to eq "204"
         end
@@ -46,7 +46,7 @@ RSpec.describe DocomoNlu::Management::V23::Account do
 
     it "Count all accounts" do
       VCR.use_cassette("/V23/account/count") do
-        expect(DocomoNlu::Management::V23::Account.count).to eq 207
+        expect(DocomoNlu::Management::V23::Account.count).to eq 454
       end
     end
   end

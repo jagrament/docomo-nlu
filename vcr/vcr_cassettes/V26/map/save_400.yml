@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/maps"
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWU5Y2U0MzViYmM3NWVjZGYwMmY1ZGVhMWUxNDczMjc5DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InVwbG9hZEZpbGUiOyBmaWxlbmFtZT0iZXJyb3IubWFwIg0KQ29udGVudC1MZW5ndGg6IDI0DQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW4NCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IGJpbmFyeQ0KDQrmnbHkuqwgIOOBqOOBhuOBjeOCh+OBhgoNCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC1lOWNlNDM1YmJjNzVlY2RmMDJmNWRlYTFlMTQ3MzI3OS0tDQoNCg==
+    headers:
+      User-Agent:
+      - Faraday v0.15.3
+      Authorization:
+      - "<AdminAccessToken>"
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost-e9ce435bbc75ecdf02f5dea1e1473279
+      Content-Length:
+      - '316'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: '400'
+    headers:
+      Date:
+      - Wed, 14 Nov 2018 04:55:30 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '114'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJlcnJvciI6IkZpbGUgZXJyb3IiLCJkZXRhaWxzIjpbeyJmaWxlIjoiZXJyb3IubWFwIiwibWVzc2FnZSI6ImludmFsaWQgY29sdW1ucyBjb3VudDog5p2x5LqsICDjgajjgYbjgY3jgofjgYYifV19
+    http_version: 
+  recorded_at: Wed, 14 Nov 2018 04:55:30 GMT
+recorded_with: VCR 4.0.0

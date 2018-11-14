@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<Host>/management/v2.6/login"
+    body:
+      encoding: UTF-8
+      string: '{"accountName":"test_account","password":"testaccount20180821"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<AdminAccessToken>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Wed, 14 Nov 2018 04:48:05 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '110'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"NLP Y2QyNTk0NDlkNjU1NmMyMjhmYWRkNWY2NjY1YjY4YmYzZmRhMmJiODhiYWYxNDI0ZWFjNWFmNDUxMjg3YzEzOQ=="}'
+    http_version: 
+  recorded_at: Wed, 14 Nov 2018 04:48:05 GMT
+recorded_with: VCR 4.0.0

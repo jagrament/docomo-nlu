@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: "<Host>/management/v2.2/projects/212/bots/test_bot/defaultPredicates/"
+    body:
+      encoding: UTF-8
+      string: '{"color":"red"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<AdminAccessToken>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Wed, 14 Nov 2018 04:12:04 GMT
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 14 Nov 2018 04:12:05 GMT
+recorded_with: VCR 4.0.0

@@ -15,28 +15,28 @@ RSpec.describe DocomoNlu::Management::V23::Project do
 
     it "Create an project" do
       VCR.use_cassette("/V23/project/create") do
-        project = DocomoNlu::Management::V23::Project.new(projectName: "testproject", organizationId: 215)
+        project = DocomoNlu::Management::V23::Project.new(projectName: "testproject1", organizationId: 215)
         expect(project.save).to eq true
       end
     end
 
     it "Conflict project name" do
       VCR.use_cassette("/V23/project/create_conflict") do
-        project = DocomoNlu::Management::V23::Project.new(projectName: "testproject", organizationId: 215)
+        project = DocomoNlu::Management::V23::Project.new(projectName: "testproject1", organizationId: 215)
         expect { project.save }.to raise_error(ActiveResource::ResourceConflict)
       end
     end
 
     it "Get an project" do
       VCR.use_cassette("/V23/project/show") do
-        project = DocomoNlu::Management::V23::Project.find(213)
-        expect(project.id).to eq 213
+        project = DocomoNlu::Management::V23::Project.find(551)
+        expect(project.id).to eq 551
       end
     end
 
     it "Delete an project" do
       VCR.use_cassette("/V23/project/show") do
-        project = DocomoNlu::Management::V23::Project.find(213)
+        project = DocomoNlu::Management::V23::Project.find(551)
         VCR.use_cassette("/V23/project/delete") do
           expect(project.destroy.code).to eq "204"
         end

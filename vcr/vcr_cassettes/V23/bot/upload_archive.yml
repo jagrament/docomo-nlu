@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: "<Host>/management/v2.2/projects/212/bots/test_bot/archive"
+    body:
+      encoding: UTF-8
+      string: "-------------RubyMultipartPost-1ed77fb2c18c97c25cbc1eed8301ebb8\r\nContent-Disposition:
+        form-data; name=\"uploadFile\"; filename=\"test.zip\"\r\nContent-Length: 26\r\nContent-Type:
+        text/plain\r\nContent-Transfer-Encoding: binary\r\n\r\n#<File:0x00007fdf7a9681e0>\r\n-------------RubyMultipartPost-1ed77fb2c18c97c25cbc1eed8301ebb8--\r\n\r\n"
+    headers:
+      User-Agent:
+      - Faraday v0.15.3
+      Authorization:
+      - "<AdminAccessToken>"
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost-1ed77fb2c18c97c25cbc1eed8301ebb8
+      Content-Length:
+      - '317'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Wed, 14 Nov 2018 04:06:03 GMT
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 14 Nov 2018 04:06:03 GMT
+recorded_with: VCR 4.0.0

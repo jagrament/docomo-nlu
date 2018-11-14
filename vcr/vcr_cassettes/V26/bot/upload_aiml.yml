@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/aiml"
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LTVmZGIwMWQ2ZmIwM2U0MmMwZjhkNWViYzFiNGE5OWI3DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InVwbG9hZEZpbGUiOyBmaWxlbmFtZT0idGVzdC5haW1sIg0KQ29udGVudC1MZW5ndGg6IDQwMw0KQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluDQpDb250ZW50LVRyYW5zZmVyLUVuY29kaW5nOiBiaW5hcnkNCg0KPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGFpbWwgdmVyc2lvbj0iMi4wLjAiIHhtbG5zPSJodHRwOi8vd3d3Lm50dGRvY29tby5jb20vYWltbC9zY2hlbWEiIHhtbG5zOmh0bWw9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL3d3dy5udHRkb2NvbW8uY29tL2FpbWwvc2NoZW1hL0FJTUwueHNkIj4KICA8Y2F0ZWdvcnk+CiAgICA8cGF0dGVybj4qPC9wYXR0ZXJuPgogICAgPHRlbXBsYXRlPgogICAgICBIZWxsbywgd29ybGQhCiAgICAgIOOBk+OCk+OBq+OBoeOBrwogICAgPC90ZW1wbGF0ZT4KICA8L2NhdGVnb3J5Pgo8L2FpbWw+Cg0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LTVmZGIwMWQ2ZmIwM2U0MmMwZjhkNWViYzFiNGE5OWI3LS0NCg0K
+    headers:
+      User-Agent:
+      - Faraday v0.15.3
+      Authorization:
+      - "<AdminAccessToken>"
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost-5fdb01d6fb03e42c0f8d5ebc1b4a99b7
+      Content-Length:
+      - '696'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: '201'
+    headers:
+      Date:
+      - Wed, 14 Nov 2018 04:50:05 GMT
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 14 Nov 2018 04:50:05 GMT
+recorded_with: VCR 4.0.0

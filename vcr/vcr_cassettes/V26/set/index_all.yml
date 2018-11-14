@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/sets/"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.3
+      Authorization:
+      - "<AdminAccessToken>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Wed, 14 Nov 2018 04:55:55 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '17'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"categories":[]}'
+    http_version: 
+  recorded_at: Wed, 14 Nov 2018 04:55:55 GMT
+recorded_with: VCR 4.0.0

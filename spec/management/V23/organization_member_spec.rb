@@ -8,7 +8,7 @@ RSpec.describe DocomoNlu::Management::V23::OrganizationMember do
   describe "#organizationMembers" do
     it "Add a member" do
       VCR.use_cassette("/V23/organization_member/create") do
-        member = DocomoNlu::Management::V23::OrganizationMember.new(accountIds: [{ accountId: 237 }])
+        member = DocomoNlu::Management::V23::OrganizationMember.new(accountIds: [{ accountId: 606 }])
         member.prefix_options[:organization_id] = 215
         member.save
       end
@@ -17,7 +17,7 @@ RSpec.describe DocomoNlu::Management::V23::OrganizationMember do
     it "Get members" do
       VCR.use_cassette("/V23/organization_member/index") do
         member = DocomoNlu::Management::V23::OrganizationMember.all(params: { organization_id: 215 }).first
-        expect(member.accountId).to eq 237
+        expect(member.accountId).to eq 606
       end
     end
 
@@ -32,7 +32,7 @@ RSpec.describe DocomoNlu::Management::V23::OrganizationMember do
 
     it "Get members with 404" do
       VCR.use_cassette("/V23/organization_member/index_404") do
-        members = DocomoNlu::Management::V23::OrganizationMember.find(:all, params: { organization_id: 216 })
+        members = DocomoNlu::Management::V23::OrganizationMember.find(:all, params: { organization_id: 00 })
         expect(members).to eq nil
       end
     end

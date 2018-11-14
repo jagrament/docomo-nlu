@@ -29,14 +29,14 @@ RSpec.describe DocomoNlu::Management::V26::Project do
 
     it "Get an project" do
       VCR.use_cassette("/V26/project/show") do
-        project = DocomoNlu::Management::V26::Project.find(3)
-        expect(project.id).to eq 3
+        project = DocomoNlu::Management::V26::Project.find(5)
+        expect(project.id).to eq 5
       end
     end
 
     it "Delete an project" do
       VCR.use_cassette("/V26/project/show") do
-        project = DocomoNlu::Management::V26::Project.find(3)
+        project = DocomoNlu::Management::V26::Project.find(5)
         VCR.use_cassette("/V26/project/delete") do
           expect(project.destroy.code).to eq "204"
         end

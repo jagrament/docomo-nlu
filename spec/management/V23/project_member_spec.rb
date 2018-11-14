@@ -8,7 +8,7 @@ RSpec.describe DocomoNlu::Management::V23::ProjectMember do
   describe "#projectMembers" do
     it "Add a member" do
       VCR.use_cassette("/V23/project_member/create") do
-        member = DocomoNlu::Management::V23::ProjectMember.new(accountIds: [{ accountId: 237 }])
+        member = DocomoNlu::Management::V23::ProjectMember.new(accountIds: [{ accountId: 606 }])
         member.prefix_options[:project_id] = 212
         member.save
       end
@@ -17,7 +17,7 @@ RSpec.describe DocomoNlu::Management::V23::ProjectMember do
     it "Get members" do
       VCR.use_cassette("/V23/project_member/index") do
         member = DocomoNlu::Management::V23::ProjectMember.all(params: { project_id: 212 }).first
-        expect(member.accountId).to eq 237
+        expect(member.accountId).to eq 606
       end
     end
 
