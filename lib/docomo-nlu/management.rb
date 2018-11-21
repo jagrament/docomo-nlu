@@ -1,7 +1,8 @@
 # frozen_string_literal: true
-
 module DocomoNlu
   module Management
+    NAMESPACE = (DocomoNlu.config.nlu_version == "v2.6" ? "V26" : "V23" ).freeze
+
     module V23
       autoload :Account,            "docomo-nlu/management/V23/account"
       autoload :AIMLBase,           "docomo-nlu/management/V23/aiml_base"
@@ -50,5 +51,28 @@ module DocomoNlu
       autoload :Set,                "docomo-nlu/management/V26/set"
       autoload :TaskProject,        "docomo-nlu/management/V26/task_project"
     end
+
+    Account = const_get "DocomoNlu::Management::#{NAMESPACE}::Account"
+    AIMLBase = const_get "DocomoNlu::Management::#{NAMESPACE}::Account"
+    Base = const_get "DocomoNlu::Management::#{NAMESPACE}::Base"
+    Bot = const_get "DocomoNlu::Management::#{NAMESPACE}::Bot"
+    Config = const_get "DocomoNlu::Management::#{NAMESPACE}::Config"
+    DefaultPredicate = const_get "DocomoNlu::Management::#{NAMESPACE}::DefaultPredicate"
+    MultipartBase = const_get "DocomoNlu::Management::#{NAMESPACE}::MultipartBase"
+    Map = const_get "DocomoNlu::Management::#{NAMESPACE}::Map"
+    NGWord = const_get "DocomoNlu::Management::#{NAMESPACE}::NGWord"
+    OKWord = const_get "DocomoNlu::Management::#{NAMESPACE}::OKWord"
+    OrganizationMember = const_get "DocomoNlu::Management::#{NAMESPACE}::OrganizationMember"
+    Organization = const_get "DocomoNlu::Management::#{NAMESPACE}::Organization"
+    PredicateName = const_get "DocomoNlu::Management::#{NAMESPACE}::PredicateName"
+    ProjectMember = const_get "DocomoNlu::Management::#{NAMESPACE}::ProjectMember"
+    Project = const_get "DocomoNlu::Management::#{NAMESPACE}::Project"
+    Property = const_get "DocomoNlu::Management::#{NAMESPACE}::Property"
+    Provider = const_get "DocomoNlu::Management::#{NAMESPACE}::Provider"
+    ScenarioProject = const_get "DocomoNlu::Management::#{NAMESPACE}::ScenarioProject"
+    ScenarioUtil = const_get "DocomoNlu::Management::#{NAMESPACE}::ScenarioUtil"
+    Scenario = const_get "DocomoNlu::Management::#{NAMESPACE}::Scenario"
+    Set = const_get "DocomoNlu::Management::#{NAMESPACE}::Set"
+    TaskProject = const_get "DocomoNlu::Management::#{NAMESPACE}::TaskProject"
   end
 end
