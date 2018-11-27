@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<Host>/SpontaneousDialogueServer/dialogue"
+    body:
+      encoding: UTF-8
+      string: '{"clientVer":"1.0.4","language":"ja-JP","location":{"lat":"0","lon":"0"},"appRecvTime":"2018-11-27
+        10:27:50","appSendTime":"2018-11-27 10:27:50","voiceText":"init"}'
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: '400'
+    headers:
+      Date:
+      - Tue, 27 Nov 2018 01:27:14 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '23'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Set-Cookie:
+      - JSESSIONID=52B041CBDCB267C56D12FDEFD0E0FA7D; Path=/SpontaneousDialogueServer;
+        HttpOnly
+    body:
+      encoding: UTF-8
+      string: '{"error":"Bad Request"}'
+    http_version: 
+  recorded_at: Tue, 27 Nov 2018 01:27:51 GMT
+recorded_with: VCR 4.0.0

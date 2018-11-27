@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<Host>/UserRegistrationServer/users/applications"
+    body:
+      encoding: UTF-8
+      string: '{"bot_id":"test_bot","app_id":"","registration_id":"docomo-nlu","app_kind":"docomo-nlu","notification":false}'
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 27 Nov 2018 01:27:12 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '49'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"app_id":"16493c9a-f6c8-466d-9d78-37ec8acc1faf"}'
+    http_version: 
+  recorded_at: Tue, 27 Nov 2018 01:27:49 GMT
+recorded_with: VCR 4.0.0

@@ -4,6 +4,7 @@ module DocomoNlu
   class Spontaneous < ActiveResource::Base
     attr_reader :result
     attr_reader :error
+    cattr_accessor :static_headers
     self.site = DocomoNlu.config.nlu_host
 
     ## Remove format in path (remove .json)
@@ -11,6 +12,8 @@ module DocomoNlu
 
     ## Setting Format
     self.format = :json
+
+    self.static_headers = headers
 
     def initialize
       super
@@ -25,7 +28,7 @@ module DocomoNlu
       end
     end
 
-    def registration(app_kind = "docomo-nlu", app_id = "", registration_id = "", notification = false)
+    def registration(app_id = "", registration_id = "docomo-nlu", app_kind = "docomo-nlu", notification = false)
       body = {
         bot_id: @attributes[:botId],
         app_id: app_id,
@@ -44,6 +47,14 @@ module DocomoNlu
       end
       res = connection.post("/SpontaneousDialogueServer/dialogue", @attributes.to_json, self.class.headers)
       @result = JSON.parse(res.body)
+    end
+
+    class << self
+      def headers
+        new_headers = static_headers.clone
+        new_headers["Content-Type"] = "application/json;charset=UTF-8"
+        new_headers
+      end
     end
   end
 end
