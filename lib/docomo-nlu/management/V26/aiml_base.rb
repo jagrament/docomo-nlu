@@ -19,7 +19,6 @@ require "tempfile"
 module DocomoNlu
   module Management::V26
     class AIMLBase < Base
-      ## For AIML
 
       def download(extra_path = "")
         prefix_options[:bot_id] ||= botId
@@ -45,50 +44,6 @@ module DocomoNlu
       def deploy
         prefix_options[:bot_id] ||= botId
         self.class.deploy(prefix_options)
-      end
-
-      ## For FAQ
-
-      def upload_userdic(file)
-        prefix_options[:bot_id] ||= botId
-        prefix_options[:method] = "userDic"
-        self.class.upload(file, prefix_options)
-      end
-
-      def upload_stopkey(file)
-        prefix_options[:bot_id] ||= botId
-        prefix_options[:method] = "stopkey"
-        self.class.upload(file, prefix_options)
-      end
-
-      def download_stopkey
-        prefix_options[:bot_id] ||= botId
-        prefix_options[:method] = "stopkey"
-        @attributes[:stopkey] = self.class.download(prefix_options).file
-      end
-
-      def upload_truthlist(file)
-        prefix_options[:bot_id] ||= botId
-        prefix_options[:method] = "truthlist"
-        self.class.upload(file, prefix_options)
-      end
-
-      def download_truthlist
-        prefix_options[:bot_id] ||= botId
-        prefix_options[:method] = "truthlist"
-        @attributes[:truthlist] = self.class.download(prefix_options).file
-      end
-
-      def upload_entry(file)
-        prefix_options[:bot_id] ||= botId
-        prefix_options[:method] = "entry"
-        self.class.upload(file, prefix_options)
-      end
-
-      def check_faq_status(method)
-        prefix_options[:bot_id] ||= botId
-        prefix_options[:method] = method
-        self.class.check_status(:faq, "#{FileModel.collection_path(prefix_options)}/status")
       end
 
       class << self
@@ -160,39 +115,15 @@ module DocomoNlu
 
         def check_status(method, path)
           case method
-          when :compile, :faq then JSON.parse(connection.get(path, headers).body)["status"]
-          when :transfer      then JSON.parse(connection.get(path, headers).body)["transferStatusResponses"][0]["status"]
+          when :compile  then JSON.parse(connection.get(path, headers).body)["status"]
+          when :transfer then JSON.parse(connection.get(path, headers).body)["transferStatusResponses"][0]["status"]
           end
         end
-
-        # def generate_file(response, method)
-        #   case method
-        #   when :aiml, :dat then
-        #     Tempfile.open(["docomo-nlu", ".#{prefix_options[:method].to_s}"]) do |f|
-        #       f.write response.body.force_encoding("UTF-8")
-        #       f
-        #     end
-        #   when :zip then
-        #     zip_file = Tempfile.new(["docomo-nlu", ".#{prefix_options[:method].to_s.gsub(/archive/, "zip")}"])
-        #     Zip::OutputStream.open(zip_file.path) do |zip|
-        #       @targets.each do |target|
-        #         zip.put_next_entry("#{target.filename}.pdf")
-        #         zip.print Net::HTTP.get URI.parse(target.url)
-        #       end
-        #     end
-        #     Zip::File.open_buffer(file.read) do |zf|
-        #       zf.each do |entry|
-        #         p entry.name # ファイル名
-        #         p entry.get_input_stream.read # ファイルの中身
-        #       end
-        #     end
-        #   end
-        # end
       end
 
       class FileModel < Base
         self.element_name = ""
-        self.prefix = "/management/v2.6/projects/:project_id/bots/:bot_id/:method"
+        self.prefix = "/management/#{DocomoNlu.config.nlu_version}/projects/:project_id/bots/:bot_id/:method"
       end
     end
   end

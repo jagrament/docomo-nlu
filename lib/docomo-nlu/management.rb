@@ -34,6 +34,7 @@ module DocomoNlu
       autoload :Bot,                "docomo-nlu/management/V26/bot"
       autoload :Config,             "docomo-nlu/management/V26/config"
       autoload :DefaultPredicate,   "docomo-nlu/management/V26/default_predicate"
+      autoload :Entry,              "docomo-nlu/management/V26/entry"
       autoload :MultipartBase,      "docomo-nlu/management/V26/multipart_base"
       autoload :Map,                "docomo-nlu/management/V26/map"
       autoload :NGWord,             "docomo-nlu/management/V26/ng_word"
@@ -57,6 +58,7 @@ module DocomoNlu
     Base = const_get "DocomoNlu::Management::#{NAMESPACE}::Base"
     Bot = const_get "DocomoNlu::Management::#{NAMESPACE}::Bot"
     Config = const_get "DocomoNlu::Management::#{NAMESPACE}::Config"
+    Entry = const_get "DocomoNlu::Management::#{NAMESPACE}::Entry"
     DefaultPredicate = const_get "DocomoNlu::Management::#{NAMESPACE}::DefaultPredicate"
     MultipartBase = const_get "DocomoNlu::Management::#{NAMESPACE}::MultipartBase"
     Map = const_get "DocomoNlu::Management::#{NAMESPACE}::Map"
@@ -74,5 +76,6 @@ module DocomoNlu
     Scenario = const_get "DocomoNlu::Management::#{NAMESPACE}::Scenario"
     Set = const_get "DocomoNlu::Management::#{NAMESPACE}::Set"
     TaskProject = const_get "DocomoNlu::Management::#{NAMESPACE}::TaskProject"
+    
   end
 end
