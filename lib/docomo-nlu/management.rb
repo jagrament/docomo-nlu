@@ -10,9 +10,6 @@ module DocomoNlu
       autoload :Bot,                "docomo-nlu/management/V23/bot"
       autoload :Config,             "docomo-nlu/management/V23/config"
       autoload :DefaultPredicate,   "docomo-nlu/management/V23/default_predicate"
-      autoload :Entry,              "docomo-nlu/management/V23/entry"
-      autoload :Logs,               "docomo-nlu/management/V26/logs"
-      autoload :BotLogs,            "docomo-nlu/management/V26/bot_logs"
       autoload :MultipartBase,      "docomo-nlu/management/V23/multipart_base"
       autoload :Map,                "docomo-nlu/management/V23/map"
       autoload :NGWord,             "docomo-nlu/management/V23/ng_word"
@@ -38,8 +35,6 @@ module DocomoNlu
       autoload :Config,             "docomo-nlu/management/V26/config"
       autoload :DefaultPredicate,   "docomo-nlu/management/V26/default_predicate"
       autoload :Entry,              "docomo-nlu/management/V26/entry"
-      autoload :Logs,               "docomo-nlu/management/V26/logs"
-      autoload :BotLogs,            "docomo-nlu/management/V26/bot_logs"
       autoload :MultipartBase,      "docomo-nlu/management/V26/multipart_base"
       autoload :Map,                "docomo-nlu/management/V26/map"
       autoload :NGWord,             "docomo-nlu/management/V26/ng_word"
@@ -81,6 +76,6 @@ module DocomoNlu
     Scenario = const_get "DocomoNlu::Management::#{NAMESPACE}::Scenario"
     Set = const_get "DocomoNlu::Management::#{NAMESPACE}::Set"
     TaskProject = const_get "DocomoNlu::Management::#{NAMESPACE}::TaskProject"
-
+    
   end
 end
