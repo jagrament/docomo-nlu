@@ -10,6 +10,7 @@ module DocomoNlu
       autoload :Bot,                "docomo-nlu/management/V23/bot"
       autoload :Config,             "docomo-nlu/management/V23/config"
       autoload :DefaultPredicate,   "docomo-nlu/management/V23/default_predicate"
+      autoload :Entry,              "docomo-nlu/management/V23/entry"
       autoload :MultipartBase,      "docomo-nlu/management/V23/multipart_base"
       autoload :Map,                "docomo-nlu/management/V23/map"
       autoload :NGWord,             "docomo-nlu/management/V23/ng_word"
