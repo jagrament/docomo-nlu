@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: "<Host>/management/v2.6/login"
+    uri: "<Host>/management/<Version>/login"
     body:
       encoding: UTF-8
       string: '{"accountName":"test_account","password":"testaccount20180821"}'
@@ -23,7 +23,7 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:48:05 GMT
+      - Wed, 20 Feb 2019 07:43:41 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -38,7 +38,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"accessToken":"NLP Y2QyNTk0NDlkNjU1NmMyMjhmYWRkNWY2NjY1YjY4YmYzZmRhMmJiODhiYWYxNDI0ZWFjNWFmNDUxMjg3YzEzOQ=="}'
+      string: '{"accessToken":"NLP ODMzYmI4NzRkNTYxM2ZjODU3NGZlM2YyZTYzYTQ3ZDI0ZDYxYjNhNThiZDAxNzExYjA2MTY1ZmI0MjUwMGY1Zg=="}'
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:48:05 GMT
+  recorded_at: Wed, 20 Feb 2019 07:43:41 GMT
 recorded_with: VCR 4.0.0
