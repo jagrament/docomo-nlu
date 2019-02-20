@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: "<Host>/management/v2.6/projects"
+    uri: "<Host>/management/<Version>/projects"
     body:
       encoding: UTF-8
       string: '{"projectName":"testproject","organizationId":1}'
@@ -23,7 +23,7 @@ http_interactions:
       message: '409'
     headers:
       Date:
-      - Wed, 14 Nov 2018 05:02:41 GMT
+      - Wed, 20 Feb 2019 08:12:38 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -40,5 +40,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"error":"duplicated","keys":["testproject"]}'
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 05:02:41 GMT
+  recorded_at: Wed, 20 Feb 2019 08:12:38 GMT
 recorded_with: VCR 4.0.0
