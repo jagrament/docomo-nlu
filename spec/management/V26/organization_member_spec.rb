@@ -8,7 +8,7 @@ RSpec.describe DocomoNlu::Management::V26::OrganizationMember do
   describe "#organizationMembers" do
     let(:organization_id) { 41 }
     let(:account_id) { 42 }
-    
+
     it "Add a member" do
       VCR.use_cassette("/V26/organization_member/create") do
         member = DocomoNlu::Management::V26::OrganizationMember.new(accountIds: [{ accountId: account_id }])
