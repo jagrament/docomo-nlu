@@ -1,8 +1,8 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: "<Host>/management/<Version>/providers/43"
+    method: delete
+    uri: "<Host>/management/<Version>/organizations/40"
     body:
       encoding: US-ASCII
       string: ''
@@ -17,15 +17,11 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 200
-      message: '200'
+      code: 204
+      message: '204'
     headers:
       Date:
-      - Wed, 20 Feb 2019 07:02:26 GMT
-      Content-Type:
-      - application/json;charset=utf-8
-      Content-Length:
-      - '72'
+      - Wed, 20 Feb 2019 07:03:53 GMT
       Connection:
       - keep-alive
       Server:
@@ -36,7 +32,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"providerId":43,"organizationId":40,"serverId":"DSU","serverKind":"SS"}'
+      string: ''
     http_version: 
-  recorded_at: Wed, 20 Feb 2019 07:02:26 GMT
+  recorded_at: Wed, 20 Feb 2019 07:03:53 GMT
 recorded_with: VCR 4.0.0
