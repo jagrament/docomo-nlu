@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: "<Host>/management/v2.6/accounts"
+    uri: "<Host>/management/<Version>/accounts"
     body:
       encoding: UTF-8
       string: '{"accountName":"test_account","password":"testaccount20180821","authorization":2,"enable":true,"eternity":true}'
@@ -23,11 +23,11 @@ http_interactions:
       message: '201'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:36:22 GMT
+      - Wed, 20 Feb 2019 07:38:39 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '58'
+      - '59'
       Connection:
       - keep-alive
       Server:
@@ -38,7 +38,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"accountId":9,"passwordExpireDate":"9999-12-31 23:59:59"}'
+      string: '{"accountId":43,"passwordExpireDate":"2038-05-01 00:00:00"}'
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:36:22 GMT
+  recorded_at: Wed, 20 Feb 2019 07:38:39 GMT
 recorded_with: VCR 4.0.0
