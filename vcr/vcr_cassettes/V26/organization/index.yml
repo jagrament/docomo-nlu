@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<Host>/management/v2.6/organizations"
+    uri: "<Host>/management/<Version>/organizations"
     body:
       encoding: US-ASCII
       string: ''
@@ -21,11 +21,11 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:33:14 GMT
+      - Wed, 20 Feb 2019 06:36:54 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '257'
+      - '2963'
       Connection:
       - keep-alive
       Server:
@@ -36,7 +36,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"organizations":[{"organizationId":1,"address":"","tel":"","organizationName":"DSU"},{"organizationId":2,"address":"","tel":"","organizationName":"FAQ"},{"organizationId":4,"address":"test_address","tel":"test_tel","organizationName":"test_organization"}]}'
+      string: '{"organizations":[{"organizationId":1,"address":"","tel":"","organizationName":"DSU"},{"organizationId":2,"address":"","tel":"","organizationName":"1_20190215232038"},{"organizationId":3,"address":"","tel":"","organizationName":"1_20190215232444"},{"organizationId":4,"address":"","tel":"","organizationName":"2_20190218092433"},{"organizationId":5,"address":"","tel":"","organizationName":"3_20190218100444"},{"organizationId":6,"address":"","tel":"","organizationName":"4_20190218103328"},{"organizationId":7,"address":"","tel":"","organizationName":"1_20190218111940"},{"organizationId":8,"address":"","tel":"","organizationName":"5_20190218114344"},{"organizationId":9,"address":"","tel":"","organizationName":"6_20190218122209"},{"organizationId":10,"address":"","tel":"","organizationName":"7_20190218132620"},{"organizationId":11,"address":"","tel":"","organizationName":"8_20190218132630"},{"organizationId":13,"address":"","tel":"","organizationName":"9_20190218143520"},{"organizationId":14,"address":"","tel":"","organizationName":"10_20190218145046"},{"organizationId":15,"address":"","tel":"","organizationName":"1_20190218160914"},{"organizationId":16,"address":"","tel":"","organizationName":"11_20190218161312"},{"organizationId":17,"address":"","tel":"","organizationName":"11_20190218161359"},{"organizationId":18,"address":"","tel":"","organizationName":"1_20190218163534"},{"organizationId":19,"address":"","tel":"","organizationName":"3_20190218183623"},{"organizationId":20,"address":"","tel":"","organizationName":"3_20190218183722"},{"organizationId":21,"address":"","tel":"","organizationName":"3_20190218183924"},{"organizationId":22,"address":"","tel":"","organizationName":"13_20190218194030"},{"organizationId":23,"address":"","tel":"","organizationName":"14_20190218194149"},{"organizationId":24,"address":"","tel":"","organizationName":"2_20190219122907"},{"organizationId":25,"address":"","tel":"","organizationName":"3_20190219123109"},{"organizationId":26,"address":"","tel":"","organizationName":"15_20190219150352"},{"organizationId":27,"address":"","tel":"","organizationName":"16_20190219165738"},{"organizationId":28,"address":"","tel":"","organizationName":"17_20190219165750"},{"organizationId":29,"address":"","tel":"","organizationName":"18_20190219171619"},{"organizationId":30,"address":"","tel":"","organizationName":"2_20190219184521"},{"organizationId":31,"address":"","tel":"","organizationName":"19_20190219190210"},{"organizationId":32,"address":"","tel":"","organizationName":"20_20190219192923"},{"organizationId":33,"address":"","tel":"","organizationName":"21_20190219193039"},{"organizationId":34,"address":"","tel":"","organizationName":"2_20190220104228"},{"organizationId":35,"address":"","tel":"","organizationName":"5_20190220104316"},{"organizationId":36,"address":"","tel":"","organizationName":"22_20190220104654"},{"organizationId":37,"address":"","tel":"","organizationName":"23_20190220104732"}]}'
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:33:14 GMT
+  recorded_at: Wed, 20 Feb 2019 06:36:54 GMT
 recorded_with: VCR 4.0.0

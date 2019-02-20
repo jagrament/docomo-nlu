@@ -18,14 +18,14 @@ RSpec.describe DocomoNlu::Management::V26::Organization do
 
     it "Get an organization" do
       VCR.use_cassette("/V26/organization/show") do
-        organization = DocomoNlu::Management::V26::Organization.find(4)
-        expect(organization.id).to eq 4
+        organization = DocomoNlu::Management::V26::Organization.find(40)
+        expect(organization.id).to eq 40
       end
     end
 
     it "Update an organization" do
       VCR.use_cassette("/V26/organization/show") do
-        organization = DocomoNlu::Management::V26::Organization.find(4)
+        organization = DocomoNlu::Management::V26::Organization.find(40)
         VCR.use_cassette("/V26/organization/update") do
           organization.organizationName = "update_organizationName"
           expect(organization.save).to eq true
@@ -35,7 +35,7 @@ RSpec.describe DocomoNlu::Management::V26::Organization do
 
     it "Delete an organization" do
       VCR.use_cassette("/V26/organization/show") do
-        organization = DocomoNlu::Management::V26::Organization.find(4)
+        organization = DocomoNlu::Management::V26::Organization.find(40)
         VCR.use_cassette("/V26/organization/delete") do
           expect(organization.destroy.code).to eq "204"
         end
