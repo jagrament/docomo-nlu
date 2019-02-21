@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/configs/"
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/configs/"
     body:
       encoding: UTF-8
       string: '{"test_Url":"https://example.com/api/"}'
@@ -23,7 +23,7 @@ http_interactions:
       message: '201'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:56:35 GMT
+      - Thu, 21 Feb 2019 02:42:28 GMT
       Content-Length:
       - '0'
       Connection:
@@ -38,5 +38,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:56:36 GMT
+  recorded_at: Thu, 21 Feb 2019 02:42:28 GMT
 recorded_with: VCR 4.0.0

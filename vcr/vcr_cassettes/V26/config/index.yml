@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/configs"
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/configs"
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:56:29 GMT
+      - Thu, 21 Feb 2019 02:42:28 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -38,10 +38,10 @@ http_interactions:
       encoding: UTF-8
       string: "{}"
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:56:29 GMT
+  recorded_at: Thu, 21 Feb 2019 02:42:28 GMT
 - request:
     method: get
-    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/configs"
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/configs"
     body:
       encoding: US-ASCII
       string: ''
@@ -60,7 +60,7 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:56:30 GMT
+      - Thu, 21 Feb 2019 02:42:28 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -77,10 +77,10 @@ http_interactions:
       encoding: UTF-8
       string: "{}"
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:56:30 GMT
+  recorded_at: Thu, 21 Feb 2019 02:42:28 GMT
 - request:
     method: get
-    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/configs"
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/configs"
     body:
       encoding: US-ASCII
       string: ''
@@ -99,7 +99,7 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:56:32 GMT
+      - Thu, 21 Feb 2019 02:42:28 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -116,5 +116,5 @@ http_interactions:
       encoding: UTF-8
       string: "{}"
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:56:32 GMT
+  recorded_at: Thu, 21 Feb 2019 02:42:28 GMT
 recorded_with: VCR 4.0.0
