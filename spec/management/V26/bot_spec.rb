@@ -6,40 +6,43 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
   end
 
   describe "#bots" do
+    let(:project_id) { 48 }
+    let(:bot_id) { "test_bot" }
+
     it "bots not found" do
       VCR.use_cassette("/V26/bot/index_not_found") do
-        bots = DocomoNlu::Management::V26::Bot.all(params: { project_id: 4 })
+        bots = DocomoNlu::Management::V26::Bot.all(params: { project_id: project_id })
         expect(bots).to eq []
       end
     end
 
     it "Create a bot" do
       VCR.use_cassette("/V26/bot/create") do
-        bot = DocomoNlu::Management::V26::Bot.new(botId: "test_bot", scenarioProjectId: "DSU", language: "ja-JP", description: "for test")
-        bot.prefix_options["project_id"] = 1
+        bot = DocomoNlu::Management::V26::Bot.new(botId: bot_id, scenarioProjectId: "DSU", language: "ja-JP", description: "for test")
+        bot.prefix_options["project_id"] = project_id
         expect(bot.save).to eq true
       end
     end
 
     it "Get all bots" do
       VCR.use_cassette("/V26/bot/index") do
-        bots = DocomoNlu::Management::V26::Bot.all(params: { project_id: 1 })
+        bots = DocomoNlu::Management::V26::Bot.all(params: { project_id: project_id })
         expect(bots.first.botId).not_to be_nil
       end
     end
 
     it "Conflict bot Id" do
       VCR.use_cassette("/V26/bot/create_conflict") do
-        bot = DocomoNlu::Management::V26::Bot.new(botId: "test_bot", scenarioProjectId: "DSU", language: "ja-JP", description: "for test")
-        bot.prefix_options["project_id"] = 1
+        bot = DocomoNlu::Management::V26::Bot.new(botId: bot_id, scenarioProjectId: "DSU", language: "ja-JP", description: "for test")
+        bot.prefix_options["project_id"] = project_id
         expect { bot.save }.to raise_error(ActiveResource::ResourceConflict)
       end
     end
 
     it "Get an bot" do
       VCR.use_cassette("/V26/bot/show") do
-        bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
-        expect(bot.id).to eq "test_bot"
+        bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
+        expect(bot.id).to eq bot_id
       end
     end
 
@@ -47,7 +50,7 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
       context "Upload file" do
         it "Upload AIML" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/upload_aiml") do
               bot.prefix_options[:method] = :aiml
               response = bot.upload(stub_file("test.aiml"))
@@ -58,7 +61,7 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
 
         it "Upload dat" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/upload_dat") do
               bot.prefix_options[:method] = :dat
               response = bot.upload(stub_file("test.dat"))
@@ -69,7 +72,7 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
 
         it "Upload zip" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/upload_archive") do
               bot.prefix_options[:method] = :archive
               response = bot.upload(stub_file("test.zip"))
@@ -82,7 +85,7 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
       context "Deploy bot" do
         it "Use deppoy()" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/deploy") do
               expect(bot.deploy).to eq true
             end
@@ -93,7 +96,7 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
       context "Download file using instance" do
         it "Download AIML" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/download_aiml") do
               bot.prefix_options[:method] = :aiml
               bot.download("test")
@@ -104,7 +107,7 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
 
         it "Download dat" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/download_dat") do
               bot.prefix_options[:method] = :dat
               bot.download
@@ -115,7 +118,7 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
 
         it "Download zip" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/download_archive") do
               bot.prefix_options[:method] = :archive
               bot.download
@@ -130,14 +133,14 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
       context "userDic" do
         it "Upload" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/upload_userDic") do
             end
           end
         end
         it "Status" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/status_userDic") do
             end
           end
@@ -147,21 +150,21 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
       context "stopkey" do
         it "Upload" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/upload_stopkey") do
             end
           end
         end
         it "Download" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/download_stopkey") do
             end
           end
         end
         it "Status" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/status_stopkey") do
             end
           end
@@ -171,21 +174,21 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
       context "truthlist" do
         it "Upload" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/upload_truthlist") do
             end
           end
         end
         it "Download" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/download_truthlist") do
             end
           end
         end
         it "Status" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/status_truthlist") do
             end
           end
@@ -195,14 +198,14 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
       context "entry" do
         it "Upload" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/upload_entry") do
             end
           end
         end
         it "Status" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/status_entry") do
             end
           end
@@ -212,7 +215,7 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
 
     it "Delete an bot" do
       VCR.use_cassette("/V26/bot/show") do
-        bot = DocomoNlu::Management::V26::Bot.find("test_bot", params: { project_id: 1 })
+        bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
         VCR.use_cassette("/V26/bot/delete") do
           expect(bot.destroy.code).to eq "204"
         end
