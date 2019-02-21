@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/scenarios/"
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/scenarios/"
     body:
       encoding: UTF-8
       string: '{"userScenarios":[{"scenarioId":"test_scenario","description":"test","compileFlag":true}],"templateScenarios":null}'
@@ -23,7 +23,7 @@ http_interactions:
       message: '204'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:54:39 GMT
+      - Thu, 21 Feb 2019 02:32:06 GMT
       Connection:
       - keep-alive
       Server:
@@ -36,5 +36,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:54:39 GMT
+  recorded_at: Thu, 21 Feb 2019 02:32:07 GMT
 recorded_with: VCR 4.0.0
