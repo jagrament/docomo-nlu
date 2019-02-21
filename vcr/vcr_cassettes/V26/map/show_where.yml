@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/maps/test"
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/maps/test"
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:55:38 GMT
+      - Thu, 21 Feb 2019 02:16:27 GMT
       Content-Length:
       - '190'
       Connection:
@@ -39,5 +39,5 @@ http_interactions:
       string: !binary |-
         I21vZGU6c3VyZmFjZQrjgarjgpPjgbAJ5aSn5Z2CCuODiOOCpuOCreODp+ODvAnmnbHkuqwK5aSn5Z2CCeWkp+WdggrlsI/nlLDljp8J56We5aWI5bedCuadseS6rAnmnbHkuqwK5qiq5rWcCeelnuWliOW3nQrmqKrpoIjos4AJ56We5aWI5bedCua5mOWNlwnnpZ7lpYjlt50K56We5aWI5bedCeelnuWliOW3nQrpg73lhoUJ5p2x5LqsCg==
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:55:38 GMT
+  recorded_at: Thu, 21 Feb 2019 02:16:27 GMT
 recorded_with: VCR 4.0.0
