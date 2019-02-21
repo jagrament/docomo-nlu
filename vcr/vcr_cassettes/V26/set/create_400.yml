@@ -2,19 +2,19 @@
 http_interactions:
 - request:
     method: put
-    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/sets"
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/sets"
     body:
       encoding: UTF-8
-      string: "-------------RubyMultipartPost-9782e5b152c02384680b51b00c45807d\r\nContent-Disposition:
+      string: "-------------RubyMultipartPost-0d62a8c512a017db7a1f0b062e59a825\r\nContent-Disposition:
         form-data; name=\"uploadFile\"; filename=\"error.set\"\r\nContent-Length:
-        6\r\nContent-Type: text/plain\r\nContent-Transfer-Encoding: binary\r\n\r\nok\nok\n\r\n-------------RubyMultipartPost-9782e5b152c02384680b51b00c45807d--\r\n\r\n"
+        6\r\nContent-Type: text/plain\r\nContent-Transfer-Encoding: binary\r\n\r\nok\nok\n\r\n-------------RubyMultipartPost-0d62a8c512a017db7a1f0b062e59a825--\r\n\r\n"
     headers:
       User-Agent:
       - Faraday v0.15.3
       Authorization:
       - "<AdminAccessToken>"
       Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost-9782e5b152c02384680b51b00c45807d
+      - multipart/form-data; boundary=-----------RubyMultipartPost-0d62a8c512a017db7a1f0b062e59a825
       Content-Length:
       - '297'
       Accept-Encoding:
@@ -27,7 +27,7 @@ http_interactions:
       message: '409'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:55:52 GMT
+      - Thu, 21 Feb 2019 02:28:34 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -44,5 +44,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"error":"duplicated","keys":["ok"]}'
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:55:52 GMT
+  recorded_at: Thu, 21 Feb 2019 02:28:34 GMT
 recorded_with: VCR 4.0.0
