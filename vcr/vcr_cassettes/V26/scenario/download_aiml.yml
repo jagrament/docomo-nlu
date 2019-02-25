@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/aiml/test"
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/aiml/test"
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:54:58 GMT
+      - Thu, 21 Feb 2019 02:32:07 GMT
       Content-Length:
       - '403'
       Connection:
@@ -39,5 +39,5 @@ http_interactions:
       string: !binary |-
         PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGFpbWwgdmVyc2lvbj0iMi4wLjAiIHhtbG5zPSJodHRwOi8vd3d3Lm50dGRvY29tby5jb20vYWltbC9zY2hlbWEiIHhtbG5zOmh0bWw9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL3d3dy5udHRkb2NvbW8uY29tL2FpbWwvc2NoZW1hL0FJTUwueHNkIj4KICA8Y2F0ZWdvcnk+CiAgICA8cGF0dGVybj4qPC9wYXR0ZXJuPgogICAgPHRlbXBsYXRlPgogICAgICBIZWxsbywgd29ybGQhCiAgICAgIOOBk+OCk+OBq+OBoeOBrwogICAgPC90ZW1wbGF0ZT4KICA8L2NhdGVnb3J5Pgo8L2FpbWw+Cg==
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:54:58 GMT
+  recorded_at: Thu, 21 Feb 2019 02:32:07 GMT
 recorded_with: VCR 4.0.0

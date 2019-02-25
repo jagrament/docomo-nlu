@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: "<Host>/management/v2.6/projects/1/bots"
+    uri: "<Host>/management/<Version>/projects/48/bots"
     body:
       encoding: UTF-8
       string: '{"botId":"test_bot","scenarioProjectId":"DSU","language":"ja-JP","description":"for
@@ -24,7 +24,7 @@ http_interactions:
       message: '201'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:50:02 GMT
+      - Thu, 21 Feb 2019 02:03:43 GMT
       Content-Length:
       - '0'
       Connection:
@@ -39,5 +39,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:50:02 GMT
+  recorded_at: Thu, 21 Feb 2019 02:03:43 GMT
 recorded_with: VCR 4.0.0

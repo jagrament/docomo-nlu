@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: "<Host>/management/v2.6/projects/5"
+    uri: "<Host>/management/<Version>/projects/42"
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       message: '204'
     headers:
       Date:
-      - Wed, 14 Nov 2018 05:02:41 GMT
+      - Wed, 20 Feb 2019 08:12:38 GMT
       Connection:
       - keep-alive
       Server:
@@ -34,5 +34,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 05:02:41 GMT
+  recorded_at: Wed, 20 Feb 2019 08:12:38 GMT
 recorded_with: VCR 4.0.0

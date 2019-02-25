@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<Host>/management/v2.6/organizations/4"
+    uri: "<Host>/management/<Version>/organizations/40"
     body:
       encoding: US-ASCII
       string: ''
@@ -21,11 +21,11 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Wed, 14 Nov 2018 05:06:02 GMT
+      - Wed, 20 Feb 2019 06:40:10 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '101'
+      - '102'
       Connection:
       - keep-alive
       Server:
@@ -36,7 +36,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"organizationId":4,"address":"test_address","tel":"test_tel","organizationName":"test_organization"}'
+      string: '{"organizationId":40,"address":"test_address","tel":"test_tel","organizationName":"test_organization"}'
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 05:06:02 GMT
+  recorded_at: Wed, 20 Feb 2019 06:40:10 GMT
 recorded_with: VCR 4.0.0

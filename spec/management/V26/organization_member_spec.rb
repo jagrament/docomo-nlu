@@ -6,24 +6,27 @@ RSpec.describe DocomoNlu::Management::V26::OrganizationMember do
   end
 
   describe "#organizationMembers" do
+    let(:organization_id) { 41 }
+    let(:account_id) { 42 }
+
     it "Add a member" do
       VCR.use_cassette("/V26/organization_member/create") do
-        member = DocomoNlu::Management::V26::OrganizationMember.new(accountIds: [{ accountId: 8 }])
-        member.prefix_options[:organization_id] = 1
+        member = DocomoNlu::Management::V26::OrganizationMember.new(accountIds: [{ accountId: account_id }])
+        member.prefix_options[:organization_id] = organization_id
         member.save
       end
     end
 
     it "Get members" do
       VCR.use_cassette("/V26/organization_member/index") do
-        member = DocomoNlu::Management::V26::OrganizationMember.all(params: { organization_id: 1 }).first
-        expect(member.accountId).to eq 8
+        member = DocomoNlu::Management::V26::OrganizationMember.all(params: { organization_id: organization_id }).first
+        expect(member.accountId).to eq account_id
       end
     end
 
     it "Delete a member" do
       VCR.use_cassette("/V26/organization_member/index") do
-        member = DocomoNlu::Management::V26::OrganizationMember.where(organization_id: 1).first
+        member = DocomoNlu::Management::V26::OrganizationMember.where(organization_id: organization_id).first
         VCR.use_cassette("/V26/organization_member/delete") do
           expect(member.destroy.code).to eq "204"
         end
@@ -39,15 +42,15 @@ RSpec.describe DocomoNlu::Management::V26::OrganizationMember do
 
     it "members not found" do
       VCR.use_cassette("/V26/organization_member/index_not_found") do
-        expect(DocomoNlu::Management::V26::OrganizationMember.where(organization_id: 1).first).
+        expect(DocomoNlu::Management::V26::OrganizationMember.where(organization_id: organization_id).first).
           to eq nil
       end
       VCR.use_cassette("/V26/organization_member/index_not_found") do
-        expect(DocomoNlu::Management::V26::OrganizationMember.find(:all, params: { organization_id: 1 }).first).
+        expect(DocomoNlu::Management::V26::OrganizationMember.find(:all, params: { organization_id: organization_id }).first).
           to eq nil
       end
       VCR.use_cassette("/V26/organization_member/index_not_found") do
-        expect(DocomoNlu::Management::V26::OrganizationMember.all(params: { organization_id: 1 }).first).
+        expect(DocomoNlu::Management::V26::OrganizationMember.all(params: { organization_id: organization_id }).first).
           to eq nil
       end
     end

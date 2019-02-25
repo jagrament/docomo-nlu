@@ -2,19 +2,19 @@
 http_interactions:
 - request:
     method: put
-    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/archive"
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/archive"
     body:
       encoding: UTF-8
-      string: "-------------RubyMultipartPost-6cc37f57cc2265ab105a16187519669e\r\nContent-Disposition:
+      string: "-------------RubyMultipartPost-bb1e3a7a45aade561e58cfe3b5dcc97a\r\nContent-Disposition:
         form-data; name=\"uploadFile\"; filename=\"test.zip\"\r\nContent-Length: 26\r\nContent-Type:
-        text/plain\r\nContent-Transfer-Encoding: binary\r\n\r\n#<File:0x00007fdf7a9681e0>\r\n-------------RubyMultipartPost-6cc37f57cc2265ab105a16187519669e--\r\n\r\n"
+        text/plain\r\nContent-Transfer-Encoding: binary\r\n\r\n#<File:0x00007fdf7a9681e0>\r\n-------------RubyMultipartPost-bb1e3a7a45aade561e58cfe3b5dcc97a--\r\n\r\n"
     headers:
       User-Agent:
       - Faraday v0.15.3
       Authorization:
       - "<AdminAccessToken>"
       Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost-6cc37f57cc2265ab105a16187519669e
+      - multipart/form-data; boundary=-----------RubyMultipartPost-bb1e3a7a45aade561e58cfe3b5dcc97a
       Content-Length:
       - '317'
       Accept-Encoding:
@@ -27,7 +27,7 @@ http_interactions:
       message: '201'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:50:06 GMT
+      - Thu, 21 Feb 2019 02:05:12 GMT
       Content-Length:
       - '0'
       Connection:
@@ -42,5 +42,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:50:06 GMT
+  recorded_at: Thu, 21 Feb 2019 02:05:12 GMT
 recorded_with: VCR 4.0.0

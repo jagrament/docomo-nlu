@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/scenarios"
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/scenarios"
     body:
       encoding: US-ASCII
       string: ''
@@ -21,11 +21,11 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:54:37 GMT
+      - Thu, 21 Feb 2019 02:32:06 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '301'
+      - '170'
       Connection:
       - keep-alive
       Server:
@@ -36,8 +36,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"userScenarios":[{"scenarioId":"test","description":"","compileFlag":true,"compilable":true,"authoring":false,"lastModified":"2018-11-14
-        13:50:05"},{"scenarioId":"test_scenario","description":"test","compileFlag":true,"compilable":false,"authoring":false,"lastModified":""}],"templateScenarios":null}'
+      string: '{"userScenarios":[{"scenarioId":"test_scenario","description":"test","compileFlag":true,"compilable":false,"authoring":false,"lastModified":""}],"templateScenarios":null}'
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:54:38 GMT
+  recorded_at: Thu, 21 Feb 2019 02:32:06 GMT
 recorded_with: VCR 4.0.0

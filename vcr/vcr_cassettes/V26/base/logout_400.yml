@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<Host>/management/v2.6/logout"
+    uri: "<Host>/management/<Version>/logout"
     body:
       encoding: US-ASCII
       string: ''
@@ -21,11 +21,11 @@ http_interactions:
       message: '401'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:32:32 GMT
+      - Wed, 20 Feb 2019 07:44:09 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
-      - '1068'
+      - '1097'
       Connection:
       - keep-alive
       Server:
@@ -35,11 +35,11 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       Content-Language:
-      - en
+      - ja
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        PCFkb2N0eXBlIGh0bWw+PGh0bWwgbGFuZz0iZW4iPjxoZWFkPjx0aXRsZT5IVFRQIFN0YXR1cyA0MDEg4oCTIFVuYXV0aG9yaXplZDwvdGl0bGU+PHN0eWxlIHR5cGU9InRleHQvY3NzIj5oMSB7Zm9udC1mYW1pbHk6VGFob21hLEFyaWFsLHNhbnMtc2VyaWY7Y29sb3I6d2hpdGU7YmFja2dyb3VuZC1jb2xvcjojNTI1RDc2O2ZvbnQtc2l6ZToyMnB4O30gaDIge2ZvbnQtZmFtaWx5OlRhaG9tYSxBcmlhbCxzYW5zLXNlcmlmO2NvbG9yOndoaXRlO2JhY2tncm91bmQtY29sb3I6IzUyNUQ3Njtmb250LXNpemU6MTZweDt9IGgzIHtmb250LWZhbWlseTpUYWhvbWEsQXJpYWwsc2Fucy1zZXJpZjtjb2xvcjp3aGl0ZTtiYWNrZ3JvdW5kLWNvbG9yOiM1MjVENzY7Zm9udC1zaXplOjE0cHg7fSBib2R5IHtmb250LWZhbWlseTpUYWhvbWEsQXJpYWwsc2Fucy1zZXJpZjtjb2xvcjpibGFjaztiYWNrZ3JvdW5kLWNvbG9yOndoaXRlO30gYiB7Zm9udC1mYW1pbHk6VGFob21hLEFyaWFsLHNhbnMtc2VyaWY7Y29sb3I6d2hpdGU7YmFja2dyb3VuZC1jb2xvcjojNTI1RDc2O30gcCB7Zm9udC1mYW1pbHk6VGFob21hLEFyaWFsLHNhbnMtc2VyaWY7YmFja2dyb3VuZDp3aGl0ZTtjb2xvcjpibGFjaztmb250LXNpemU6MTJweDt9IGEge2NvbG9yOmJsYWNrO30gYS5uYW1lIHtjb2xvcjpibGFjazt9IC5saW5lIHtoZWlnaHQ6MXB4O2JhY2tncm91bmQtY29sb3I6IzUyNUQ3Njtib3JkZXI6bm9uZTt9PC9zdHlsZT48L2hlYWQ+PGJvZHk+PGgxPkhUVFAgU3RhdHVzIDQwMSDigJMgVW5hdXRob3JpemVkPC9oMT48aHIgY2xhc3M9ImxpbmUiIC8+PHA+PGI+VHlwZTwvYj4gU3RhdHVzIFJlcG9ydDwvcD48cD48Yj5NZXNzYWdlPC9iPiBVbmF1dGhvcml6ZWQ8L3A+PHA+PGI+RGVzY3JpcHRpb248L2I+IFRoZSByZXF1ZXN0IGhhcyBub3QgYmVlbiBhcHBsaWVkIGJlY2F1c2UgaXQgbGFja3MgdmFsaWQgYXV0aGVudGljYXRpb24gY3JlZGVudGlhbHMgZm9yIHRoZSB0YXJnZXQgcmVzb3VyY2UuPC9wPjxociBjbGFzcz0ibGluZSIgLz48aDM+QXBhY2hlIFRvbWNhdC84LjUuMzQ8L2gzPjwvYm9keT48L2h0bWw+
+        PCFkb2N0eXBlIGh0bWw+PGh0bWwgbGFuZz0iamEiPjxoZWFkPjx0aXRsZT5IVFRQ44K544OG44O844K/44K5IDQwMSAtIFVuYXV0aG9yaXplZDwvdGl0bGU+PHN0eWxlIHR5cGU9InRleHQvY3NzIj5oMSB7Zm9udC1mYW1pbHk6VGFob21hLEFyaWFsLHNhbnMtc2VyaWY7Y29sb3I6d2hpdGU7YmFja2dyb3VuZC1jb2xvcjojNTI1RDc2O2ZvbnQtc2l6ZToyMnB4O30gaDIge2ZvbnQtZmFtaWx5OlRhaG9tYSxBcmlhbCxzYW5zLXNlcmlmO2NvbG9yOndoaXRlO2JhY2tncm91bmQtY29sb3I6IzUyNUQ3Njtmb250LXNpemU6MTZweDt9IGgzIHtmb250LWZhbWlseTpUYWhvbWEsQXJpYWwsc2Fucy1zZXJpZjtjb2xvcjp3aGl0ZTtiYWNrZ3JvdW5kLWNvbG9yOiM1MjVENzY7Zm9udC1zaXplOjE0cHg7fSBib2R5IHtmb250LWZhbWlseTpUYWhvbWEsQXJpYWwsc2Fucy1zZXJpZjtjb2xvcjpibGFjaztiYWNrZ3JvdW5kLWNvbG9yOndoaXRlO30gYiB7Zm9udC1mYW1pbHk6VGFob21hLEFyaWFsLHNhbnMtc2VyaWY7Y29sb3I6d2hpdGU7YmFja2dyb3VuZC1jb2xvcjojNTI1RDc2O30gcCB7Zm9udC1mYW1pbHk6VGFob21hLEFyaWFsLHNhbnMtc2VyaWY7YmFja2dyb3VuZDp3aGl0ZTtjb2xvcjpibGFjaztmb250LXNpemU6MTJweDt9IGEge2NvbG9yOmJsYWNrO30gYS5uYW1lIHtjb2xvcjpibGFjazt9IC5saW5lIHtoZWlnaHQ6MXB4O2JhY2tncm91bmQtY29sb3I6IzUyNUQ3Njtib3JkZXI6bm9uZTt9PC9zdHlsZT48L2hlYWQ+PGJvZHk+PGgxPkhUVFDjgrnjg4bjg7zjgr/jgrkgNDAxIC0gVW5hdXRob3JpemVkPC9oMT48aHIgY2xhc3M9ImxpbmUiIC8+PHA+PGI+VHlwZTwvYj4g44K544OG44O844K/44K544Os44Od44O844OIPC9wPjxwPjxiPuODoeODg+OCu+ODvOOCuDwvYj4gVW5hdXRob3JpemVkPC9wPjxwPjxiPuiqrOaYjjwvYj4gVGhlIHJlcXVlc3QgaGFzIG5vdCBiZWVuIGFwcGxpZWQgYmVjYXVzZSBpdCBsYWNrcyB2YWxpZCBhdXRoZW50aWNhdGlvbiBjcmVkZW50aWFscyBmb3IgdGhlIHRhcmdldCByZXNvdXJjZS48L3A+PGhyIGNsYXNzPSJsaW5lIiAvPjxoMz5BcGFjaGUgVG9tY2F0LzguNS4zNDwvaDM+PC9ib2R5PjwvaHRtbD4=
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:32:32 GMT
+  recorded_at: Wed, 20 Feb 2019 07:44:09 GMT
 recorded_with: VCR 4.0.0

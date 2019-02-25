@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<Host>/management/v2.6/projects/5"
+    uri: "<Host>/management/<Version>/projects/42"
     body:
       encoding: US-ASCII
       string: ''
@@ -21,11 +21,11 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Wed, 14 Nov 2018 05:02:41 GMT
+      - Wed, 20 Feb 2019 08:12:38 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '114'
+      - '115'
       Connection:
       - keep-alive
       Server:
@@ -36,8 +36,8 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"projects":[{"projectId":5,"projectName":"testproject","organizationId":1,"createDate":"2018-11-14
-        14:01:19.0"}]}'
+      string: '{"projects":[{"projectId":42,"projectName":"testproject","organizationId":1,"createDate":"2019-02-20
+        17:12:24.0"}]}'
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 05:02:41 GMT
+  recorded_at: Wed, 20 Feb 2019 08:12:38 GMT
 recorded_with: VCR 4.0.0

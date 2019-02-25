@@ -6,11 +6,14 @@ RSpec.describe DocomoNlu::Management::V26::Set do
   end
 
   describe "#sets" do
+    let(:project_id) { 48 }
+    let(:bot_id) { "test_bot" }
+
     context "Invalid File Upload" do
       it "Use class method create()" do
         VCR.use_cassette("/V26/set/create_400") do
           file = File.new(File.join("spec", "fixtures", "management", "error.set"))
-          prefix_options = { project_id: 1, bot_id: "test_bot" }
+          prefix_options = { project_id: project_id, bot_id: bot_id }
           expect { DocomoNlu::Management::V26::Set.create(file, prefix_options) }.to raise_error(ActiveResource::ResourceConflict)
         end
       end
@@ -18,7 +21,7 @@ RSpec.describe DocomoNlu::Management::V26::Set do
         VCR.use_cassette("/V26/set/save_400") do
           set = DocomoNlu::Management::V26::Set.new
           set.file = File.new(File.join("spec", "fixtures", "management", "error.set"))
-          set.prefix_options = { project_id: 1, bot_id: "test_bot" }
+          set.prefix_options = { project_id: project_id, bot_id: bot_id }
           expect { set.save }.to raise_error(ActiveResource::ResourceConflict)
         end
       end
@@ -27,19 +30,19 @@ RSpec.describe DocomoNlu::Management::V26::Set do
     context "Download zip" do
       it "Use all" do
         VCR.use_cassette("/V26/set/index_all") do
-          set = DocomoNlu::Management::V26::Set.all(params: { project_id: 1, bot_id: "test_bot" })
+          set = DocomoNlu::Management::V26::Set.all(params: { project_id: project_id, bot_id: bot_id })
           expect(set.file.size).not_to be 0
         end
       end
       it "Use find" do
         VCR.use_cassette("/V26/set/index_find") do
-          set = DocomoNlu::Management::V26::Set.find(nil, params: { project_id: 1, bot_id: "test_bot" })
+          set = DocomoNlu::Management::V26::Set.find(nil, params: { project_id: project_id, bot_id: bot_id })
           expect(set.file.size).not_to be 0
         end
       end
       it "Use find" do
         VCR.use_cassette("/V26/set/index_where") do
-          set = DocomoNlu::Management::V26::Set.where(project_id: 1, bot_id: "test_bot")
+          set = DocomoNlu::Management::V26::Set.where(project_id: project_id, bot_id: bot_id)
           expect(set.file.size).not_to be 0
         end
       end
@@ -48,7 +51,7 @@ RSpec.describe DocomoNlu::Management::V26::Set do
     context "Upload set" do
       it "Use class method create()" do
         VCR.use_cassette("/V26/set/create") do
-          res = DocomoNlu::Management::V26::Set.create(File.new(File.join("spec", "fixtures", "management", "test.set")), project_id: 1, bot_id: "test_bot")
+          res = DocomoNlu::Management::V26::Set.create(File.new(File.join("spec", "fixtures", "management", "test.set")), project_id: project_id, bot_id: bot_id)
           expect(res).to be_truthy
         end
       end
@@ -56,7 +59,7 @@ RSpec.describe DocomoNlu::Management::V26::Set do
         VCR.use_cassette("/V26/set/save") do
           set = DocomoNlu::Management::V26::Set.new
           set.file = File.new(File.join("spec", "fixtures", "management", "test.set"))
-          set.prefix_options = { project_id: 1, bot_id: "test_bot" }
+          set.prefix_options = { project_id: project_id, bot_id: bot_id }
           expect(set.save).to be_truthy
         end
       end
@@ -65,13 +68,13 @@ RSpec.describe DocomoNlu::Management::V26::Set do
     context "Download set" do
       it "Use find" do
         VCR.use_cassette("/V26/set/show_find") do
-          set = DocomoNlu::Management::V26::Set.find("test", params: { project_id: 1, bot_id: "test_bot" })
+          set = DocomoNlu::Management::V26::Set.find("test", params: { project_id: project_id, bot_id: bot_id })
           expect(set.file.size).not_to be 0
         end
       end
       it "Use where" do
         VCR.use_cassette("/V26/set/show_where") do
-          set = DocomoNlu::Management::V26::Set.where(category: "test", project_id: 1, bot_id: "test_bot")
+          set = DocomoNlu::Management::V26::Set.where(category: "test", project_id: project_id, bot_id: bot_id)
           expect(set.file.size).not_to be 0
         end
       end
@@ -80,7 +83,7 @@ RSpec.describe DocomoNlu::Management::V26::Set do
     context "Delete set" do
       it "use destroy" do
         VCR.use_cassette("/V26/set/show_find") do
-          set = DocomoNlu::Management::V26::Set.find("test", params: { project_id: 1, bot_id: "test_bot" })
+          set = DocomoNlu::Management::V26::Set.find("test", params: { project_id: project_id, bot_id: bot_id })
           VCR.use_cassette("/V26/set/delete") do
             expect(set.destroy.code).to eq "204"
           end

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<Host>/management/v2.6/providers/7"
+    uri: "<Host>/management/<Version>/providers/43"
     body:
       encoding: US-ASCII
       string: ''
@@ -21,11 +21,11 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:53:25 GMT
+      - Wed, 20 Feb 2019 07:02:26 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '70'
+      - '72'
       Connection:
       - keep-alive
       Server:
@@ -36,7 +36,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"providerId":7,"organizationId":4,"serverId":"DSU","serverKind":"SS"}'
+      string: '{"providerId":43,"organizationId":40,"serverId":"DSU","serverKind":"SS"}'
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:53:26 GMT
+  recorded_at: Wed, 20 Feb 2019 07:02:26 GMT
 recorded_with: VCR 4.0.0

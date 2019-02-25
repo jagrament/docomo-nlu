@@ -2,18 +2,18 @@
 http_interactions:
 - request:
     method: put
-    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/maps"
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/maps"
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWU3YTY1NGI4YzAwYmZlZWIxNDhhYTkxMDJiZWMzZGEwDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InVwbG9hZEZpbGUiOyBmaWxlbmFtZT0iZXJyb3IubWFwIg0KQ29udGVudC1MZW5ndGg6IDI0DQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW4NCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IGJpbmFyeQ0KDQrmnbHkuqwgIOOBqOOBhuOBjeOCh+OBhgoNCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC1lN2E2NTRiOGMwMGJmZWViMTQ4YWE5MTAyYmVjM2RhMC0tDQoNCg==
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWVhMWM2YzEzNjA5OTQyMjExNTJhOTgwOTgzODIwZjM5DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InVwbG9hZEZpbGUiOyBmaWxlbmFtZT0iZXJyb3IubWFwIg0KQ29udGVudC1MZW5ndGg6IDI0DQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW4NCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IGJpbmFyeQ0KDQrmnbHkuqwgIOOBqOOBhuOBjeOCh+OBhgoNCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC1lYTFjNmMxMzYwOTk0MjIxMTUyYTk4MDk4MzgyMGYzOS0tDQoNCg==
     headers:
       User-Agent:
       - Faraday v0.15.3
       Authorization:
       - "<AdminAccessToken>"
       Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost-e7a654b8c00bfeeb148aa9102bec3da0
+      - multipart/form-data; boundary=-----------RubyMultipartPost-ea1c6c1360994221152a980983820f39
       Content-Length:
       - '316'
       Accept-Encoding:
@@ -26,7 +26,7 @@ http_interactions:
       message: '400'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:55:29 GMT
+      - Thu, 21 Feb 2019 02:16:27 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -44,5 +44,5 @@ http_interactions:
       string: !binary |-
         eyJlcnJvciI6IkZpbGUgZXJyb3IiLCJkZXRhaWxzIjpbeyJmaWxlIjoiZXJyb3IubWFwIiwibWVzc2FnZSI6ImludmFsaWQgY29sdW1ucyBjb3VudDog5p2x5LqsICDjgajjgYbjgY3jgofjgYYifV19
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:55:30 GMT
+  recorded_at: Thu, 21 Feb 2019 02:16:27 GMT
 recorded_with: VCR 4.0.0
