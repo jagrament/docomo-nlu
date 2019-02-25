@@ -2,8 +2,6 @@
 
 module DocomoNlu
   class Spontaneous < ActiveResource::Base
-    attr_reader :result
-    attr_reader :error
     cattr_accessor :static_headers
     self.site = DocomoNlu.config.nlu_host
 
@@ -46,7 +44,7 @@ module DocomoNlu
         @attributes[k] ||= v
       end
       res = connection.post("/SpontaneousDialogueServer/dialogue", @attributes.to_json, self.class.headers)
-      @result = JSON.parse(res.body)
+      return JSON.parse(res.body)
     end
 
     class << self
