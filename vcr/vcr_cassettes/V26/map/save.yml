@@ -2,18 +2,18 @@
 http_interactions:
 - request:
     method: put
-    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/maps"
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/maps"
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LTQ2MmM0NzFjNDY4Y2FiOTQ3YzJhNGY0NTJhNzg4Yzc0DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InVwbG9hZEZpbGUiOyBmaWxlbmFtZT0idGVzdC5tYXAiDQpDb250ZW50LUxlbmd0aDogMTc2DQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW4NCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IGJpbmFyeQ0KDQrmnbHkuqwJ5p2x5LqsCuODiOOCpuOCreODp+ODvAnmnbHkuqwK6YO95YaFCeadseS6rArlpKflnYIJ5aSn5Z2CCuOBquOCk+OBsAnlpKflnYIK56We5aWI5bedCeelnuWliOW3nQrmqKrmtZwJ56We5aWI5bedCuaoqumgiOizgAnnpZ7lpYjlt50K5rmY5Y2XCeelnuWliOW3nQrlsI/nlLDljp8J56We5aWI5bedCg0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LTQ2MmM0NzFjNDY4Y2FiOTQ3YzJhNGY0NTJhNzg4Yzc0LS0NCg0K
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWY2OWU5ZGNmZGNhOThhZWQxZDA3MGMxNDRhNzgxNjhhDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InVwbG9hZEZpbGUiOyBmaWxlbmFtZT0idGVzdC5tYXAiDQpDb250ZW50LUxlbmd0aDogMTc2DQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW4NCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IGJpbmFyeQ0KDQrmnbHkuqwJ5p2x5LqsCuODiOOCpuOCreODp+ODvAnmnbHkuqwK6YO95YaFCeadseS6rArlpKflnYIJ5aSn5Z2CCuOBquOCk+OBsAnlpKflnYIK56We5aWI5bedCeelnuWliOW3nQrmqKrmtZwJ56We5aWI5bedCuaoqumgiOizgAnnpZ7lpYjlt50K5rmY5Y2XCeelnuWliOW3nQrlsI/nlLDljp8J56We5aWI5bedCg0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWY2OWU5ZGNmZGNhOThhZWQxZDA3MGMxNDRhNzgxNjhhLS0NCg0K
     headers:
       User-Agent:
       - Faraday v0.15.3
       Authorization:
       - "<AdminAccessToken>"
       Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost-462c471c468cab947c2a4f452a788c74
+      - multipart/form-data; boundary=-----------RubyMultipartPost-f69e9dcfdca98aed1d070c144a78168a
       Content-Length:
       - '468'
       Accept-Encoding:
@@ -26,7 +26,7 @@ http_interactions:
       message: '201'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:55:35 GMT
+      - Thu, 21 Feb 2019 02:16:27 GMT
       Content-Length:
       - '0'
       Connection:
@@ -41,5 +41,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:55:35 GMT
+  recorded_at: Thu, 21 Feb 2019 02:16:27 GMT
 recorded_with: VCR 4.0.0

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<Host>/management/v2.6/organizations/1/members"
+    uri: "<Host>/management/<Version>/organizations/41/members"
     body:
       encoding: US-ASCII
       string: ''
@@ -21,11 +21,11 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:33:14 GMT
+      - Wed, 20 Feb 2019 07:53:41 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '32'
+      - '50'
       Connection:
       - keep-alive
       Server:
@@ -36,7 +36,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"accountIds":[{"accountId":8}]}'
+      string: '{"accountIds":[{"accountId":42},{"accountId":44}]}'
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:33:14 GMT
+  recorded_at: Wed, 20 Feb 2019 07:53:41 GMT
 recorded_with: VCR 4.0.0

@@ -6,6 +6,10 @@ RSpec.describe DocomoNlu::Management::V26::Project do
   end
 
   describe "#projects" do
+    let(:organization_id) { 1 }
+    let(:name) { "testproject" }
+    ID = nil
+
     it "Get all projects" do
       VCR.use_cassette("/V26/project/index") do
         projects = DocomoNlu::Management::V26::Project.all
@@ -15,28 +19,29 @@ RSpec.describe DocomoNlu::Management::V26::Project do
 
     it "Create an project" do
       VCR.use_cassette("/V26/project/create") do
-        project = DocomoNlu::Management::V26::Project.new(projectName: "testproject", organizationId: 1)
+        project = DocomoNlu::Management::V26::Project.new(projectName: name, organizationId: organization_id)
         expect(project.save).to eq true
+        ID = project.id
       end
     end
 
     it "Conflict project name" do
       VCR.use_cassette("/V26/project/create_conflict") do
-        project = DocomoNlu::Management::V26::Project.new(projectName: "testproject", organizationId: 1)
+        project = DocomoNlu::Management::V26::Project.new(projectName: name, organizationId: organization_id)
         expect { project.save }.to raise_error(ActiveResource::ResourceConflict)
       end
     end
 
     it "Get an project" do
       VCR.use_cassette("/V26/project/show") do
-        project = DocomoNlu::Management::V26::Project.find(5)
-        expect(project.id).to eq 5
+        project = DocomoNlu::Management::V26::Project.find(ID)
+        expect(project.id).to eq ID
       end
     end
 
     it "Delete an project" do
       VCR.use_cassette("/V26/project/show") do
-        project = DocomoNlu::Management::V26::Project.find(5)
+        project = DocomoNlu::Management::V26::Project.find(ID)
         VCR.use_cassette("/V26/project/delete") do
           expect(project.destroy.code).to eq "204"
         end

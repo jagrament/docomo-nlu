@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/sets/test"
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/sets/test"
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:56:03 GMT
+      - Thu, 21 Feb 2019 02:28:34 GMT
       Content-Length:
       - '105'
       Connection:
@@ -39,5 +39,5 @@ http_interactions:
       string: !binary |-
         I21vZGU6c3VyZmFjZQrjgarjgpPjgbAK44OI44Km44Kt44On44O8CuWkp+WdggrlsI/nlLDljp8K5p2x5LqsCuaoqua1nArmqKrpoIjos4AK5rmY5Y2XCuelnuWliOW3nQrpg73lhoUK
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:56:04 GMT
+  recorded_at: Thu, 21 Feb 2019 02:28:34 GMT
 recorded_with: VCR 4.0.0

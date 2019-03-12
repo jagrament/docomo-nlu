@@ -10,6 +10,8 @@ RSpec.describe DocomoNlu::Management::V26::Base do
 
   describe "#Authorization" do
     let(:admin_access_token) { DocomoNlu.config.admin_access_token }
+    let(:account) { "test_account" }
+    let(:password) { "testaccount20180821" }
 
     it "Login Error::BadRequest" do
       VCR.use_cassette("/V26/base/login_400") do
@@ -21,7 +23,7 @@ RSpec.describe DocomoNlu::Management::V26::Base do
     it "Login Success" do
       VCR.use_cassette("/V26/base/login") do
         base = DocomoNlu::Management::V26::Base.new
-        base.login("test_account", "testaccount20180821")
+        base.login(account, password)
         expect(base.access_token).not_to be_nil
         expect(base.access_token).not_to eq admin_access_token
       end
@@ -30,7 +32,7 @@ RSpec.describe DocomoNlu::Management::V26::Base do
     it "Logout Success" do
       VCR.use_cassette("/V26/base/login") do
         base = DocomoNlu::Management::V26::Base.new
-        base.login("test_account", "testaccount20180821")
+        base.login(account, password)
         VCR.use_cassette("/V26/base/logout") do
           expect(base.logout).to eq true
           expect(base.access_token).to eq nil

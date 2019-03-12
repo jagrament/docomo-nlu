@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<Host>/management/v2.6/projects/1/bots/test_bot/predicateNames"
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/predicateNames"
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Wed, 14 Nov 2018 04:57:29 GMT
+      - Thu, 21 Feb 2019 04:10:25 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -38,5 +38,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"predicateNames":["color"]}'
     http_version: 
-  recorded_at: Wed, 14 Nov 2018 04:57:30 GMT
+  recorded_at: Thu, 21 Feb 2019 04:10:25 GMT
 recorded_with: VCR 4.0.0
