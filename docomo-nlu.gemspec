@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "bundler"
   spec.add_dependency "faraday"
   spec.add_dependency "rake"
+  spec.add_dependency "rubyzip"
   spec.add_development_dependency "onkcop"
   spec.add_development_dependency "pry", "~> 0.11.3"
   spec.add_development_dependency "rails"
