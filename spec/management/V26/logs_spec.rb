@@ -5,7 +5,7 @@ RSpec.describe DocomoNlu::Management::V26::Logs do
     DocomoNlu::Management::V26::Base.access_token = DocomoNlu.config.admin_access_token
   end
 
-  describe "#bots" do
+  describe "#logs" do
     let(:project_id) { 176 }
     let(:params) { { details: [{ operation: "", target: "input", query: "Hello" }]} }
 
@@ -16,7 +16,7 @@ RSpec.describe DocomoNlu::Management::V26::Logs do
       end
     end
 
-    it "Get count qieru logs" do
+    it "Get count using query" do
       VCR.use_cassette("/V26/logs/count/query") do
         logs = DocomoNlu::Management::Logs.new(project_id: project_id)
         expect(logs.count(params)).not_to be_nil
