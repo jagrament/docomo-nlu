@@ -2,7 +2,7 @@
 
 module DocomoNlu
   module Management::V23
-    class BotLogs < Base
+    class BotLog < Base
     end
   end
 end

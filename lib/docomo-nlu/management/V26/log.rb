@@ -2,7 +2,7 @@
 
 module DocomoNlu
   module Management::V26
-    class Logs < Base
+    class Log < Base
       self.element_name = "logs"
       self.prefix = "/management/v2.6/projects/:project_id/"
 
@@ -26,9 +26,17 @@ module DocomoNlu
         return JSON.parse(connection.post("#{collection_path(prefix_options)}/count", params.to_json, self.class.headers).body)["count"]
       end
 
-      def all;   end
-      def find;  end
-      def where; end
+      def all
+        p "You shoud use 'download' or 'count' method"
+      end
+
+      def find
+        p "You shoud use 'download' or 'count' method"
+      end
+
+      def where
+        p "You shoud use 'download' or 'count' method"
+      end
     end
   end
 end

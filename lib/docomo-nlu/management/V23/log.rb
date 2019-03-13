@@ -2,7 +2,7 @@
 
 module DocomoNlu
   module Management::V23
-    class Logs < Base
+    class Log < Base
     end
   end
 end

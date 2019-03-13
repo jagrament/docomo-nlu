@@ -3,7 +3,7 @@ require "zip"
 
 module DocomoNlu
   module Management::V26
-    class BotLogs < Base
+    class BotLog < Base
       self.element_name = "botlogs"
       self.prefix = "/management/v2.6/projects/:project_id/"
 

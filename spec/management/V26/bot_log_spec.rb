@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe DocomoNlu::Management::V26::BotLogs do
+RSpec.describe DocomoNlu::Management::V26::BotLog do
   before do
     DocomoNlu::Management::V26::Base.access_token = DocomoNlu.config.admin_access_token
   end
@@ -9,7 +9,7 @@ RSpec.describe DocomoNlu::Management::V26::BotLogs do
     let(:project_id) { 176 }
     let(:bot_id) { "176_89_main" }
     let(:params) { { start: "20190312", end: "20190313" } }
-    let(:bot_logs) { DocomoNlu::Management::BotLogs.new(project_id: project_id) }
+    let(:bot_logs) { DocomoNlu::Management::BotLog.new(project_id: project_id) }
 
     it "Get all logs" do
       VCR.use_cassette("/V26/bot_logs") do
