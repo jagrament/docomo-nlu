@@ -20,13 +20,17 @@ module DocomoNlu
       end
 
       def download(bot_id, params = {})
-        file = self.class.download(prefix_options, bot_id, params)
-        self.class.unzip(file) do |name, body|
-          attributes[:logs] = body.map do |b|
-            JSON.parse(b)
-          end
+        attributes[:file] = self.class.download(prefix_options, bot_id, params.slice(:start, :end))
+        return attributes[:file]
+      end
+
+      def extract_data
+        return unless attributes[:file]
+        logs = []
+        self.class.unzip(attributes[:file]) do |name, body|
+          logs = body.map{ |b| JSON.parse(b) }
         end
-        return file
+        return logs
       end
 
       class << self
@@ -35,7 +39,7 @@ module DocomoNlu
             builder.adapter :net_http
           end
           conn.headers["Authorization"] = access_token
-          response = conn.get("#{collection_path(prefix_options)}?botId=#{bot_id}")
+          response = conn.get("#{collection_path(prefix_options)}?botId=#{bot_id}&#{params.to_query}")
 
           if check_response(response)
             Tempfile.open(["docomo-nlu", ".zip"]) do |f|

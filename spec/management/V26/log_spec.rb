@@ -11,25 +11,25 @@ RSpec.describe DocomoNlu::Management::V26::Log do
     let(:log) { DocomoNlu::Management::Log.new(project_id: project_id) }
 
     it "Get count all logs" do
-      VCR.use_cassette("/V26/logs/count") do
+      VCR.use_cassette("/V26/log/count/all") do
         expect(log.count).not_to be_nil
       end
     end
 
     it "Get count using query" do
-      VCR.use_cassette("/V26/logs/count/query") do
+      VCR.use_cassette("/V26/log/count/query") do
         expect(log.count(params)).not_to be_nil
       end
     end
 
     it "Get all logs" do
-      VCR.use_cassette("/V26/logs") do
+      VCR.use_cassette("/V26/log/all") do
         expect(log.download).not_to be_nil
       end
     end
 
     it "Get logs using query" do
-      VCR.use_cassette("/V26/logs/query") do
+      VCR.use_cassette("/V26/log/query") do
         expect(log.download(params)).not_to be_nil
       end
     end

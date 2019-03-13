@@ -9,19 +9,25 @@ RSpec.describe DocomoNlu::Management::V26::BotLog do
     let(:project_id) { 176 }
     let(:bot_id) { "176_89_main" }
     let(:params) { { start: "20190312", end: "20190313" } }
-    let(:bot_logs) { DocomoNlu::Management::BotLog.new(project_id: project_id) }
+    let(:bot_log) { DocomoNlu::Management::BotLog.new(project_id: project_id) }
 
     it "Get all logs" do
-      VCR.use_cassette("/V26/bot_logs") do
-        expect(bot_logs.download(bot_id).is_a? Tempfile).to be_truthy
-        expect(bot_logs.logs.blank?).to be_falsey
+      VCR.use_cassette("/V26/bot_log/all") do
+        expect(bot_log.download(bot_id).is_a? Tempfile).to be_truthy
+      end
+    end
+
+    it "Get all Logs and parse data" do
+      VCR.use_cassette("/V26/bot_log/all") do
+        bot_log.download(bot_id, { is_extract: true})
+        expect(bot_log.extract_data).to be_truthy
+        expect(bot_log.extract_data.is_a? Array).to be_truthy
       end
     end
 
     it "Get logs using query" do
-      VCR.use_cassette("/V26/bot_logs/query") do
-        expect(bot_logs.download(bot_id, params).is_a? Tempfile).to be_truthy
-        expect(bot_logs.logs.blank?).to be_falsey
+      VCR.use_cassette("/V26/bot_log/query") do
+        expect(bot_log.download(bot_id, params).is_a? Tempfile).to be_truthy
       end
     end
   end

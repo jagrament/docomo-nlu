@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<Host>management/<Version>/projects/176/logs"
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<AdminAccessToken>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Wed, 13 Mar 2019 08:01:56 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '817'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJsb2dzIjpbeyJ1c2VySWQiOiIwNWQ1YmY1Yy00ZjcyLTQ4MjEtYTM5NC05YjRlYmYyNmMzODgiLCJib3RJZCI6IjE3Nl84OV9tYWluIiwibGFuZ3VhZ2UiOiJqYS1KUCIsImlucHV0Ijoi44KE44GCIiwib3V0cHV0Ijoi44GT44KT44Gr44Gh44GvIiwicmVxdWVzdERhdGVUaW1lIjoiMjAxOS0wMy0xMyAxMzoxNzo1OS44NjYiLCJyZXNwb25zZVRpbWUiOiI2MSJ9LHsidXNlcklkIjoiMDVkNWJmNWMtNGY3Mi00ODIxLWEzOTQtOWI0ZWJmMjZjMzg4IiwiYm90SWQiOiIxNzZfODlfbWFpbiIsImxhbmd1YWdlIjoiamEtSlAiLCJpbnB1dCI6IuOBk+OCk+OBq+OBoeOBryIsIm91dHB1dCI6IuOBk+OCk+OBq+OBoeOBryIsInJlcXVlc3REYXRlVGltZSI6IjIwMTktMDMtMTMgMTM6MTc6MDkuNTc5IiwicmVzcG9uc2VUaW1lIjoiNzkifSx7InVzZXJJZCI6IjA1ZDViZjVjLTRmNzItNDgyMS1hMzk0LTliNGViZjI2YzM4OCIsImJvdElkIjoiMTc2Xzg5X21haW4iLCJsYW5ndWFnZSI6ImphLUpQIiwiaW5wdXQiOiLjgZPjgpPjgavjgaHjga8iLCJvdXRwdXQiOiLjgojjgYbjgZPjgZ0iLCJyZXF1ZXN0RGF0ZVRpbWUiOiIyMDE5LTAzLTEyIDE2OjExOjIxLjkzNSIsInJlc3BvbnNlVGltZSI6IjExOCJ9LHsidXNlcklkIjoiMDVkNWJmNWMtNGY3Mi00ODIxLWEzOTQtOWI0ZWJmMjZjMzg4IiwiYm90SWQiOiIxNzZfODlfbWFpbiIsImxhbmd1YWdlIjoiamEtSlAiLCJpbnB1dCI6InlhYSIsIm91dHB1dCI6IuOCiOOBhuOBk+OBnSIsInJlcXVlc3REYXRlVGltZSI6IjIwMTktMDMtMTIgMTY6MTE6MDEuNTUyIiwicmVzcG9uc2VUaW1lIjoiMTExIn1dfQ==
+    http_version: 
+  recorded_at: Wed, 13 Mar 2019 08:01:56 GMT
+recorded_with: VCR 4.0.0
