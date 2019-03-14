@@ -43,6 +43,7 @@ module DocomoNlu
 
           if check_response(response)
             Tempfile.open(["docomo-nlu", ".zip"]) do |f|
+              f.binmode
               f.write response.body
               f
             end
