@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "zip"
 
 module DocomoNlu
@@ -21,16 +22,17 @@ module DocomoNlu
 
       def download(bot_id, params = {})
         attributes[:file] = self.class.download(prefix_options, bot_id, params.slice(:start, :end))
-        return attributes[:file]
+        attributes[:file]
       end
 
       def extract_data
         return unless attributes[:file]
+
         logs = []
-        self.class.unzip(attributes[:file]) do |name, body|
-          logs = body.map{ |b| JSON.parse(b) }
+        self.class.unzip(attributes[:file]) do |_name, body|
+          logs = body.map {|b| JSON.parse(b) }
         end
-        return logs
+        logs
       end
 
       class << self
@@ -54,6 +56,7 @@ module DocomoNlu
           ::Zip::File.open(file.path) do |zf|
             zf.each do |entry|
               next unless entry.file?
+
               name = entry.name
               body = entry.get_input_stream.read.split(/\R/)
               yield name, body if block_given?

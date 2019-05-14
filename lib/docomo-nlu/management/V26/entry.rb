@@ -20,7 +20,6 @@ module DocomoNlu
       end
 
       class << self
-
         def check_status(prefix_options)
           JSON.parse(connection.get("#{collection_path(prefix_options)}/status", headers).body)
         end

@@ -44,7 +44,7 @@ module DocomoNlu
         @attributes[k] ||= v
       end
       res = connection.post("/SpontaneousDialogueServer/dialogue", @attributes.to_json, self.class.headers)
-      return JSON.parse(res.body)
+      JSON.parse(res.body)
     end
 
     class << self
