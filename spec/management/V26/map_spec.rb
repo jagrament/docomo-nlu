@@ -40,7 +40,7 @@ RSpec.describe DocomoNlu::Management::V26::Map do
           expect(map.file.size).not_to be 0
         end
       end
-      it "Use find" do
+      it "Use where" do
         VCR.use_cassette("/V26/map/index_where") do
           map = DocomoNlu::Management::V26::Map.where(project_id: project_id, bot_id: bot_id)
           expect(map.file.size).not_to be 0

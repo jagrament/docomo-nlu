@@ -45,9 +45,7 @@ RSpec.describe DocomoNlu::Management::V26::Scenario do
       VCR.use_cassette("/V26/scenario/show") do
         scenario = DocomoNlu::Management::V26::Scenario.find("test_scenario", params: { project_id: project_id, bot_id: bot_id })
         VCR.use_cassette("/V26/scenario/update") do
-          scenario.userScenarios.each do |us|
-            us.compileFlag = true
-          end
+          scenario.userScenarios.map {|us| us.compileFlag = true }
           expect(scenario.save).to eq true
         end
       end

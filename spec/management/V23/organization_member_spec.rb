@@ -42,10 +42,14 @@ RSpec.describe DocomoNlu::Management::V23::OrganizationMember do
         expect(DocomoNlu::Management::V23::OrganizationMember.where(organization_id: 215).first).
           to eq nil
       end
+    end
+    it "members not found" do
       VCR.use_cassette("/V23/organization_member/index_not_found") do
         expect(DocomoNlu::Management::V23::OrganizationMember.find(:all, params: { organization_id: 215 }).first).
           to eq nil
       end
+    end
+    it "members not found" do
       VCR.use_cassette("/V23/organization_member/index_not_found") do
         expect(DocomoNlu::Management::V23::OrganizationMember.all(params: { organization_id: 215 }).first).
           to eq nil

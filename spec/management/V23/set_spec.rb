@@ -37,7 +37,7 @@ RSpec.describe DocomoNlu::Management::V23::Set do
           expect(set.file.size).not_to be 0
         end
       end
-      it "Use find" do
+      it "Use where" do
         VCR.use_cassette("/V23/set/index_where") do
           set = DocomoNlu::Management::V23::Set.where(project_id: 212, bot_id: "test_bot")
           expect(set.file.size).not_to be 0

@@ -12,7 +12,8 @@ RSpec.describe DocomoNlu::Management::V26::Account do
 
     it "Create an account" do
       VCR.use_cassette("/V26/account/create") do
-        account = DocomoNlu::Management::V26::Account.new(accountName: "test_account", password: "testaccount20180821", authorization: 2, enable: true, eternity: true)
+        attributes = { accountName: "test_account", password: "testaccount20180821", authorization: 2, enable: true, eternity: true }
+        account = DocomoNlu::Management::V26::Account.new(attributes)
         account.save
         expect(account.accountId).not_to be_nil
         ID = account.id
