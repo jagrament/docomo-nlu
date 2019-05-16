@@ -51,7 +51,7 @@ RSpec.describe DocomoNlu::Management::V26::Map do
     context "Upload map" do
       it "Use class method create()" do
         VCR.use_cassette("/V26/map/create") do
-          attributes = { project_id: project_id, bot_id: bot_id } 
+          attributes = { project_id: project_id, bot_id: bot_id }
           res = DocomoNlu::Management::V26::Map.create(File.new(File.join("spec", "fixtures", "management", "test.map")), attributes)
           expect(res).to be_truthy
         end
