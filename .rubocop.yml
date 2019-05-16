@@ -9,7 +9,6 @@ AllCops:
   # If you use RuboCop with Ruby on Rails, specify TargetRailsVersion(default: 5.0).
   TargetRailsVersion: 5.1
 Rails:
-  # If you use RuboCop with Ruby on Rails, turn on this option.
   Enabled: true
 Naming/FileName:
   Exclude:
@@ -21,3 +20,6 @@ Rails/SaveBang:
   Enabled: false
 RSpec/EmptyExampleGroup:
   Enabled: false
+Metrics/ClassLength:
+  Exclude:
+    - "lib/docomo-nlu/management/v23/aiml_base.rb"
