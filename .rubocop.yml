@@ -19,3 +19,5 @@ Rails/HasManyOrHasOneDependent:
   Enabled: false
 Rails/SaveBang:
   Enabled: false
+RSpec/EmptyExampleGroup:
+  Enabled: false
