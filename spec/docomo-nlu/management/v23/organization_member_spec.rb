@@ -32,7 +32,7 @@ RSpec.describe DocomoNlu::Management::V23::OrganizationMember do
 
     it "Get members with 404" do
       VCR.use_cassette("/V23/organization_member/index_404") do
-        members = DocomoNlu::Management::V23::OrganizationMember.find(:all, params: { organization_id: 0o0 })
+        members = DocomoNlu::Management::V23::OrganizationMember.find(:all, params: { organization_id: 00 })
         expect(members).to eq nil
       end
     end

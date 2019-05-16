@@ -39,7 +39,7 @@ module DocomoNlu
     end
 
     def dialogue(voice_text, **params)
-      @attributes[:voice_text] = voice_text
+      @attributes[:voiceText] = voice_text
       params.each do |k, v|
         @attributes[k] ||= v
       end
