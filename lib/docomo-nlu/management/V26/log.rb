@@ -27,15 +27,15 @@ module DocomoNlu
       end
 
       def all
-        p "You shoud use 'download' or 'count' method"
+        Rails.logger.debug "You shoud use 'download' or 'count' method"
       end
 
       def find
-        p "You shoud use 'download' or 'count' method"
+        Rails.logger.debug "You shoud use 'download' or 'count' method"
       end
 
       def where
-        p "You shoud use 'download' or 'count' method"
+        Rails.logger.debug "You shoud use 'download' or 'count' method"
       end
     end
   end

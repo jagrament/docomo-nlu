@@ -9,15 +9,15 @@ module DocomoNlu
       self.prefix = "/management/v2.6/projects/:project_id/"
 
       def all
-        p "You shoud use 'download' method"
+        Rails.logger.debug "You shoud use 'download' method"
       end
 
       def find
-        p "You shoud use 'download' method"
+        Rails.logger.debug "You shoud use 'download' method"
       end
 
       def where
-        p "You shoud use 'download' method"
+        Rails.logger.debug "You shoud use 'download' method"
       end
 
       def download(bot_id, params = {})
