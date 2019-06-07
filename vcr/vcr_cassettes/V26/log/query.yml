@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: "<Host>management/<Version>/projects/176/logs"
+    uri: "<Host>/management/<Version>/projects/176/logs"
     body:
       encoding: UTF-8
       string: '{"details":[{"operation":"","target":"input","query":"Hello"}]}'
