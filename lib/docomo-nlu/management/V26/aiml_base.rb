@@ -99,7 +99,6 @@ module DocomoNlu
           while check_path && compile_status != "Completed"
             sleep(0.2)
             compile_status = check_status(:compile, check_path)
-            raise ActiveResource::ServerError if %w[ErrorFinish NotCompiled].include?(compile_status)
           end
 
           # transfer and status check
@@ -108,15 +107,22 @@ module DocomoNlu
           while check_path && transfer_status != "Completed"
             sleep(0.2)
             transfer_status = check_status(:transfer, check_path)
-            raise ActiveResource::ServerError if %w[ErrorFinish NotTransfered].include?(transfer_status)
           end
           true
         end
 
         def check_status(method, path)
+          response = connection.get(path, headers)
+
           case method
-          when :compile  then JSON.parse(connection.get(path, headers).body)["status"]
-          when :transfer then JSON.parse(connection.get(path, headers).body)["transferStatusResponses"][0]["status"]
+          when :compile
+            JSON.parse(response.body)["status"].tap do |status|
+              raise ActiveResource::ServerError.new(response) if %w[ErrorFinish NotCompiled].include?(status)
+            end
+          when :transfer
+            JSON.parse(response.body)["transferStatusResponses"][0]["status"].tap do |status|
+              raise ActiveResource::ServerError.new(response) if %w[ErrorFinish NotTransfered].include?(status)
+            end
           end
         end
       end
