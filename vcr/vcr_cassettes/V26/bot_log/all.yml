@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<Host>management/<Version>/projects/176/botlogs?botId=176_89_main"
+    uri: "<Host>/management/<Version>/projects/176/botlogs?botId=176_89_main"
     body:
       encoding: US-ASCII
       string: ''
