@@ -19,8 +19,8 @@ module DocomoNlu
         clientVer:    "1.0.4",
         language:     "ja-JP",
         location:     { lat: "0", lon: "0" },
-        appRecvTime:  DateTime.now.strftime("%Y-%m-%d %H:%M:%S"),
-        appSendTime:  DateTime.now.strftime("%Y-%m-%d %H:%M:%S"),
+        appRecvTime:  Time.current.strftime("%Y-%m-%d %H:%M:%S"),
+        appSendTime:  Time.current.strftime("%Y-%m-%d %H:%M:%S"),
       }.each do |k, v|
         @attributes.store(k, v)
       end
@@ -38,13 +38,13 @@ module DocomoNlu
       @attributes.store(:appId, JSON.parse(res.body)["app_id"])
     end
 
-    def dialogue(voiceText, **params)
-      @attributes[:voiceText] = voiceText
+    def dialogue(voice_text, **params)
+      @attributes[:voiceText] = voice_text
       params.each do |k, v|
         @attributes[k] ||= v
       end
       res = connection.post("/SpontaneousDialogueServer/dialogue", @attributes.to_json, self.class.headers)
-      return JSON.parse(res.body)
+      JSON.parse(res.body)
     end
 
     class << self

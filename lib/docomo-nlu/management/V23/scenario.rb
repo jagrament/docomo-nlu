@@ -7,7 +7,7 @@ module DocomoNlu
       self.prefix = "/management/v2.2/projects/:project_id/bots/:bot_id/"
 
       @permitted_root_param = [:userScenarios, :templateScenarios]
-      @permitted_userScenarios_param = [:scenarioId, :description, :compileFlag]
+      @permitted_user_scenarios_param = [:scenarioId, :description, :compileFlag]
 
       def save
         @attributes.select! {|a| a =~ /(userScenarios|templateScenarios)/ }

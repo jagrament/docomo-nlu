@@ -40,7 +40,7 @@ RSpec.describe DocomoNlu::Management::V26::Set do
           expect(set.file.size).not_to be 0
         end
       end
-      it "Use find" do
+      it "Use where" do
         VCR.use_cassette("/V26/set/index_where") do
           set = DocomoNlu::Management::V26::Set.where(project_id: project_id, bot_id: bot_id)
           expect(set.file.size).not_to be 0
@@ -51,7 +51,8 @@ RSpec.describe DocomoNlu::Management::V26::Set do
     context "Upload set" do
       it "Use class method create()" do
         VCR.use_cassette("/V26/set/create") do
-          res = DocomoNlu::Management::V26::Set.create(File.new(File.join("spec", "fixtures", "management", "test.set")), project_id: project_id, bot_id: bot_id)
+          attributes = { project_id: project_id, bot_id: bot_id }
+          res = DocomoNlu::Management::V26::Set.create(File.new(File.join("spec", "fixtures", "management", "test.set")), attributes)
           expect(res).to be_truthy
         end
       end

@@ -18,24 +18,24 @@ module DocomoNlu
       # => It is possible to ambiguous search using "*" in the following target ( input|output|startTopic|endTopic|userId|language|projectSpecific)
       # query: String search within 200 characters.
 
-      def download(params={})
-        return JSON.parse(connection.post(collection_path(prefix_options), params.to_json, self.class.headers).body)
+      def download(params = {})
+        JSON.parse(connection.post(collection_path(prefix_options), params.to_json, self.class.headers).body)
       end
 
-      def count(params={})
-        return JSON.parse(connection.post("#{collection_path(prefix_options)}/count", params.to_json, self.class.headers).body)["count"]
+      def count(params = {})
+        JSON.parse(connection.post("#{collection_path(prefix_options)}/count", params.to_json, self.class.headers).body)["count"]
       end
 
       def all
-        p "You shoud use 'download' or 'count' method"
+        Rails.logger.debug "You shoud use 'download' or 'count' method"
       end
 
       def find
-        p "You shoud use 'download' or 'count' method"
+        Rails.logger.debug "You shoud use 'download' or 'count' method"
       end
 
       def where
-        p "You shoud use 'download' or 'count' method"
+        Rails.logger.debug "You shoud use 'download' or 'count' method"
       end
     end
   end

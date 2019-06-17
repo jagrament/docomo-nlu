@@ -24,8 +24,8 @@ module DocomoNlu
       self.format = :json
 
       ## Get NLPManagement's AccessToken.
-      def login(accountName, password)
-        request_body = { accountName: accountName, password: password }.to_json
+      def login(account_name, password)
+        request_body = { accountName: account_name, password: password }.to_json
         response_body = JSON.parse(connection.post("/management/v2.6/login", request_body, self.class.headers).body)
         self.access_token = response_body["accessToken"]
       end

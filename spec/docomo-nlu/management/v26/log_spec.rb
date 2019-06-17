@@ -7,7 +7,7 @@ RSpec.describe DocomoNlu::Management::V26::Log do
 
   describe "#logs" do
     let(:project_id) { 176 }
-    let(:params) { { details: [{ operation: "", target: "input", query: "Hello" }]} }
+    let(:params) { { details: [{ operation: "", target: "input", query: "Hello" }] } }
     let(:log) { DocomoNlu::Management::Log.new(project_id: project_id) }
 
     it "Get count all logs" do

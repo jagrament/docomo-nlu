@@ -43,7 +43,7 @@ module DocomoNlu
 
         private
 
-        def download(category = nil, prefix_options)
+        def download(category = nil, prefix_options = {})
           extention = category.blank? ? ".zip" : ".map"
 
           conn = Faraday.new(url: site.to_s, ssl: { verify: false }) do |builder|

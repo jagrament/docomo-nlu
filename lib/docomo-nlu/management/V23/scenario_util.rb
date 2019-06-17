@@ -15,15 +15,15 @@ module DocomoNlu
       end
 
       def save
-        print "Method not used"
+        Rails.logger.debug "Method not used"
       end
 
       def destroy
-        print "Method not used"
+        Rails.logger.debug "Method not used"
       end
 
       def delete
-        print "Method not used"
+        Rails.logger.debug "Method not used"
       end
     end
   end

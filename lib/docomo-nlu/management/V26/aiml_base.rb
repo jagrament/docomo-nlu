@@ -19,7 +19,6 @@ require "tempfile"
 module DocomoNlu
   module Management::V26
     class AIMLBase < Base
-
       def download(extra_path = "")
         prefix_options[:bot_id] ||= botId
         @attributes[:file] = self.class.download(prefix_options, extra_path).file

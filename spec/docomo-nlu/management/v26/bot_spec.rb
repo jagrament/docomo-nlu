@@ -133,14 +133,14 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
       context "userDic" do
         it "Upload" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
+            DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/upload_userDic") do
             end
           end
         end
         it "Status" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
+            DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/status_userDic") do
             end
           end
@@ -150,21 +150,21 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
       context "stopkey" do
         it "Upload" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
+            DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/upload_stopkey") do
             end
           end
         end
         it "Download" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
+            DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/download_stopkey") do
             end
           end
         end
         it "Status" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
+            DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/status_stopkey") do
             end
           end
@@ -174,21 +174,21 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
       context "truthlist" do
         it "Upload" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
+            DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/upload_truthlist") do
             end
           end
         end
         it "Download" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
+            DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/download_truthlist") do
             end
           end
         end
         it "Status" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
+            DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/status_truthlist") do
             end
           end
@@ -198,14 +198,14 @@ RSpec.describe DocomoNlu::Management::V26::Bot do
       context "entry" do
         it "Upload" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
+            DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/upload_entry") do
             end
           end
         end
         it "Status" do
           VCR.use_cassette("/V26/bot/show") do
-            bot = DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
+            DocomoNlu::Management::V26::Bot.find(bot_id, params: { project_id: project_id })
             VCR.use_cassette("/V26/bot/status_entry") do
             end
           end

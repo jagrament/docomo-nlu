@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 module DocomoNlu
   module Management
-    NAMESPACE = (DocomoNlu.config.nlu_version == "v2.6" ? "V26" : "V23" ).freeze
+    NAMESPACE = ((DocomoNlu.config.nlu_version == "v2.6") ? "V26" : "V23").freeze
 
     module V23
       autoload :Account,            "docomo-nlu/management/V23/account"
@@ -83,6 +84,5 @@ module DocomoNlu
     Scenario = const_get "DocomoNlu::Management::#{NAMESPACE}::Scenario"
     Set = const_get "DocomoNlu::Management::#{NAMESPACE}::Set"
     TaskProject = const_get "DocomoNlu::Management::#{NAMESPACE}::TaskProject"
-
   end
 end

@@ -40,7 +40,7 @@ RSpec.describe DocomoNlu::Management::V26::Map do
           expect(map.file.size).not_to be 0
         end
       end
-      it "Use find" do
+      it "Use where" do
         VCR.use_cassette("/V26/map/index_where") do
           map = DocomoNlu::Management::V26::Map.where(project_id: project_id, bot_id: bot_id)
           expect(map.file.size).not_to be 0
@@ -51,7 +51,8 @@ RSpec.describe DocomoNlu::Management::V26::Map do
     context "Upload map" do
       it "Use class method create()" do
         VCR.use_cassette("/V26/map/create") do
-          res = DocomoNlu::Management::V26::Map.create(File.new(File.join("spec", "fixtures", "management", "test.map")), project_id: project_id, bot_id: bot_id)
+          attributes = { project_id: project_id, bot_id: bot_id }
+          res = DocomoNlu::Management::V26::Map.create(File.new(File.join("spec", "fixtures", "management", "test.map")), attributes)
           expect(res).to be_truthy
         end
       end
