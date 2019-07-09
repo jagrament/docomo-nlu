@@ -2,7 +2,7 @@
 
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "docomo-nlu/version"
+require "docomo_nlu/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "docomo-nlu"
