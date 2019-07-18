@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rails"
   spec.add_development_dependency "reek"
   spec.add_development_dependency "rspec"
-  spec.add_development_dependency "rubocop","~> 0.73.0"
+  spec.add_development_dependency "rubocop", "~> 0.73.0"
   spec.add_development_dependency "rubocop-performance"
   spec.add_development_dependency "rubocop-rspec"
   spec.add_development_dependency "vcr", "~> 4.0.0"
