@@ -9,17 +9,14 @@ require:
 
 AllCops:
   TargetRubyVersion: 2.5
-  TargetRailsVersion: 5.1
+
 Rails:
   Enabled: true
 Naming/FileName:
   Exclude:
     - "Gemfile"
     - "Rakefile"
-Rails/HasManyOrHasOneDependent:
-  Enabled: false
-Rails/SaveBang:
-  Enabled: false
+    - "lib/docomo-nlu.rb"
 RSpec/EmptyExampleGroup:
   Enabled: false
 RSpec/FilePath:
