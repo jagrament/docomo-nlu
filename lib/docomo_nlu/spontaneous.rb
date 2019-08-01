@@ -16,11 +16,11 @@ module DocomoNlu
     def initialize
       super
       {
-        clientVer:    "1.0.4",
-        language:     "ja-JP",
-        location:     { lat: "0", lon: "0" },
-        appRecvTime:  Time.current.strftime("%Y-%m-%d %H:%M:%S"),
-        appSendTime:  Time.current.strftime("%Y-%m-%d %H:%M:%S"),
+        clientVer: "1.0.4",
+        language: "ja-JP",
+        location: { lat: "0", lon: "0" },
+        appRecvTime: Time.current.strftime("%Y-%m-%d %H:%M:%S"),
+        appSendTime: Time.current.strftime("%Y-%m-%d %H:%M:%S"),
       }.each do |k, v|
         @attributes.store(k, v)
       end

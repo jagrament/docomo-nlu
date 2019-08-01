@@ -1,22 +1,22 @@
 # Modify the version if you don't use MRI 2.1.
-inherit_gem:
-  onkcop:
-    - "config/rubocop.yml"
-    - "config/rails.yml"
-    - "config/rspec.yml"
+inherit_from: 
+  - .rubocop.ruby.yml
+  - .rubocop.rspec.yml
+
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
 AllCops:
   TargetRubyVersion: 2.5
-  TargetRailsVersion: 5.1
+
 Rails:
   Enabled: true
 Naming/FileName:
   Exclude:
     - "Gemfile"
     - "Rakefile"
-Rails/HasManyOrHasOneDependent:
-  Enabled: false
-Rails/SaveBang:
-  Enabled: false
+    - "lib/docomo-nlu.rb"
 RSpec/EmptyExampleGroup:
   Enabled: false
 RSpec/FilePath:
