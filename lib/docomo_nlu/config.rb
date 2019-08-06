@@ -18,8 +18,8 @@ module DocomoNlu
   end
 
   configure do |config|
-    config.nlu_host = ""
-    config.nlu_version = ""
-    config.admin_access_token = ""
+    config.nlu_host = ENV["NLU_HOST"]
+    config.nlu_version = ENV["NLU_VERSION"]
+    config.admin_access_token = ENV["NLU_ADMIN_ACCESS_TOKEN"]
   end
 end
