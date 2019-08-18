@@ -1,0 +1,48 @@
+# Ruby CircleCI 2.1 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
+version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.0
+  ruby-orbs: sue445/ruby-orbs@volatile
+  ruby-linter: amyroi/ruby-linter@volatile
+
+executors:
+  default:
+    working_directory: ~/docomo-nlu
+    docker:
+      - image: circleci/ruby:2.6.3
+commands:
+  setup_bundler:
+    steps:
+      - run:
+          name: Install bundler
+          command: gem install bundler -v $BUNDLER_VERSION
+jobs:
+  build:
+    executor: default
+    environment:
+      RAILS_ENV: test
+      CIRCLE_TEST_REPORTS: /tmp/docomo-nlu-test-results
+    steps:
+      - checkout
+      - setup_bundler
+      - ruby/load-cache:
+          key: docomo-nlu-bundle
+      - ruby-orbs/bundle-install:
+          bundle_jobs: 4
+          bundle_retry: 3
+          bundle_clean: true
+      - ruby/save-cache:
+          key: docomo-nlu-bundle
+      - ruby/test
+      - ruby-linter/rubocop:
+          files: "lib/**/*.rb spec/**/*.rb"
+          report_dir: $CIRCLE_TEST_REPORTS
+      - ruby-linter/reek
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
