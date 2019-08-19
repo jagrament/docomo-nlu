@@ -22,3 +22,9 @@ RSpec/EmptyExampleGroup:
 RSpec/FilePath:
   CustomTransform:
     DocomoNlu: docomo_nlu
+RSpec/MultipleExpectations:
+  Max: 5
+RSpec/LeakyConstantDeclaration:
+  Enabled: false
+RSpec/DescribedClass:
+  EnforcedStyle: described_class
