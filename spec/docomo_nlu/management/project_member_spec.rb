@@ -11,7 +11,7 @@ RSpec.describe DocomoNlu::Management::ProjectMember do
   describe "#projectMembers" do
     it "Add a member" do
       VCR.use_cassette("/management/project_member/create") do
-        member = DocomoNlu::Management::ProjectMember.new(accountIds: [{ accountId: account_id }])
+        member = described_class.new(accountIds: [{ accountId: account_id }])
         member.prefix_options[:project_id] = project_id
         member.save
       end
@@ -19,14 +19,14 @@ RSpec.describe DocomoNlu::Management::ProjectMember do
 
     it "Get members" do
       VCR.use_cassette("/management/project_member/index") do
-        member = DocomoNlu::Management::ProjectMember.all(params: { project_id: project_id }).first
+        member = described_class.all(params: { project_id: project_id }).first
         expect(member.accountId).to eq account_id
       end
     end
 
     it "Delete a member" do
       VCR.use_cassette("/management/project_member/index") do
-        member = DocomoNlu::Management::ProjectMember.where(project_id: project_id).first
+        member = described_class.where(project_id: project_id).first
         VCR.use_cassette("/management/project_member/delete") do
           expect(member.destroy.code).to eq "204"
         end
@@ -35,26 +35,26 @@ RSpec.describe DocomoNlu::Management::ProjectMember do
 
     it "Get members with 404" do
       VCR.use_cassette("/management/project_member/index_403") do
-        expect { DocomoNlu::Management::ProjectMember.find(:all, params: { project_id: 0 }) }.
+        expect { described_class.find(:all, params: { project_id: 0 }) }.
           to raise_error(ActiveResource::ForbiddenAccess)
       end
     end
 
     it "members not found" do
       VCR.use_cassette("/management/project_member/index_not_found") do
-        expect(DocomoNlu::Management::ProjectMember.where(project_id: project_id).first).
+        expect(described_class.where(project_id: project_id).first).
           to eq nil
       end
     end
     it "members not found with find" do
       VCR.use_cassette("/management/project_member/index_not_found") do
-        expect(DocomoNlu::Management::ProjectMember.find(:all, params: { project_id: project_id }).first).
+        expect(described_class.find(:all, params: { project_id: project_id }).first).
           to eq nil
       end
     end
     it "members not found with all" do
       VCR.use_cassette("/management/project_member/index_not_found") do
-        expect(DocomoNlu::Management::ProjectMember.all(params: { project_id: project_id }).first).
+        expect(described_class.all(params: { project_id: project_id }).first).
           to eq nil
       end
     end

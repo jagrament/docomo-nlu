@@ -11,20 +11,20 @@ RSpec.describe DocomoNlu::Management::Config do
 
     it "Get configs" do
       VCR.use_cassette("/management/config/index") do
-        configs = DocomoNlu::Management::Config.all(params: { project_id: project_id, bot_id: bot_id })
+        configs = described_class.all(params: { project_id: project_id, bot_id: bot_id })
         expect(configs).not_to be nil
 
-        configs = DocomoNlu::Management::Config.find(:all, params: { project_id: project_id, bot_id: bot_id })
+        configs = described_class.find(:all, params: { project_id: project_id, bot_id: bot_id })
         expect(configs).not_to be nil
 
-        configs = DocomoNlu::Management::Config.where(project_id: project_id, bot_id: bot_id)
+        configs = described_class.where(project_id: project_id, bot_id: bot_id)
         expect(configs).not_to be nil
       end
     end
 
     it "Update configs" do
       VCR.use_cassette("/management/config/show") do
-        config = DocomoNlu::Management::Config.find("", params: { project_id: project_id, bot_id: bot_id })
+        config = described_class.find("", params: { project_id: project_id, bot_id: bot_id })
         VCR.use_cassette("/management/config/update") do
           config.test_Url = "https://example.com/api/"
           expect(config.save).to eq true
@@ -34,7 +34,7 @@ RSpec.describe DocomoNlu::Management::Config do
 
     it "Delete configs" do
       VCR.use_cassette("/management/config/show") do
-        config = DocomoNlu::Management::Config.find("", params: { project_id: project_id, bot_id: bot_id })
+        config = described_class.find("", params: { project_id: project_id, bot_id: bot_id })
         VCR.use_cassette("/management/config/delete") do
           expect(config.destroy(["test_Url"]).code).to eq "204"
         end

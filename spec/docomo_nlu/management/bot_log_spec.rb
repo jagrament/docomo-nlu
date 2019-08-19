@@ -9,7 +9,7 @@ RSpec.describe DocomoNlu::Management::BotLog do
     let(:project_id) { 176 }
     let(:bot_id) { "176_89_main" }
     let(:params) { { start: "20190312", end: "20190313" } }
-    let(:bot_log) { DocomoNlu::Management::BotLog.new(project_id: project_id) }
+    let(:bot_log) { described_class.new(project_id: project_id) }
 
     it "Get all logs" do
       VCR.use_cassette("/management/bot_log/all") do
