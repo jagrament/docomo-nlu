@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.15.3
+      - Faraday v0.15.4
       Authorization:
       - "<AdminAccessToken>"
       Accept-Encoding:
@@ -21,7 +21,7 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Thu, 21 Feb 2019 02:16:27 GMT
+      - Wed, 21 Aug 2019 08:28:55 GMT
       Content-Length:
       - '190'
       Connection:
@@ -39,5 +39,5 @@ http_interactions:
       string: !binary |-
         I21vZGU6c3VyZmFjZQrjgarjgpPjgbAJ5aSn5Z2CCuODiOOCpuOCreODp+ODvAnmnbHkuqwK5aSn5Z2CCeWkp+WdggrlsI/nlLDljp8J56We5aWI5bedCuadseS6rAnmnbHkuqwK5qiq5rWcCeelnuWliOW3nQrmqKrpoIjos4AJ56We5aWI5bedCua5mOWNlwnnpZ7lpYjlt50K56We5aWI5bedCeelnuWliOW3nQrpg73lhoUJ5p2x5LqsCg==
     http_version: 
-  recorded_at: Thu, 21 Feb 2019 02:16:27 GMT
+  recorded_at: Wed, 21 Aug 2019 08:28:55 GMT
 recorded_with: VCR 4.0.0

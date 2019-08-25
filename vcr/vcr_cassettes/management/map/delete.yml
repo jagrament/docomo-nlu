@@ -21,7 +21,7 @@ http_interactions:
       message: '204'
     headers:
       Date:
-      - Thu, 21 Feb 2019 02:16:27 GMT
+      - Wed, 21 Aug 2019 08:34:42 GMT
       Connection:
       - keep-alive
       Server:
@@ -34,5 +34,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 21 Feb 2019 02:16:27 GMT
+  recorded_at: Wed, 21 Aug 2019 08:34:42 GMT
 recorded_with: VCR 4.0.0

@@ -60,6 +60,7 @@ module DocomoNlu
                   f
                 end
                 record.category = category
+                record.categories = JSON.parse(response.body)["categories"] unless category
               end
             end
             nil
