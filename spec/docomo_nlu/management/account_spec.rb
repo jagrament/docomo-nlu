@@ -5,7 +5,7 @@ RSpec.describe DocomoNlu::Management::Account do
     ID = nil
     it "Get all accounts" do
       VCR.use_cassette("/management/account/index") do
-        accounts = DocomoNlu::Management::Account.all
+        accounts = described_class.all
         expect(accounts.first.accountId).not_to be_nil
       end
     end
@@ -13,7 +13,7 @@ RSpec.describe DocomoNlu::Management::Account do
     it "Create an account" do
       VCR.use_cassette("/management/account/create") do
         attributes = { accountName: "test_account", password: "testaccount20180821", authorization: 2, enable: true, eternity: true }
-        account = DocomoNlu::Management::Account.new(attributes)
+        account = described_class.new(attributes)
         account.save
         expect(account.accountId).not_to be_nil
         ID = account.id
@@ -22,14 +22,14 @@ RSpec.describe DocomoNlu::Management::Account do
 
     it "Get an account" do
       VCR.use_cassette("/management/account/show") do
-        account = DocomoNlu::Management::Account.find(ID)
+        account = described_class.find(ID)
         expect(account.id).not_to be_nil
       end
     end
 
     it "Update an account" do
       VCR.use_cassette("/management/account/show") do
-        account = DocomoNlu::Management::Account.find(ID)
+        account = described_class.find(ID)
         VCR.use_cassette("/management/account/update") do
           account.accountName = "update account"
           account.description = "update account"
@@ -40,7 +40,7 @@ RSpec.describe DocomoNlu::Management::Account do
 
     it "Delete an account" do
       VCR.use_cassette("/management/account/show") do
-        account = DocomoNlu::Management::Account.find(ID)
+        account = described_class.find(ID)
         VCR.use_cassette("/management/account/delete") do
           expect(account.destroy.code).to eq "204"
         end
@@ -49,7 +49,7 @@ RSpec.describe DocomoNlu::Management::Account do
 
     it "Count all accounts" do
       VCR.use_cassette("/management/account/count") do
-        expect(DocomoNlu::Management::Account.count).to eq 39
+        expect(described_class.count).to eq 39
       end
     end
   end

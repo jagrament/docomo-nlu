@@ -10,7 +10,7 @@ RSpec.describe DocomoNlu::Management::Entry do
     let(:bot_id) { "test_bot" }
 
     context "File Upload" do
-      let(:entry) { DocomoNlu::Management::Entry.new({ project_id: project_id, bot_id: bot_id }) }
+      let(:entry) { described_class.new({ project_id: project_id, bot_id: bot_id }) }
 
       it "Valid file upload" do
         VCR.use_cassette("/management/entry/save") do
@@ -21,7 +21,7 @@ RSpec.describe DocomoNlu::Management::Entry do
     end
 
     context "Delete entry" do
-      let(:entry) { DocomoNlu::Management::Entry.new({ project_id: project_id, bot_id: bot_id }) }
+      let(:entry) { described_class.new({ project_id: project_id, bot_id: bot_id }) }
 
       it "use destroy" do
         VCR.use_cassette("/management/entry/delete") do
