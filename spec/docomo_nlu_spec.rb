@@ -6,7 +6,7 @@ RSpec.describe DocomoNlu do
   end
 
   it "Successfully loading DoomoNlu" do
-    expect(DocomoNlu).not_to be nil
+    expect(described_class).not_to be nil
   end
 
   it "Successfully loading DoomoNlu::Management::Base" do
