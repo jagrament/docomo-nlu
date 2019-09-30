@@ -60,3 +60,8 @@ RSpec/NestedGroups:
 # ブロックの方が見た目がスッキリして見やすいので、どちらでもお好きにどうぞ。
 RSpec/ReturnFromStub:
   Enabled: false
+
+# 明示的なブロック構文の使用を推奨しているがsubjectの活用が減る可能性があるので
+# 暗黙的なブロック構文を許可する
+RSpec/ImplicitBlockExpectation:
+  Enabled: false 
