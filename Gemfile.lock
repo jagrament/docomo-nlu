@@ -179,7 +179,7 @@ GEM
     rubocop-rspec (1.35.0)
       rubocop (>= 0.60.0)
     ruby-progressbar (1.10.1)
-    rubyzip (1.2.3)
+    rubyzip (2.0.0)
     safe_yaml (1.0.5)
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
