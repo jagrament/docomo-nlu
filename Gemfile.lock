@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     docomo-nlu (0.3.1)
-      activeresource (~> 5.0.0)
+      activeresource (>= 5.0, < 5.2)
       bundler
       faraday
       rake
@@ -47,10 +47,10 @@ GEM
       activemodel (= 5.2.4.3)
       activesupport (= 5.2.4.3)
       arel (>= 9.0)
-    activeresource (5.0.0)
-      activemodel (>= 5.0, < 6)
+    activeresource (5.1.1)
+      activemodel (>= 5.0, < 7)
       activemodel-serializers-xml (~> 1.0)
-      activesupport (>= 5.0, < 6)
+      activesupport (>= 5.0, < 7)
     activestorage (5.2.4.3)
       actionpack (= 5.2.4.3)
       activerecord (= 5.2.4.3)
