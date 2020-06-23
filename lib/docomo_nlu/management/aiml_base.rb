@@ -37,7 +37,7 @@ module DocomoNlu
 
       def transfer
         prefix_options[:bot_id] ||= botId
-        self.class.deploy_request(prefix_options)
+        self.class.transfer(prefix_options)
       end
 
       def deploy
