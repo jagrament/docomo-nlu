@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/okWords"
+    body:
+      encoding: UTF-8
+      string: "-------------RubyMultipartPost-655d4d21359324eb421161eb7f129f74\r\nContent-Disposition:
+        form-data; name=\"uploadFile\"; filename=\"test.ans\"\r\nContent-Length: 4\r\nContent-Type:
+        text/plain\r\nContent-Transfer-Encoding: binary\r\n\r\ntest\r\n-------------RubyMultipartPost-655d4d21359324eb421161eb7f129f74--\r\n"
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - "<AdminAccessToken>"
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost-655d4d21359324eb421161eb7f129f74
+      Content-Length:
+      - '292'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: '201'
+    headers:
+      Date:
+      - Sun, 25 Oct 2020 14:45:33 GMT
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Sun, 25 Oct 2020 14:45:33 GMT
+recorded_with: VCR 5.1.0

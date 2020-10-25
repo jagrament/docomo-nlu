@@ -15,6 +15,7 @@ module DocomoNlu
     autoload :Map,                "docomo_nlu/management/map"
     autoload :NGWord,             "docomo_nlu/management/ng_word"
     autoload :OKWord,             "docomo_nlu/management/ok_word"
+    autoload :OKNGBase,           "docomo_nlu/management/ok_ng_base"
     autoload :OrganizationMember, "docomo_nlu/management/organization_member"
     autoload :Organization,       "docomo_nlu/management/organization"
     autoload :PredicateName,      "docomo_nlu/management/predicate_name"
