@@ -63,7 +63,6 @@ RSpec.describe DocomoNlu::Management::OKWord do
       end
     end
 
-
     context "Download .ans" do
       it "Use instance method" do
         VCR.use_cassette("/management/ok_word/download") do
