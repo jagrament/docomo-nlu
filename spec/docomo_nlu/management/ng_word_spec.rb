@@ -45,7 +45,33 @@ RSpec.describe DocomoNlu::Management::NGWord do
       end
     end
 
+    context "Upload NG file" do
+      it "Use class method create()" do
+        VCR.use_cassette("/management/ng_word/create") do
+          attributes = { project_id: project_id, bot_id: bot_id }
+          res = described_class.create(File.new(File.join("spec", "fixtures", "management", "test.ng")), attributes)
+          expect(res).to be_truthy
+        end
+      end
+      it "Use instance method save()" do
+        VCR.use_cassette("/management/ng_word/save") do
+          ng = described_class.new
+          ng.file = File.new(File.join("spec", "fixtures", "management", "test.ng"))
+          ng.prefix_options = { project_id: project_id, bot_id: bot_id }
+          expect(ng.save).to be_truthy
+        end
+      end
+    end
+
     context "Download .ng" do
+      it "Use instance method" do
+        VCR.use_cassette("/management/ng_word/download") do
+          ng = described_class.new({ project_id: project_id, bot_id: bot_id })
+          ng.download
+          expect(ng.file.size).not_to be 0
+        end
+      end
+
       it "Use all" do
         VCR.use_cassette("/management/ng_word/index_all") do
           ng = described_class.all(params: { project_id: project_id, bot_id: bot_id })
@@ -62,24 +88,6 @@ RSpec.describe DocomoNlu::Management::NGWord do
         VCR.use_cassette("/management/ng_word/index_where") do
           ng = described_class.where(project_id: project_id, bot_id: bot_id)
           expect(ng.file.size).not_to be 0
-        end
-      end
-    end
-
-    context "Upload NG file" do
-      it "Use class method create()" do
-        VCR.use_cassette("/management/ng_word/create") do
-          attributes = { project_id: project_id, bot_id: bot_id }
-          res = described_class.create(File.new(File.join("spec", "fixtures", "management", "test.ng")), attributes)
-          expect(res).to be_truthy
-        end
-      end
-      it "Use instance method save()" do
-        VCR.use_cassette("/management/ng_word/save") do
-          ng = described_class.new
-          ng.file = File.new(File.join("spec", "fixtures", "management", "test.ng"))
-          ng.prefix_options = { project_id: project_id, bot_id: bot_id }
-          expect(ng.save).to be_truthy
         end
       end
     end

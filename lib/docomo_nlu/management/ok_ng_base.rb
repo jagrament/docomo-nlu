@@ -14,6 +14,10 @@ module DocomoNlu
         super
       end
 
+      def download
+        self.file = self.class.download(prefix_options).file
+      end
+
       class << self
         def create(file, prefix_options)
           check_prefix_options(prefix_options)
@@ -36,40 +40,38 @@ module DocomoNlu
           find(params: clauses)
         end
 
-        private
+        def download(prefix_options = {})
+          conn = Faraday.new(url: site.to_s, ssl: { verify: false }) do |builder|
+            builder.adapter :net_http
+          end
+          conn.headers["Authorization"] = access_token
 
-          def download(prefix_options = {})
-            conn = Faraday.new(url: site.to_s, ssl: { verify: false }) do |builder|
-              builder.adapter :net_http
-            end
-            conn.headers["Authorization"] = access_token
+          response = conn.get(element_path(nil, prefix_options))
 
-            response = conn.get(element_path(nil, prefix_options))
-
-            if check_response(response)
-              return instantiate_record({}, prefix_options).tap do |record|
-                record.file = Tempfile.open(["docomo-nlu", extention]) do |f|
-                  f.write response.body.force_encoding("UTF-8")
-                  f
-                end
+          if check_response(response)
+            return instantiate_record({}, prefix_options).tap do |record|
+              record.file = Tempfile.open(["docomo-nlu", extention]) do |f|
+                f.write response.body.force_encoding("UTF-8")
+                f
               end
             end
-            nil
           end
+          nil
+        end
 
-          def upload(file, prefix_options)
-            conn = Faraday.new(url: site.to_s, ssl: { verify: false }) do |builder|
-              builder.request :multipart # マルチパートでデータを送信
-              builder.request :url_encoded
-              builder.adapter :net_http
-            end
-            conn.headers["Authorization"] = access_token
-            params = {
-              uploadFile: Faraday::UploadIO.new(file.path, "text/plain"),
-            }
-            response = conn.put collection_path(prefix_options), params
-            check_response(response)
+        def upload(file, prefix_options)
+          conn = Faraday.new(url: site.to_s, ssl: { verify: false }) do |builder|
+            builder.request :multipart
+            builder.request :url_encoded
+            builder.adapter :net_http
           end
+          conn.headers["Authorization"] = access_token
+          params = {
+            uploadFile: Faraday::UploadIO.new(file.path, "text/plain"),
+          }
+          response = conn.put collection_path(prefix_options), params
+          check_response(response)
+        end
       end
     end
   end
