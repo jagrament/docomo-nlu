@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/ngWords"
+    body:
+      encoding: UTF-8
+      string: "-------------RubyMultipartPost-26ceb676adba9723a070eb38c731f8a2\r\nContent-Disposition:
+        form-data; name=\"uploadFile\"; filename=\"test.ng\"\r\nContent-Length: 6\r\nContent-Type:
+        text/plain\r\nContent-Transfer-Encoding: binary\r\n\r\nNG  OK\r\n-------------RubyMultipartPost-26ceb676adba9723a070eb38c731f8a2--\r\n"
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - "<AdminAccessToken>"
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost-26ceb676adba9723a070eb38c731f8a2
+      Content-Length:
+      - '293'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: '201'
+    headers:
+      Date:
+      - Sun, 25 Oct 2020 14:04:22 GMT
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Sun, 25 Oct 2020 14:04:22 GMT
+recorded_with: VCR 5.1.0

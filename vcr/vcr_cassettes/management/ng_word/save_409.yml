@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/ngWords"
+    body:
+      encoding: UTF-8
+      string: "-------------RubyMultipartPost-6c5bd8b728d99f3193def8e6d11fa892\r\nContent-Disposition:
+        form-data; name=\"uploadFile\"; filename=\"error.ng\"\r\nContent-Length: 21\r\nContent-Type:
+        text/plain\r\nContent-Transfer-Encoding: binary\r\n\r\nerror aaaa\nerror aaaa\r\n-------------RubyMultipartPost-6c5bd8b728d99f3193def8e6d11fa892--\r\n"
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - "<AdminAccessToken>"
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost-6c5bd8b728d99f3193def8e6d11fa892
+      Content-Length:
+      - '310'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 409
+      message: '409'
+    headers:
+      Date:
+      - Sun, 25 Oct 2020 14:15:01 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '44'
+      Connection:
+      - keep-alive
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"error":"duplicated","keys":["error aaaa"]}'
+    http_version: null
+  recorded_at: Sun, 25 Oct 2020 14:15:01 GMT
+recorded_with: VCR 5.1.0

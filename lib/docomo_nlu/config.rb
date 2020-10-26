@@ -18,8 +18,8 @@ module DocomoNlu
   end
 
   configure do |config|
-    config.nlu_host = ENV["NLU_HOST"]
-    config.nlu_version = ENV["NLU_VERSION"]
-    config.admin_access_token = ENV["NLU_ADMIN_ACCESS_TOKEN"]
+    config.nlu_host = "http://nlu26-external-dev-857907527.ap-northeast-1.elb.amazonaws.com"
+    config.nlu_version = "v2.6"
+    config.admin_access_token = "NLP ZDVjODZlOTA2ZmZlYjVhOTFmNWFjODlmNDE1NTUwYTBhYjc0MzJhZDcyZmU1YTU4YTkxNGNkOWJmNjMzOTE5MQ=="
   end
 end
