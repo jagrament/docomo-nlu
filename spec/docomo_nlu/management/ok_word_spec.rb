@@ -45,7 +45,33 @@ RSpec.describe DocomoNlu::Management::OKWord do
       end
     end
 
+    context "Upload ok file" do
+      it "Use class method create()" do
+        VCR.use_cassette("/management/ok_word/create") do
+          attributes = { project_id: project_id, bot_id: bot_id }
+          res = described_class.create(File.new(File.join("spec", "fixtures", "management", "test.ans")), attributes)
+          expect(res).to be_truthy
+        end
+      end
+      it "Use instance method save()" do
+        VCR.use_cassette("/management/ok_word/save") do
+          ok = described_class.new
+          ok.file = File.new(File.join("spec", "fixtures", "management", "test.ans"))
+          ok.prefix_options = { project_id: project_id, bot_id: bot_id }
+          expect(ok.save).to be_truthy
+        end
+      end
+    end
+
     context "Download .ans" do
+      it "Use instance method" do
+        VCR.use_cassette("/management/ok_word/download") do
+          ok = described_class.new({ project_id: project_id, bot_id: bot_id })
+          ok.download
+          expect(ok.file.size).not_to be 0
+        end
+      end
+
       it "Use all" do
         VCR.use_cassette("/management/ok_word/index_all") do
           ok = described_class.all(params: { project_id: project_id, bot_id: bot_id })
@@ -62,24 +88,6 @@ RSpec.describe DocomoNlu::Management::OKWord do
         VCR.use_cassette("/management/ok_word/index_where") do
           ok = described_class.where(project_id: project_id, bot_id: bot_id)
           expect(ok.file.size).not_to be 0
-        end
-      end
-    end
-
-    context "Upload ok file" do
-      it "Use class method create()" do
-        VCR.use_cassette("/management/ok_word/create") do
-          attributes = { project_id: project_id, bot_id: bot_id }
-          res = described_class.create(File.new(File.join("spec", "fixtures", "management", "test.ans")), attributes)
-          expect(res).to be_truthy
-        end
-      end
-      it "Use instance method save()" do
-        VCR.use_cassette("/management/ok_word/save") do
-          ok = described_class.new
-          ok.file = File.new(File.join("spec", "fixtures", "management", "test.ans"))
-          ok.prefix_options = { project_id: project_id, bot_id: bot_id }
-          expect(ok.save).to be_truthy
         end
       end
     end

@@ -1,27 +1,29 @@
 ---
 http_interactions:
 - request:
-    method: delete
-    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/okWords/"
+    method: get
+    uri: "<Host>/management/<Version>/projects/48/bots/test_bot/ngWords/"
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept:
-      - application/json
+      User-Agent:
+      - Faraday v1.0.1
       Authorization:
       - "<AdminAccessToken>"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
+      Accept:
+      - "*/*"
   response:
     status:
-      code: 204
-      message: '204'
+      code: 200
+      message: '200'
     headers:
       Date:
-      - Mon, 26 Oct 2020 06:02:18 GMT
+      - Mon, 26 Oct 2020 06:00:05 GMT
+      Content-Length:
+      - '24'
       Connection:
       - keep-alive
       Server:
@@ -30,9 +32,13 @@ http_interactions:
       - nosniff
       X-Frame-Options:
       - SAMEORIGIN
+      Content-Disposition:
+      - attachment;filename*=UTF-8''test_bot_ja-JP.ng
     body:
       encoding: UTF-8
-      string: ''
+      string: 'error error error error
+
+'
     http_version: null
-  recorded_at: Mon, 26 Oct 2020 06:02:18 GMT
+  recorded_at: Mon, 26 Oct 2020 06:00:05 GMT
 recorded_with: VCR 5.1.0
