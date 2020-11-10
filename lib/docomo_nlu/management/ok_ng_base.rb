@@ -21,7 +21,7 @@ module DocomoNlu
       class << self
         def create(file, prefix_options)
           check_prefix_options(prefix_options)
-          raise ActiveResource::BadRequest, "" unless file.instance_of?(File)
+          raise ActiveResource::BadRequest, "" if file.nil?
 
           upload(file, prefix_options)
         end

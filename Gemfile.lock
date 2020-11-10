@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    docomo-nlu (0.3.4)
+    docomo-nlu (0.3.5)
       activeresource (>= 5.0, < 5.2)
       bundler
       faraday
