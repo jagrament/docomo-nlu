@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rake"
   spec.add_dependency "rubyzip"
   spec.add_development_dependency "pry", "~> 0.11.3"
-  spec.add_development_dependency "rails"
+  spec.add_development_dependency "rails", "~> 5.2.5"
   spec.add_development_dependency "reek"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "rspec_junit_formatter"
