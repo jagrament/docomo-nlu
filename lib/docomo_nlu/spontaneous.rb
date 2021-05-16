@@ -38,7 +38,7 @@ module DocomoNlu
       @attributes.store(:appId, JSON.parse(res.body)["app_id"])
     end
 
-    def dialogue(voice_text, **params)
+    def dialogue(voice_text, params = {})
       @attributes[:voiceText] = voice_text
       params.each do |k, v|
         @attributes[k] ||= v
