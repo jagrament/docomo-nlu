@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    docomo-nlu (0.3.4)
+    docomo-nlu (0.3.6)
       activeresource (>= 5.0, < 5.2)
       bundler
       faraday
@@ -72,8 +72,15 @@ GEM
     crass (1.0.6)
     diff-lcs (1.3)
     erubi (1.10.0)
-    faraday (1.0.1)
+    faraday (1.4.1)
+      faraday-excon (~> 1.1)
+      faraday-net_http (~> 1.0)
+      faraday-net_http_persistent (~> 1.1)
       multipart-post (>= 1.2, < 3)
+      ruby2_keywords (>= 0.0.4)
+    faraday-excon (1.1.0)
+    faraday-net_http (1.0.1)
+    faraday-net_http_persistent (1.1.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashdiff (1.0.1)
@@ -166,6 +173,7 @@ GEM
     rubocop-rspec (1.35.0)
       rubocop (>= 0.60.0)
     ruby-progressbar (1.10.1)
+    ruby2_keywords (0.0.4)
     rubyzip (2.3.0)
     safe_yaml (1.0.5)
     sprockets (4.0.2)
