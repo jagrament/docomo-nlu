@@ -89,7 +89,7 @@ module DocomoNlu
         def deploy_request(method, prefix_options)
           response_body = JSON.parse(connection.post(Scenario.element_path(method, prefix_options), "", headers).body)
           # Sometimes, API returns wrong url, replace correct path.
-          URI.parse(response_body["statusUri"]).path.gsub!(/NLPManagementAPI/, "management/v2.6")
+          URI::DEFAULT_PARSER.parse(response_body["statusUri"]).path.gsub!(/NLPManagementAPI/, "management/v2.6")
         end
 
         def deploy(prefix_options)
