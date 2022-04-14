@@ -4,6 +4,7 @@ require "docomo_nlu/version"
 require "docomo_nlu/config"
 require "activeresource"
 require "faraday"
+require "faraday/multipart"
 
 module DocomoNlu
   autoload :Spontaneous,  "docomo_nlu/spontaneous"
