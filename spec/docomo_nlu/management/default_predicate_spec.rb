@@ -12,13 +12,13 @@ RSpec.describe DocomoNlu::Management::DefaultPredicate do
     it "Not found" do
       VCR.use_cassette("/management/default_predicate/index_not_found") do
         default_predicates = described_class.all(params: { project_id: project_id, bot_id: bot_id })
-        expect(default_predicates).to eq []
+        expect(default_predicates).to be_empty
 
         default_predicates = described_class.find(:all, params: { project_id: project_id, bot_id: bot_id })
-        expect(default_predicates).to eq []
+        expect(default_predicates).to be_empty
 
         default_predicates = described_class.where(project_id: project_id, bot_id: bot_id)
-        expect(default_predicates).to eq []
+        expect(default_predicates).to be_empty
       end
     end
 

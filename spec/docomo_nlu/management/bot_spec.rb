@@ -12,7 +12,7 @@ RSpec.describe DocomoNlu::Management::Bot do
     it "bots not found" do
       VCR.use_cassette("/management/bot/index_not_found") do
         bots = described_class.all(params: { project_id: project_id })
-        expect(bots).to eq []
+        expect(bots).to be_empty
       end
     end
 
