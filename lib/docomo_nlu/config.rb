@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
-require "active_support/configurable"
+require "active_support"
+require "active_support/core_ext/class/attribute"
 module DocomoNlu
   def self.configure
-    yield @config ||= DocomoNlu::Configuration.new
+    # @config is shared with .config below, not scoped to this method
+    yield @config ||= DocomoNlu::Configuration.new # rubocop:disable Naming/MemoizedInstanceVariableName
   end
 
   def self.config
@@ -11,10 +13,9 @@ module DocomoNlu
   end
 
   class Configuration
-    include ActiveSupport::Configurable
-    config_accessor :nlu_host
-    config_accessor :nlu_version
-    config_accessor :admin_access_token
+    class_attribute :nlu_host
+    class_attribute :nlu_version
+    class_attribute :admin_access_token
   end
 
   configure do |config|

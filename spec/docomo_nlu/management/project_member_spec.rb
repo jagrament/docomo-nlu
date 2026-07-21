@@ -43,19 +43,21 @@ RSpec.describe DocomoNlu::Management::ProjectMember do
     it "members not found" do
       VCR.use_cassette("/management/project_member/index_not_found") do
         expect(described_class.where(project_id: project_id).first).
-          to eq nil
+          to be_nil
       end
     end
+
     it "members not found with find" do
       VCR.use_cassette("/management/project_member/index_not_found") do
         expect(described_class.find(:all, params: { project_id: project_id }).first).
-          to eq nil
+          to be_nil
       end
     end
+
     it "members not found with all" do
       VCR.use_cassette("/management/project_member/index_not_found") do
         expect(described_class.all(params: { project_id: project_id }).first).
-          to eq nil
+          to be_nil
       end
     end
   end

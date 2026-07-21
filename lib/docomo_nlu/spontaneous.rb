@@ -26,6 +26,7 @@ module DocomoNlu
       end
     end
 
+    # rubocop:disable Metrics/ParameterLists, Style/OptionalBooleanParameter -- public API; changing to keyword args would break existing callers
     def registration(app_id = "", registration_id = "docomo-nlu", app_kind = "docomo-nlu", notification = false)
       body = {
         bot_id: @attributes[:botId],
@@ -37,6 +38,7 @@ module DocomoNlu
       res = connection.post("/UserRegistrationServer/users/applications", body.to_json, self.class.headers)
       @attributes.store(:appId, JSON.parse(res.body)["app_id"])
     end
+    # rubocop:enable Metrics/ParameterLists, Style/OptionalBooleanParameter
 
     def dialogue(voice_text, params = {})
       @attributes[:voiceText] = voice_text

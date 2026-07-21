@@ -26,7 +26,7 @@ RSpec.describe DocomoNlu::Management::DefaultPredicate do
       default_predicate = described_class.new(color: "blue")
       default_predicate.prefix_options = { project_id: project_id, bot_id: bot_id }
       VCR.use_cassette("/management/default_predicate/create") do
-        expect(default_predicate.save).to eq true
+        expect(default_predicate.save).to be true
       end
     end
 
@@ -48,7 +48,7 @@ RSpec.describe DocomoNlu::Management::DefaultPredicate do
         default_predicate = described_class.all(params: { project_id: project_id, bot_id: bot_id }).first
         VCR.use_cassette("/management/default_predicate/update") do
           default_predicate.color = "red"
-          expect(default_predicate.save).to eq true
+          expect(default_predicate.save).to be true
         end
       end
     end

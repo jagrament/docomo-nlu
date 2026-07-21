@@ -20,7 +20,7 @@ RSpec.describe DocomoNlu::Management::Project do
     it "Create an project" do
       VCR.use_cassette("/management/project/create") do
         project = described_class.new(projectName: name, organizationId: organization_id)
-        expect(project.save).to eq true
+        expect(project.save).to be true
         ID = project.id
       end
     end

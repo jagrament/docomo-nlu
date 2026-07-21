@@ -13,7 +13,7 @@ RSpec.describe DocomoNlu::Management::Organization do
     it "Create an organization" do
       VCR.use_cassette("/management/organization/create") do
         organization = described_class.new(organizationName: "test_organization", address: "test_address", tel: "test_tel")
-        expect(organization.save).to eq true
+        expect(organization.save).to be true
         ID = organization.id
       end
     end
@@ -30,7 +30,7 @@ RSpec.describe DocomoNlu::Management::Organization do
         organization = described_class.find(ID)
         VCR.use_cassette("/management/organization/update") do
           organization.organizationName = "update_organizationName"
-          expect(organization.save).to eq true
+          expect(organization.save).to be true
         end
       end
     end

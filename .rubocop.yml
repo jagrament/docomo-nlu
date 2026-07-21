@@ -1,17 +1,16 @@
-# Modify the version if you don't use MRI 2.1.
-inherit_from: 
+inherit_from:
   - .rubocop.ruby.yml
   - .rubocop.rspec.yml
 
-require:
+plugins:
   - rubocop-performance
   - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 3.3
+  NewCops: disable
+  SuggestExtensions: false
 
-Rails:
-  Enabled: true
 Naming/FileName:
   Exclude:
     - "Gemfile"
@@ -19,7 +18,7 @@ Naming/FileName:
     - "lib/docomo-nlu.rb"
 RSpec/EmptyExampleGroup:
   Enabled: false
-RSpec/FilePath:
+RSpec/SpecFilePathFormat:
   CustomTransform:
     DocomoNlu: docomo_nlu
 RSpec/MultipleExpectations:
@@ -28,3 +27,9 @@ RSpec/LeakyConstantDeclaration:
   Enabled: false
 RSpec/DescribedClass:
   EnforcedStyle: described_class
+# Specs share fixture IDs across examples via block-scoped constants (see RSpec/LeakyConstantDeclaration above).
+Lint/ConstantDefinitionInBlock:
+  Enabled: false
+# These specs only assert on side effects (file upload/download), not return values.
+RSpec/NoExpectationExample:
+  Enabled: false

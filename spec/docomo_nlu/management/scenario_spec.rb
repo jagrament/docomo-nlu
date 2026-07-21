@@ -14,7 +14,7 @@ RSpec.describe DocomoNlu::Management::Scenario do
         scenario = described_class.new(userScenarios: [{ scenarioId: "test_scenario", description: "test", compileFlag: true }])
         scenario.prefix_options["project_id"] = project_id
         scenario.prefix_options["bot_id"] = "test_bot"
-        expect(scenario.save).to eq true
+        expect(scenario.save).to be true
       end
     end
 
@@ -45,8 +45,8 @@ RSpec.describe DocomoNlu::Management::Scenario do
       VCR.use_cassette("/management/scenario/show") do
         scenario = described_class.find("test_scenario", params: { project_id: project_id, bot_id: bot_id })
         VCR.use_cassette("/management/scenario/update") do
-          scenario.userScenarios.map {|us| us.compileFlag = true }
-          expect(scenario.save).to eq true
+          scenario.userScenarios.each {|us| us.compileFlag = true }
+          expect(scenario.save).to be true
         end
       end
     end
@@ -58,7 +58,7 @@ RSpec.describe DocomoNlu::Management::Scenario do
             scenario = described_class.new(project_id: project_id, bot_id: bot_id)
             scenario.prefix_options[:method] = :aiml
             response = scenario.upload(stub_file("test.aiml"))
-            expect(response).to eq true
+            expect(response).to be true
           end
         end
 
@@ -67,7 +67,7 @@ RSpec.describe DocomoNlu::Management::Scenario do
             scenario = described_class.new(project_id: project_id, bot_id: bot_id)
             scenario.prefix_options[:method] = :dat
             response = scenario.upload(stub_file("test.dat"))
-            expect(response).to eq true
+            expect(response).to be true
           end
         end
 
@@ -76,7 +76,7 @@ RSpec.describe DocomoNlu::Management::Scenario do
             scenario = described_class.new(project_id: project_id, bot_id: bot_id)
             scenario.prefix_options[:method] = :archive
             response = scenario.upload(stub_file("test.zip"))
-            expect(response).to eq true
+            expect(response).to be true
           end
         end
       end
@@ -95,7 +95,7 @@ RSpec.describe DocomoNlu::Management::Scenario do
       it "Deploy scenario" do
         VCR.use_cassette("/management/scenario/deploy") do
           scenario = described_class.new(project_id: project_id, bot_id: bot_id)
-          expect(scenario.deploy).to eq true
+          expect(scenario.deploy).to be true
         end
       end
     end

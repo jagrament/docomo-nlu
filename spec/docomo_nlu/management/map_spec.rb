@@ -17,6 +17,7 @@ RSpec.describe DocomoNlu::Management::Map do
           expect { described_class.create(file, prefix_options) }.to raise_error(ActiveResource::BadRequest)
         end
       end
+
       it "Use instance method save()" do
         VCR.use_cassette("/management/map/save_400") do
           map = described_class.new
@@ -34,12 +35,14 @@ RSpec.describe DocomoNlu::Management::Map do
           expect(map.file.size).not_to be 0
         end
       end
+
       it "Use find" do
         VCR.use_cassette("/management/map/index_find") do
           map = described_class.find(nil, params: { project_id: project_id, bot_id: bot_id })
           expect(map.file.size).not_to be 0
         end
       end
+
       it "Use where" do
         VCR.use_cassette("/management/map/index_where") do
           map = described_class.where(project_id: project_id, bot_id: bot_id)
@@ -56,6 +59,7 @@ RSpec.describe DocomoNlu::Management::Map do
           expect(res).to be_truthy
         end
       end
+
       it "Use instance method save()" do
         VCR.use_cassette("/management/map/save") do
           map = described_class.new
@@ -73,6 +77,7 @@ RSpec.describe DocomoNlu::Management::Map do
           expect(map.file.size).not_to be 0
         end
       end
+
       it "Use where" do
         VCR.use_cassette("/management/map/show_where") do
           map = described_class.where(category: "test", project_id: project_id, bot_id: bot_id)

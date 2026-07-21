@@ -12,13 +12,13 @@ RSpec.describe DocomoNlu::Management::Config do
     it "Get configs" do
       VCR.use_cassette("/management/config/index") do
         configs = described_class.all(params: { project_id: project_id, bot_id: bot_id })
-        expect(configs).not_to be nil
+        expect(configs).not_to be_nil
 
         configs = described_class.find(:all, params: { project_id: project_id, bot_id: bot_id })
-        expect(configs).not_to be nil
+        expect(configs).not_to be_nil
 
         configs = described_class.where(project_id: project_id, bot_id: bot_id)
-        expect(configs).not_to be nil
+        expect(configs).not_to be_nil
       end
     end
 
@@ -27,7 +27,7 @@ RSpec.describe DocomoNlu::Management::Config do
         config = described_class.find("", params: { project_id: project_id, bot_id: bot_id })
         VCR.use_cassette("/management/config/update") do
           config.test_Url = "https://example.com/api/"
-          expect(config.save).to eq true
+          expect(config.save).to be true
         end
       end
     end

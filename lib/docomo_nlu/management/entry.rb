@@ -6,7 +6,7 @@ module DocomoNlu
       self.element_name = ""
       self.prefix = "/management/v2.6/projects/:project_id/bots/:bot_id/:method"
 
-      def initialize(attributes = {}, persisted = false)
+      def initialize(attributes = {}, persisted = false) # rubocop:disable Style/OptionalBooleanParameter -- must match ActiveResource::Base#initialize signature
         super(attributes, persisted)
         prefix_options[:method] = "entry"
       end

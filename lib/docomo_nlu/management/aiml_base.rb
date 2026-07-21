@@ -79,11 +79,11 @@ module DocomoNlu
         end
 
         def compile(prefix_options)
-          return if deploy_request(:compile, prefix_options)  != ""
+          nil if deploy_request(:compile, prefix_options)  != ""
         end
 
         def transfer(prefix_options)
-          return if deploy_request(:transfer, prefix_options) != ""
+          nil if deploy_request(:transfer, prefix_options) != ""
         end
 
         def deploy_request(method, prefix_options)

@@ -10,10 +10,6 @@ module DocomoNlu
         self.class.create(attributes[:file], prefix_options)
       end
 
-      def destroy
-        super
-      end
-
       def download
         self.file = self.class.download(prefix_options).file
       end

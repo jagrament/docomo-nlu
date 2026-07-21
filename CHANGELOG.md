@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - No planned changes.
 
+## [0.6.0] - 2026-07-21
+### Changed
+- **BREAKING**: Require Ruby >= 3.3.0 (3.1/3.2 are EOL)
+- Upgrade to Rails/ActiveSupport 8.1 (dev dependency); Rails 7.2 security support ends 2026-08-09
+- Update transitive dependencies to close Dependabot security alerts (rack, rack-session, nokogiri, net-imap, addressable, concurrent-ruby, faraday, websocket-driver, json, erb, activestorage, activesupport)
+- Update development dependencies (RuboCop 1.88, rubocop-rspec 3.10, WebMock 3.26)
+
+### Fixed
+- `DocomoNlu.configure`/`.config` no longer depend on `ActiveSupport::Configurable`, which Rails 8.1 deprecates for removal in 8.2
+
 ## [0.5.0] - 2024-12-09
 ### Changed
 - **BREAKING**: Drop Ruby 2.7 support, require Ruby >= 3.1.0

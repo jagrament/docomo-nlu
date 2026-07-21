@@ -43,6 +43,7 @@ module DocomoNlu
 
         private
 
+          # rubocop:disable Metrics/AbcSize
           def download(category = nil, prefix_options = {})
             extention = category.blank? ? ".zip" : ".map"
 
@@ -65,6 +66,7 @@ module DocomoNlu
             end
             nil
           end
+          # rubocop:enable Metrics/AbcSize
 
           def upload(file, prefix_options)
             conn = Faraday.new(url: site.to_s, ssl: { verify: false }) do |builder|

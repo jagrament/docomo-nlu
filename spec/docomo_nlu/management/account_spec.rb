@@ -33,7 +33,7 @@ RSpec.describe DocomoNlu::Management::Account do
         VCR.use_cassette("/management/account/update") do
           account.accountName = "update account"
           account.description = "update account"
-          expect(account.save).to eq true
+          expect(account.save).to be true
         end
       end
     end

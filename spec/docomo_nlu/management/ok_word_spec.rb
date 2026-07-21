@@ -17,6 +17,7 @@ RSpec.describe DocomoNlu::Management::OKWord do
           expect { described_class.create(file, prefix_options) }.to raise_error(ActiveResource::BadRequest)
         end
       end
+
       it "Use instance method save()" do
         VCR.use_cassette("/management/ok_word/save_400") do
           ok = described_class.new
@@ -35,6 +36,7 @@ RSpec.describe DocomoNlu::Management::OKWord do
           expect { described_class.create(file, prefix_options) }.to raise_error(ActiveResource::ResourceConflict)
         end
       end
+
       it "Use instance method save()" do
         VCR.use_cassette("/management/ok_word/save_409") do
           ok = described_class.new
@@ -53,6 +55,7 @@ RSpec.describe DocomoNlu::Management::OKWord do
           expect(res).to be_truthy
         end
       end
+
       it "Use instance method save()" do
         VCR.use_cassette("/management/ok_word/save") do
           ok = described_class.new
@@ -78,12 +81,14 @@ RSpec.describe DocomoNlu::Management::OKWord do
           expect(ok.file.size).not_to be 0
         end
       end
+
       it "Use find" do
         VCR.use_cassette("/management/ok_word/index_find") do
           ok = described_class.find(params: { project_id: project_id, bot_id: bot_id })
           expect(ok.file.size).not_to be 0
         end
       end
+
       it "Use where" do
         VCR.use_cassette("/management/ok_word/index_where") do
           ok = described_class.where(project_id: project_id, bot_id: bot_id)

@@ -36,26 +36,28 @@ RSpec.describe DocomoNlu::Management::OrganizationMember do
     it "Get members with 404" do
       VCR.use_cassette("/management/organization_member/index_404") do
         members = described_class.find(:all, params: { organization_id: 216 })
-        expect(members).to eq nil
+        expect(members).to be_nil
       end
     end
 
     it "members not found" do
       VCR.use_cassette("/management/organization_member/index_not_found") do
         expect(described_class.where(organization_id: organization_id).first).
-          to eq nil
+          to be_nil
       end
     end
+
     it "members not found with find" do
       VCR.use_cassette("/management/organization_member/index_not_found") do
         expect(described_class.find(:all, params: { organization_id: organization_id }).first).
-          to eq nil
+          to be_nil
       end
     end
+
     it "members not found with all" do
       VCR.use_cassette("/management/organization_member/index_not_found") do
         expect(described_class.all(params: { organization_id: organization_id }).first).
-          to eq nil
+          to be_nil
       end
     end
   end

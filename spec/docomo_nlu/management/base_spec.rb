@@ -34,8 +34,8 @@ RSpec.describe DocomoNlu::Management::Base do
         base = described_class.new
         base.login(account, password)
         VCR.use_cassette("/management/base/logout") do
-          expect(base.logout).to eq true
-          expect(base.access_token).to eq nil
+          expect(base.logout).to be true
+          expect(base.access_token).to be_nil
         end
       end
     end

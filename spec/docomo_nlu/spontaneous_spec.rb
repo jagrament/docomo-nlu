@@ -9,6 +9,7 @@ RSpec.describe DocomoNlu::Spontaneous do
         expect(s.registration).not_to be_nil
       end
     end
+
     it "error" do
       VCR.use_cassette("/spontaneous/registration_404") do
         s = described_class.new
@@ -28,6 +29,7 @@ RSpec.describe DocomoNlu::Spontaneous do
         end
       end
     end
+
     it "error" do
       VCR.use_cassette("/spontaneous/dialogue_404") do
         s = described_class.new

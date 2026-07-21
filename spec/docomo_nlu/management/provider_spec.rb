@@ -19,7 +19,7 @@ RSpec.describe DocomoNlu::Management::Provider do
     it "Create an provider" do
       VCR.use_cassette("/management/provider/create") do
         provider = described_class.new(organizationId: ORGANIZATION_ID, serverKind: "SS", serverId: "DSU")
-        expect(provider.save).to eq true
+        expect(provider.save).to be true
         ID = provider.id
       end
     end
